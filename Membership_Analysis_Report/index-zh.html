@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会员与跨店购物分析</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #Fdfbf7;
+            --surface: #ffffff;
+            --surface-light: #f5f2eb;
+            --accent: #8b4513;
+            --text-primary: #2b2824;
+            --text-secondary: #6e675e;
+            --border: #e6e2d8;
+            --border-hover: #d1cbc0;
+            --radius: 6px;
+            --valueco-red: #e31e24;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .subtitle { font-family: 'Lora', serif; }
+
+        header {
+            padding: 24px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        header h1 { font-size: 1.5rem; font-weight: 500; color: var(--valueco-red); }
+        .subtitle { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .section h2 {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--valueco-red);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            padding: 12px 16px;
+            background: var(--surface-light);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        tr:hover td { background: var(--surface-light); }
+
+        .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .pct { font-weight: bold; color: var(--accent); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .box {
+            background: var(--surface-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .box .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--valueco-red);
+        }
+        .box .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>会员与跨店购物分析</h1>
+            <p class="subtitle">2023年Q1 vs 2026年Q1</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>1. 会员与非会员收入（市场覆盖）</h2>
+            <p style="margin-bottom:20px;">分析关键价值商品和促销活动是吸引新客（非会员）到店，还是仅仅补贴现有会员。</p>
+            <div id="split-grid" class="grid" style="margin-bottom: 20px;"></div>
+            <table id="splitTable">
+                <thead>
+                    <tr>
+                        <th>年份</th>
+                        <th>客户类型</th>
+                        <th class="num">交易笔数</th>
+                        <th class="num">销售总额</th>
+                    </tr>
+                </thead>
+                <tbody id="splitBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>2. 跨店购物矩阵（2026年YTD）</h2>
+            <p style="margin-bottom:20px;">分析会员对其"本店"的忠诚度与前往其他ValueCo分店的意愿。</p>
+            <table id="crossTable">
+                <thead>
+                    <tr>
+                        <th>门店</th>
+                        <th class="num">会员总交易笔数</th>
+                        <th class="num">本店交易笔数</th>
+                        <th class="num">跨店交易笔数</th>
+                        <th class="num">跨店购物%</th>
+                    </tr>
+                </thead>
+                <tbody id="crossBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>3. 会员人口统计（2026年Q1活跃）</h2>
+            <div class="grid">
+                <div>
+                    <h3 style="margin-bottom: 10px;">按年龄组（财务价值）</h3>
+                    <table id="ageTable">
+                        <thead>
+                            <tr>
+                                <th>年龄组</th>
+                                <th class="num">活跃会员数</th>
+                                <th class="num">消费占比</th>
+                                <th class="num">平均交易额（ATV）</th>
+                                <th class="num">人均消费</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ageBody">
+                            <tr><td>35–44岁</td><td class="num">1,176</td><td class="num pct">32.5%</td><td class="num">R476.03</td><td class="num">R854.92</td></tr>
+                            <tr><td>55岁以上</td><td class="num">1,002</td><td class="num pct">30.3%</td><td class="num">R451.15</td><td class="num">R935.63</td></tr>
+                            <tr><td>45–54岁</td><td class="num">945</td><td class="num pct">23.4%</td><td class="num">R424.06</td><td class="num">R766.00</td></tr>
+                            <tr><td>25–34岁</td><td class="num">686</td><td class="num pct">12.2%</td><td class="num">R334.60</td><td class="num">R547.75</td></tr>
+                            <tr><td>25岁以下</td><td class="num">82</td><td class="num pct">1.6%</td><td class="num">R389.61</td><td class="num">R589.16</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 10px;">按性别</h3>
+                    <table id="genderTable">
+                        <thead>
+                            <tr>
+                                <th>性别</th>
+                                <th class="num">活跃会员数</th>
+                            </tr>
+                        </thead>
+                        <tbody id="genderBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. 支付方式与积分兑换（2026年Q1）</h2>
+            <p style="margin-bottom:20px;">分析流动性依赖（现金 vs 刷卡）及会员计划在VCL板块的实际财务影响。</p>
+            <div class="grid">
+                <div class="box">
+                    <div class="value">86.4%</div>
+                    <div class="label">刷卡支付（高信贷依赖）</div>
+                </div>
+                <div class="box">
+                    <div class="value">13.4%</div>
+                    <div class="label">现金支付</div>
+                </div>
+                <div class="box">
+                    <div class="value" style="color: var(--text-secondary);">0.06%</div>
+                    <div class="label">积分兑换率</div>
+                </div>
+                <div class="box">
+                    <div class="value" style="color: var(--text-secondary);">R8450万</div>
+                    <div class="label">VCL 2026年Q1总结算额</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="data.js"></script>
+<script>
+    function renderData() {
+        if (typeof window_membershipData === 'undefined') return;
+
+        const data = window_membershipData;
+
+        // 1. Split Data
+        const splitBody = document.getElementById('splitBody');
+        let memberSales26 = 0, nonMemberSales26 = 0;
+
+        data.member_split.sort((a,b) => a.year - b.year || a.customerType.localeCompare(b.customerType)).forEach(row => {
+            if (row.year === 2026) {
+                if (row.customerType === 'Member') memberSales26 = row.totalSales;
+                if (row.customerType === 'Non-Member') nonMemberSales26 = row.totalSales;
+            }
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${row.year}年Q1</td>
+                <td><strong>${row.customerType}</strong></td>
+                <td class="num">${row.txCount.toLocaleString()}</td>
+                <td class="num">R${row.totalSales.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+            `;
+            splitBody.appendChild(tr);
+        });
+
+        const total26 = memberSales26 + nonMemberSales26;
+        document.getElementById('split-grid').innerHTML = `
+            <div class="box">
+                <div class="value">${((memberSales26 / total26) * 100).toFixed(1)}%</div>
+                <div class="label">2026年会员销售贡献</div>
+            </div>
+            <div class="box">
+                <div class="value">${((nonMemberSales26 / total26) * 100).toFixed(1)}%</div>
+                <div class="label">2026年非会员销售贡献</div>
+            </div>
+        `;
+
+        // 2. Cross Shopping
+        const crossBody = document.getElementById('crossBody');
+        data.cross_shopping.sort((a,b) => b.total_member_tx - a.total_member_tx).forEach(row => {
+            const pct = row.total_member_tx > 0 ? (row.cross_store_tx / row.total_member_tx) * 100 : 0;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${row.storeCode}</td>
+                <td class="num">${row.total_member_tx.toLocaleString()}</td>
+                <td class="num">${row.home_store_tx.toLocaleString()}</td>
+                <td class="num">${row.cross_store_tx.toLocaleString()}</td>
+                <td class="num pct">${pct.toFixed(1)}%</td>
+            `;
+            crossBody.appendChild(tr);
+        });
+
+        // 3. Demographics
+        const ages = {};
+        const genders = {};
+
+        data.demographics.forEach(row => {
+            ages[row.ageGroup] = (ages[row.ageGroup] || 0) + row.memberCount;
+            genders[row.gender] = (genders[row.gender] || 0) + row.memberCount;
+        });
+
+        const ageBody = document.getElementById('ageBody');
+        Object.entries(ages).sort((a,b) => b[1] - a[1]).forEach(([group, count]) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${group}</td><td class="num">${count.toLocaleString()}</td>`;
+            ageBody.appendChild(tr);
+        });
+
+        const genderBody = document.getElementById('genderBody');
+        Object.entries(genders).sort((a,b) => b[1] - a[1]).forEach(([gen, count]) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${gen}</td><td class="num">${count.toLocaleString()}</td>`;
+            genderBody.appendChild(tr);
+        });
+    }
+
+    window.onload = renderData;
+</script>
+</body>
+</html>

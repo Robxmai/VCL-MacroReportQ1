@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valueco · Sales Performance & Consumer Analysis | 2023–2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface2: #f5f3ef;
+    --border: #e5e0d8;
+    --ink: #1a1a16;
+    --ink2: #4a4a42;
+    --ink3: #8a8a7e;
+    --accent: #c44a1a;
+    --accent2: #1a5c8a;
+    --accent3: #1a7a3a;
+    --gold: #c88a1a;
+    --red: #c44a1a;
+    --blue: #1a5c8a;
+    --green: #1a7a3a;
+    --yellow: #c88a1a;
+    --light-red: #fdf2ef;
+    --light-blue: #eff4f8;
+    --light-green: #eff6f1;
+    --light-yellow: #fdf7ef;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    color: white;
+    padding: 0;
+    display: flex;
+  }
+  .masthead-left {
+    background: var(--accent);
+    padding: 50px 40px;
+    width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .masthead-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    letter-spacing: -1px;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .masthead-brand span { font-style: italic; }
+  .masthead-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .masthead-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+  .masthead-right {
+    flex: 1;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .report-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  h1.main-title em { color: var(--accent); font-style: italic; }
+  .main-lead {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .ext-link-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(196,74,26,0.2);
+    border: 1px solid rgba(196,74,26,0.5);
+    border-radius: 4px;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .ext-link-pill:hover { background: rgba(196,74,26,0.4); border-color: var(--accent); }
+  .ext-link-pill .pill-icon { font-size: 16px; }
+
+  /* NAV */
+  .report-nav {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0 60px;
+    display: flex;
+    overflow-x: auto;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .report-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink3);
+    text-decoration: none;
+    padding: 16px 20px;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+  .report-nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* LAYOUT */
+  .container { max-width: 1300px; margin: 0 auto; padding: 50px 60px; }
+  .section { margin-bottom: 80px; }
+
+  /* SECTION HEADERS */
+  .section-header { margin-bottom: 36px; }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .section-lead {
+    font-size: 16px;
+    color: var(--ink2);
+    max-width: 800px;
+  }
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0 36px;
+  }
+
+  /* KPI ROW */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .kpi-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    border-top: 4px solid var(--border);
+  }
+  .kpi-block.red { border-top-color: var(--red); }
+  .kpi-block.blue { border-top-color: var(--blue); }
+  .kpi-block.green { border-top-color: var(--green); }
+  .kpi-block.gold { border-top-color: var(--gold); }
+  .kpi-block-label { font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
+  .kpi-block-value { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+  .kpi-block-sub { font-size: 12px; color: var(--ink2); }
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .badge.neg { background: var(--light-red); color: var(--red); }
+  .badge.pos { background: var(--light-green); color: var(--green); }
+  .badge.neu { background: var(--light-yellow); color: var(--gold); }
+
+  /* WHY CARDS */
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .why-header {
+    display: flex; align-items: center; gap: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  .why-num {
+    background: var(--ink);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 24px;
+    min-width: 70px;
+    text-align: center;
+  }
+  .why-num.red { background: var(--red); }
+  .why-num.blue { background: var(--blue); }
+  .why-num.gold { background: var(--gold); }
+  .why-num.green { background: var(--green); }
+  .why-title-wrap { flex:1; padding: 20px 24px; }
+  .why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .why-subtitle { font-size: 13px; color: var(--ink3); font-style: italic; }
+  .why-body { padding: 0 24px 24px 70px; }
+  .why-body p { margin-bottom: 12px; font-size: 14px; line-height: 1.8; color: var(--ink2); }
+  .why-body strong { color: var(--ink); }
+
+  /* UPDATED BADGE */
+  .updated-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(196,74,26,0.08);
+    border: 1px solid rgba(196,74,26,0.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
+  .updated-badge::before { content: '●'; font-size: 8px; }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background: var(--light-blue);
+    border-left: 4px solid var(--blue);
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .insight.warn { background: var(--light-yellow); border-color: var(--gold); }
+  .insight.danger { background: var(--light-red); border-color: var(--red); }
+  .insight.success { background: var(--light-green); border-color: var(--green); }
+  .insight-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .insight.warn .insight-label { color: var(--gold); }
+  .insight.danger .insight-label { color: var(--red); }
+  .insight.success .insight-label { color: var(--green); }
+  .insight p { font-size: 14px; line-height: 1.7; color: var(--ink2); }
+
+  /* 2-COL LAYOUT */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+
+  /* COMPARISON TABLE */
+  .cmp-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .cmp-table th {
+    background: var(--ink);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .cmp-table th:first-child { background: var(--accent); }
+  .cmp-table td {
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--ink2);
+    vertical-align: top;
+  }
+  .cmp-table td:first-child { color: var(--ink); font-weight: 600; background: var(--surface2); }
+  .cmp-table tr:nth-child(even) td { background: var(--surface2); }
+  .cmp-table tr:nth-child(even) td:first-child { background: #e8e4de; }
+  .cmp-table .pos { color: var(--green); font-weight: 600; }
+  .cmp-table .neg { color: var(--red); font-weight: 600; }
+  .cmp-table .neu { color: var(--gold); font-weight: 600; }
+
+  /* STRATEGY CARDS */
+  .strat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    position: relative;
+  }
+  .strat-num {
+    position: absolute;
+    top: -16px; left: 24px;
+    background: var(--ink);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+  .strat-num.red { background: var(--red); }
+  .strat-num.blue { background: var(--blue); }
+  .strat-num.green { background: var(--green); }
+  .strat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-top: 8px;
+  }
+  .strat-body { font-size: 13px; color: var(--ink2); line-height: 1.8; }
+  .strat-body ul { padding-left: 20px; }
+  .strat-body li { margin-bottom: 8px; }
+
+  /* TIMELINE */
+  .report-timeline { position: relative; padding-left: 28px; }
+  .report-timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--border); }
+  .rt-item { position:relative; margin-bottom:20px; }
+  .rt-item::before {
+    content:''; position:absolute; left:-24px; top:6px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--bg);
+  }
+  .rt-item.blue::before { background:var(--blue); }
+  .rt-item.gold::before { background:var(--gold); }
+  .rt-item.green::before { background:var(--green); }
+  .rt-date { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink3); margin-bottom:3px; letter-spacing:1px; }
+  .rt-text { font-size:14px; color:var(--ink2); }
+  .rt-text strong { color:var(--ink); }
+
+  /* EXTERNAL DATA BANNER */
+  .ext-data-banner {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 24px 30px;
+    margin-bottom: 30px;
+    display: flex; align-items: center; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .ext-data-banner-text { flex:1; min-width: 300px; }
+  .ext-data-banner-title { font-family:'Playfair Display',serif; font-size:18px; color:white; margin-bottom:6px; }
+  .ext-data-banner-sub { font-size:13px; color:rgba(255,255,255,0.6); }
+  .ext-data-banner a {
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .ext-data-banner a:hover { background: #a33a12; }
+
+  /* CONCLUSION FRAMEWORK */
+  .conclusion-box {
+    background: var(--ink);
+    color: white;
+    padding: 40px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  .conclusion-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+  .conclusion-box h3 em { color: var(--accent); }
+  .conclusion-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.9; margin-bottom: 12px; }
+
+  /* PRINT STYLES */
+  @media print {
+    .report-nav, .masthead { break-inside: avoid; }
+    .why-card, .strat-card { break-inside: avoid; }
+  }
+
+  @media (max-width: 900px) {
+    .masthead { flex-direction: column; }
+    .masthead-left { width: 100%; }
+    .container { padding: 30px 24px; }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+    h1.main-title { font-size: 32px; }
+    .report-nav { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-left">
+    <div class="masthead-brand">Value<span>co</span></div>
+    <div class="masthead-tagline">Strategic Intelligence</div>
+    <div class="masthead-meta">
+      Report Date: April 2026<br>
+      Coverage: 2023 – Q1 2026<br>
+      Type: Sales + External Data Analysis<br>
+      Audience: Internal Leadership
+    </div>
+  </div>
+  <div class="masthead-right">
+    <div class="report-label">Main Analysis Report</div>
+    <h1 class="main-title">Sales Performance Decline —<br><em>Full External Environment</em><br>Analysis & Consumer Psychology</h1>
+    <p class="main-lead">Integrating macroeconomic external data with internal sales performance to answer why South African retail declined in 2023 and what has structurally changed in consumer behaviour through 2026.</p>
+    <a class="ext-link-pill" href="external_data_report.html" target="_blank">
+      <span class="pill-icon">📊</span>
+      VIEW EXTERNAL DATA REPORT → SA Macro Deep Dive
+    </a>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="report-nav">
+  <a href="#context">Context</a>
+  <a href="#external-link">External Data</a>
+  <a href="#why">Updated Why Analysis</a>
+  <a href="#timeline">Crisis Timeline</a>
+  <a href="#ecommerce">E-Commerce Disruption</a>
+  <a href="#psychology">Consumer Psychology</a>
+  <a href="#2023vs2026">2023 vs 2026</a>
+  <a href="#strategies">Strategies</a>
+</nav>
+
+<div class="container">
+
+<!-- ============ EXTERNAL DATA LINK BANNER ============ -->
+<section class="section" id="external-link" style="margin-bottom:40px;">
+  <div class="ext-data-banner">
+    <div class="ext-data-banner-text">
+      <div class="ext-data-banner-title">📊 External Data Full Picture Report</div>
+      <div class="ext-data-banner-sub">GDP · CPI · Interest Rates · Load Shedding · Consumer Confidence · Rand/USD · E-Commerce · Shein/Temu Disruption · Consumer Psychology Shift</div>
+    </div>
+    <a href="external_data_report.html" target="_blank">OPEN EXTERNAL DATA REPORT ↗</a>
+  </div>
+</section>
+
+<!-- ============ MACRO CONTEXT ============ -->
+<section class="section" id="context">
+  <div class="section-header">
+    <div class="section-eyebrow">Background</div>
+    <h2 class="section-title">The South African Economic Environment 2023–2026</h2>
+    <div class="section-lead">A rapid-fire summary of the macro forces that shaped consumer behaviour over this period, drawing from the external data report.</div>
+  </div>
+  <hr class="section-rule">
+
+  <div class="kpi-row">
+    <div class="kpi-block red">
+      <div class="kpi-block-label">GDP Growth 2023</div>
+      <div class="kpi-block-value">0.8%</div>
+      <div class="kpi-block-sub">vs 2.1% in 2022</div>
+      <div class="badge neg">↓ Loadshedding drag</div>
+    </div>
+    <div class="kpi-block red">
+      <div class="kpi-block-label">Peak Inflation 2022/23</div>
+      <div class="kpi-block-value">7.8%</div>
+      <div class="kpi-block-sub">CPI peaked July 2022</div>
+      <div class="badge neg">Eroding real incomes</div>
+    </div>
+    <div class="kpi-block red">
+      <div class="kpi-block-label">Peak Repo Rate</div>
+      <div class="kpi-block-value">8.25%</div>
+      <div class="kpi-block-sub">May 2023 — 14-year high</div>
+      <div class="badge neg">Max debt burden</div>
+    </div>
+    <div class="kpi-block red">
+      <div class="kpi-block-label">CCI Q2 2023</div>
+      <div class="kpi-block-value">-25</div>
+      <div class="kpi-block-sub">2nd worst since 1994</div>
+      <div class="badge neg">Near-record pessimism</div>
+    </div>
+    <div class="kpi-block green">
+      <div class="kpi-block-label">CPI 2025 Average</div>
+      <div class="kpi-block-value">3.2%</div>
+      <div class="kpi-block-sub">21-year low</div>
+      <div class="badge pos">Major relief</div>
+    </div>
+    <div class="kpi-block green">
+      <div class="kpi-block-label">Repo Rate Now</div>
+      <div class="kpi-block-value">6.75%</div>
+      <div class="kpi-block-sub">150bps cuts from peak</div>
+      <div class="badge pos">Consumer breathing room</div>
+    </div>
+  </div>
+
+  <div class="insight warn">
+    <div class="insight-label">The Macro Verdict</div>
+    <p>Between 2022 and 2023, South African consumers experienced a <strong>triple-shock of unprecedented severity</strong>: peak inflation destroying real purchasing power, interest rate hikes reaching 14-year highs (adding R2,400+/month to debt costs), and Stage 6 load shedding decimating both business productivity and consumer confidence. No retail business was immune. The external data confirms this period as the most hostile retail environment since the 2020 COVID lockdown — and in some ways, more economically damaging because the pain was prolonged over 18+ months with no single recovery moment.</p>
+  </div>
+</section>
+
+<!-- ============ WHY ANALYSIS — UPDATED ============ -->
+<section class="section" id="why">
+  <div class="section-header">
+    <div class="section-eyebrow">Updated Analysis — Informed by External Data</div>
+    <h2 class="section-title">Why Did Sales Decline? <span class="updated-badge">Updated with External Data</span></h2>
+    <div class="section-lead">Each "Why" factor has been reviewed and enriched with the external macro data gathered from Stats SA, SARB, FNB/BER, and industry sources.</div>
+  </div>
+  <hr class="section-rule">
+
+  <!-- WHY 1 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num red">01</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Consumer Purchasing Power Was Systematically Destroyed</div>
+        <div class="why-subtitle">Inflation × Rate Hikes × Load Shedding — Simultaneously</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>Original thesis:</strong> Inflation and high interest rates reduced disposable income. Now confirmed and quantified by external data.</p>
+      <p><strong>External data confirmation:</strong> The cumulative price level increase from 2021–2023 was 18–22% across the CPI basket. A household spending R10,000/month on essentials in 2020 needed R12,200 by 2023 to maintain the same consumption. At the same time, the prime lending rate rose from 7.25% (2021) to 11.75% — adding R2,400+/month on a R1.5M bond. BankservAfrica data showed average nominal salaries actually fell 10.4% in April 2023. The simultaneous hit from all three vectors was unique in post-2008 SA economic history.</p>
+      <p><strong>What this means for Valueco:</strong> Consumers were not choosing <em>not</em> to buy from Valueco — they were physically unable to maintain pre-crisis spending levels. Non-essential or semi-discretionary products were the first to be cut. "Aspirational" purchases collapsed. Value-based necessities were maintained. This explains any category divergence in sales data — necessities held, discretionary fell.</p>
+    </div>
+  </div>
+
+  <!-- WHY 2 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num red">02</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Load Shedding Directly Killed Physical Retail Footfall</div>
+        <div class="why-subtitle">R2.8T economic loss · R900M/day at Stage 6 · 2023 worst year ever</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> The CSIR estimates the total 2023 load shedding economic loss at R2.8 trillion. The SARB estimates it reduced GDP growth by 1.8 percentage points. At Stage 6, the economy lost R900M/day. Not a single day in 2023 was load-shedding free. Eskom's EAF fell to 50.4%.</p>
+      <p><strong>Direct retail mechanism:</strong> When power goes out, physical retail stores go dark. POS systems fail. Air conditioning/refrigeration stops. Security systems go offline. Consumers avoid shopping centres during outages. TFG (Foschini Group) lost an estimated R400M in just two weeks of Stage 5–6 in September. Shoprite spent R93M/month extra on diesel. These are large-chain costs — SME retailers had no such mitigation capacity.</p>
+      <p><strong>Secondary effect:</strong> Consumers shifted purchasing behaviour permanently toward online shopping precisely <em>because</em> of load shedding — they shopped on mobile data/inverter power when stores were dark. This channel shift accelerated Takealot, Checkers Sixty60, and Amazon at the expense of physical stores. This is not reversible.</p>
+    </div>
+  </div>
+
+  <!-- WHY 3 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num red">03</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Consumer Confidence Collapsed to Near-Record Lows</div>
+        <div class="why-subtitle">CCI -25 in Q2 2023 · 2nd worst since 1994 · All 3 sub-indices deeply negative</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> The FNB/BER Consumer Confidence Index dropped to -25 in Q2 2023 — the second-lowest reading in the index's 30-year history. Only the hard COVID lockdown of Q2 2020 was worse (-36). The "time to buy durable goods" sub-index hit -35, indicating that nearly all consumers considered it <em>highly inappropriate</em> to purchase furniture, appliances, electronics, or vehicles.</p>
+      <p><strong>Cascading mechanism:</strong> Low CCI doesn't just mean fewer purchases — it means consumers in "survival mode" become intensely risk-averse. They delay, substitute, and trade down. They prioritise debt reduction over spending. They shift from brand loyalty to price loyalty. A CCI of -25 means even employed, middle-class consumers are psychologically hoarding.</p>
+      <p><strong>Recovery arc:</strong> The CCI partially recovered to -5 in Q3 2024 (5-year high, driven by GNU formation and load shedding resolution) before crashing again to -20 in Q1 2025 (VAT hike fears, Trump tariffs, brief Stage 6 return). Current Q1 2026 reading of -7 shows fragile recovery — but still deeply below the long-run average of -1.</p>
+    </div>
+  </div>
+
+  <!-- WHY 4 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num blue">04</div>
+      <div class="why-title-wrap">
+        <div class="why-title">E-Commerce Permanently Redistributed Retail Wallet Share</div>
+        <div class="why-subtitle">R71B online (2023) → R96B (2024) · 6% → 10% of total retail</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> South African online retail grew 29% in 2023 to R71B, and 35% in 2024 to R96B. Online's share of total retail rose from ~4% pre-COVID to 6% in 2023 and is projected at ~10% by end-2025. These are not cyclical fluctuations — they represent structural channel redistribution.</p>
+      <p><strong>What's being redistributed:</strong> These sales come from somewhere. Every R1 spent online is R1 not spent in physical retail. The World Wide Worx data shows the top categories shifting online include clothing (30% of online basket), electronics, and general merchandise — categories that overlap directly with traditional physical retail. The "consumer wallet" hasn't grown; it's been reallocated.</p>
+      <p><strong>The data tariff catalyst:</strong> ICASA's mid-band spectrum allocation reduced data tariffs by ~25% since 2023, making mobile shopping dramatically cheaper to access. With 50M+ internet users in South Africa and 71% of e-commerce transacted via smartphone, the infrastructure for digital commerce is now democratised across income groups.</p>
+    </div>
+  </div>
+
+  <!-- WHY 5 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num blue">05</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Shein, Temu & Amazon Reset Price Expectations Permanently</div>
+        <div class="why-subtitle">37% of online clothing · R7.3B in sales 2024 · Price anchor permanently moved</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> Shein entered SA in 2020; Temu launched in 2024. By end-2024, they commanded 37.1% of South Africa's online clothing, textile, and footwear market with combined revenue of R7.3B ($429M). Their combined 15.3% share of all online shopping activity makes them the second-largest online retail force after only Takealot (32%). JSE-listed retailers (Mr Price, TFG, Truworths) saw share price declines of up to 46% in 2025.</p>
+      <p><strong>The price anchoring effect:</strong> Behavioural economics is clear: once a consumer experiences a product at 70–80% below a reference price, their internal price anchor is permanently reset. A consumer who has bought clothing or household goods from Temu at R89 will not return to pay R299 from a local retailer for a comparable item. This is not recoverable through promotional pricing. SARS's VAT regulation (Sep 2024) partially restores pricing equity, but the anchoring damage is done.</p>
+      <p><strong>1 in 3 SA consumers uses Temu (Reveal Insights 2025).</strong> This is not a niche phenomenon. Temu's customer share rose from 10.7% to 16.6% of all online shoppers in 2025 alone.</p>
+    </div>
+  </div>
+
+  <!-- WHY 6 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num gold">06</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Structural Unemployment Shrinks the Effective Consumer Base</div>
+        <div class="why-subtitle">33.2% unemployment 2024 · ~60% youth unemployment · Demand base structurally limited</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> South Africa's official unemployment rate was 32.1% in 2023 and rose to 33.2% in 2024 despite economic recovery. The expanded unemployment rate (including discouraged workers) is ~42%. Youth unemployment for ages 15–34 is near 60%. This means 1 in 3 working-age South Africans has no formal income source.</p>
+      <p><strong>What this does to retail:</strong> The effective consumer market for discretionary retail is the employed middle class — roughly LSM 5–10. This segment faces simultaneous pressure from debt servicing (high rates), reduced real wages, and now competition from ultra-cheap global digital retailers. The employed middle class is also the primary target of two-pot pension withdrawal promotions — and the R40B drawn down in 2024 did generate a notable spending uptick that partially offset the structural weakness.</p>
+      <p><strong>2025 complication:</strong> Two-pot withdrawal volumes in 2025 are expected to be "significantly less" than the R40B of 2024 (FNB Economics), removing a key spending boost that masked underlying demand weakness in Q3–Q4 2024.</p>
+    </div>
+  </div>
+
+  <!-- WHY 7 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num gold">07</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Rand Weakness & Fuel Costs Taxed Every Rand of Consumer Spend</div>
+        <div class="why-subtitle">R18.5/USD in 2023 · Petrol R23+/L · Import cost pressure on local suppliers</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> The rand averaged R18.5/USD in 2023 — a significant depreciation from R16.4 in 2022. With SA importing both crude oil and refined petroleum products, this directly translated into petrol at R23+/L inland. Fuel is an input cost in virtually everything — transport, logistics, food production, manufacturing. A weaker rand means higher import prices across the supply chain.</p>
+      <p><strong>Second-order effects on retail:</strong> Local suppliers passed freight and logistics cost increases on to retailers. Retailers faced the double bind of cost-push from supply chain AND demand-pull reduction from consumers (who had less money). Margin compression was inevitable. The 2025 rand recovery (briefly below R17/$) and oil price declines provided meaningful relief, contributing to the 2025 retail recovery (+3.7% YoY) and the CPI falling to 3%.</p>
+    </div>
+  </div>
+
+  <!-- WHY 8 -->
+  <div class="why-card">
+    <div class="why-header">
+      <div class="why-num gold">08</div>
+      <div class="why-title-wrap">
+        <div class="why-title">Political & Institutional Uncertainty Amplified Economic Anxiety</div>
+        <div class="why-subtitle">May 2024 elections → GNU formation · VAT shock Q1 2025 · Trump tariffs 2025</div>
+      </div>
+    </div>
+    <div class="why-body">
+      <p><strong>External data confirmation:</strong> The May 2024 elections and subsequent Government of National Unity (GNU) formation was a major positive sentiment catalyst — the CCI recovered from -15 to -5 (5-year high) in just two quarters. However, 2025 brought a new shock: the proposed VAT increase (from 15% to 16%) triggered a -20 CCI crash in Q1 2025 — the economic outlook sub-index collapsed from -9 to -32 in one quarter.</p>
+      <p><strong>The trust deficit:</strong> The CCI's extreme sensitivity to political events reveals a deeper truth: South African consumers have an underlying anxiety about institutional reliability. Load shedding was not just an inconvenience — it was proof that the state could not guarantee basic services. VAT hike proposals are not just fiscal policy — they are experienced as yet another unexpected cost being imposed on already-stretched households. This anxiety compounds every economic signal, making recoveries slower and downturns faster in SA than in comparable markets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRISIS TIMELINE ============ -->
+<section class="section" id="timeline">
+  <div class="section-header">
+    <div class="section-eyebrow">Chronology</div>
+    <h2 class="section-title">The Retail Crisis Timeline</h2>
+  </div>
+  <hr class="section-rule">
+
+  <div class="report-timeline">
+    <div class="rt-item">
+      <div class="rt-date">2022 Q3–Q4</div>
+      <div class="rt-text"><strong>Inflation peaks at 7.8%</strong> (Jul 2022). Russia-Ukraine war drives global food and fuel prices. SARB begins aggressive rate hike cycle. Retail sales start softening. CCI at -25 in Q2 2022.</div>
+    </div>
+    <div class="rt-item">
+      <div class="rt-date">2023 Q1</div>
+      <div class="rt-text"><strong>Perfect storm begins.</strong> Stage 6 load shedding sustained. No-load-shedding days: zero. Feb 9: President Ramaphosa declares National State of Disaster over energy crisis. Repo rate hikes to 7.75%. CCI plunges to -23. Retail trade starts 5-month consecutive decline.</div>
+    </div>
+    <div class="rt-item">
+      <div class="rt-date">2023 Q2–Q3</div>
+      <div class="rt-text"><strong>CCI -25 — near-record low.</strong> Retail trade falls 1.6% YoY in April (5th consecutive monthly decline). Electricity tariffs up 18.65%. Average wages fall 10.4% nominal. May: Repo rate hits 8.25% — 14-year high. Economy effectively on life support.</div>
+    </div>
+    <div class="rt-item">
+      <div class="rt-date">2023 Q4</div>
+      <div class="rt-text"><strong>Shein and Temu advertising surge.</strong> Shein: most downloaded app on Google Play. CCI stabilises at -16. Petrol prices ease. No further rate hikes. Modest recovery in retail — but below par.</div>
+    </div>
+    <div class="rt-item blue">
+      <div class="rt-date">2024 Q1–Q2</div>
+      <div class="rt-text"><strong>Load shedding eliminated from April 2024.</strong> CCI improves to -12. Online retail grows 35%. Two-pot pension withdrawals open: R40B drawn by Q4. May: Amazon SA launches. Temu launches in SA.</div>
+    </div>
+    <div class="rt-item blue">
+      <div class="rt-date">2024 Q3</div>
+      <div class="rt-text"><strong>May 2024 elections → GNU formed.</strong> CCI surges to -5 (5-year high). Rate cutting cycle begins: September first cut in 3 years. Consumer spending rebounds. Retail shows positive YoY growth.</div>
+    </div>
+    <div class="rt-item gold">
+      <div class="rt-date">2024 Q4</div>
+      <div class="rt-text"><strong>SARS closes Shein/Temu import loophole</strong> (Sep 2024). Rate cuts continue. Petrol prices fall. Festive season retail boost. Strong online retail — R96B full year. CCI -6.</div>
+    </div>
+    <div class="rt-item">
+      <div class="rt-date">2025 Q1</div>
+      <div class="rt-text"><strong>VAT shock:</strong> Proposed VAT increase from 15% to 16%. CCI crashes to -20 (lowest since Q2 2023). Brief return of Stage 6. Trump tariffs announced. Global uncertainty spikes. Consumer spending stalls.</div>
+    </div>
+    <div class="rt-item green">
+      <div class="rt-date">2025 Q2–Q4</div>
+      <div class="rt-text"><strong>Revised budget softens VAT proposal.</strong> CCI gradually recovers to -9 by Q4. Inflation averages 3.2% (21-year low). Retail sales +3.7% for 2025. Rand strengthens below R17/$. Two-pot volumes diminish vs 2024.</div>
+    </div>
+    <div class="rt-item">
+      <div class="rt-date">2026 Q1</div>
+      <div class="rt-text"><strong>CCI -7 — highest since Q4 2024.</strong> Middle East conflict re-emerges as oil risk. Rand at ~R16.6/$ (April). SARB holds at 6.75%. High-income confidence recovering; low-income still deteriorating. Retail in cautious recovery mode.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECOMMERCE ============ -->
+<section class="section" id="ecommerce">
+  <div class="section-header">
+    <div class="section-eyebrow">Structural Disruption</div>
+    <h2 class="section-title">The E-Commerce Structural Shift</h2>
+  </div>
+  <hr class="section-rule">
+
+  <table class="cmp-table">
+    <thead><tr>
+      <th>Metric</th>
+      <th>2022</th>
+      <th>2023</th>
+      <th>2024</th>
+      <th>2025F</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>SA Online Retail Value</td><td>R55B</td><td>R71B</td><td class="pos">R96B</td><td class="pos">R110B+</td></tr>
+      <tr><td>YoY Online Growth</td><td class="pos">+35%</td><td class="pos">+29%</td><td class="pos">+35%</td><td class="pos">~15%+</td></tr>
+      <tr><td>Online as % of Total Retail</td><td>~4%</td><td>6%</td><td class="pos">~8%</td><td class="pos">~10%</td></tr>
+      <tr><td>Physical Retail YoY</td><td class="pos">+2.4%</td><td class="neg">-1.1% to -1.6%</td><td class="pos">+1.2%</td><td class="pos">+3.7%</td></tr>
+      <tr><td>Online Clothing Share (Shein+Temu)</td><td>Minimal</td><td>~15%</td><td class="neg">37.1%</td><td class="neg">Growing</td></tr>
+      <tr><td>Mobile Share of E-Commerce</td><td>~60%</td><td>~65%</td><td>~70%</td><td class="pos">71.42%</td></tr>
+      <tr><td>SA Internet Users</td><td>~45M</td><td>~48M</td><td>~50M</td><td class="pos">50M+</td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight danger">
+    <div class="insight-label">Critical Insight for Physical Retailers</div>
+    <p>Online retail is growing at 10–35x the rate of physical retail. The "winner" in SA retail over 2022–2025 is not any one retailer — it is the <strong>digital channel itself</strong>. Every R1 shift from physical to digital represents not just lost revenue, but lost customer relationship data, lost basket-building opportunity, and lost impulse purchase potential. Physical retailers that don't have a credible digital presence are structurally exposed to an accelerating wave of channel shift.</p>
+  </div>
+</section>
+
+<!-- ============ CONSUMER PSYCHOLOGY ============ -->
+<section class="section" id="psychology">
+  <div class="section-header">
+    <div class="section-eyebrow">Behavioural Economics</div>
+    <h2 class="section-title">How SA Consumer Psychology Changed</h2>
+  </div>
+  <hr class="section-rule">
+
+  <div class="two-col">
+    <div class="insight danger">
+      <div class="insight-label">The 5 Psychological Shifts Confirmed by External Data</div>
+      <p>
+        <strong>1. Permanent Price Recalibration</strong> — Shein/Temu reset the internal price anchor. Consumers now expect to pay 40–70% less for discretionary goods than local retail offers. This is not negotiable.<br><br>
+        <strong>2. Trauma-Informed Frugality</strong> — Three years of economic crisis created lasting savings-first behaviour, even as macro conditions improve. Spending recovery is much slower than income recovery.<br><br>
+        <strong>3. Digital-First Decision Making</strong> — 71% of purchases begin on mobile. 27% explicitly compare prices across platforms before buying. The physical store is now a fulfilment centre, not a discovery channel.
+      </p>
+    </div>
+    <div class="insight warn">
+      <div class="insight-label">More Shifts</div>
+      <p>
+        <strong>4. Income Bifurcation</strong> — High-income (R40K+/month) consumers are recovering and spending again, driven by rate cuts, rand strength, and two-pot withdrawal capital. Low-income consumers remain severely constrained by unemployment and eroded savings.<br><br>
+        <strong>5. Trust Deficit in Institutions</strong> — Load shedding, proposed VAT hikes, political volatility, and global uncertainty (Trump tariffs) have created a permanently elevated anxiety baseline. South African consumers process economic news through a "worst case" filter more readily than pre-2020 cohorts did. Any unexpected negative signal (VAT, Stage 6 return) creates disproportionate confidence collapse.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2023 VS 2026 COMPARISON ============ -->
+<section class="section" id="2023vs2026">
+  <div class="section-header">
+    <div class="section-eyebrow">Deep Comparison</div>
+    <h2 class="section-title">The South African Consumer: 2023 vs 2026</h2>
+  </div>
+  <hr class="section-rule">
+
+  <table class="cmp-table">
+    <thead><tr>
+      <th>Dimension</th>
+      <th style="background:#8b2c0e;">2023 — The Crisis Consumer</th>
+      <th style="background:#1a4a6a;">Q1 2026 — The Cautious Optimist</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>Psychological State</td>
+        <td class="neg">Survival mode. Near-record pessimism. CCI -25.</td>
+        <td class="neu">Fragile optimism. Still negative. CCI -7. High-income recovering, low-income not.</td>
+      </tr>
+      <tr>
+        <td>Inflation Experience</td>
+        <td class="neg">6.1% average. Food/energy driving panic spending. Real wages falling.</td>
+        <td class="pos">3.0%. Lowest since 2004. But cumulative 3-year price level permanently elevated by ~20%.</td>
+      </tr>
+      <tr>
+        <td>Debt Servicing Cost</td>
+        <td class="neg">Repo 8.25%. Prime 11.75%. Maximum debt burden. R2,400+ extra/month vs 2021.</td>
+        <td class="pos">Repo 6.75%. Prime 10.25%. 150bps of relief. R900/month saved on R1.5M bond.</td>
+      </tr>
+      <tr>
+        <td>Electricity/Power</td>
+        <td class="neg">Stage 6 sustained. Business disrupted. Consumer footfall collapsed. No safe hours.</td>
+        <td class="pos">Effectively resolved. Brief Q1 2025 Stage 6 return created psychological setback. Now stable.</td>
+      </tr>
+      <tr>
+        <td>Shopping Channel</td>
+        <td class="neu">Predominantly physical (with early online adoption). Mobile growing but not dominant.</td>
+        <td class="neg">Mobile-first (71%). Comparison shopping default. Takealot, Amazon, Temu, Shein all competing.</td>
+      </tr>
+      <tr>
+        <td>Price Sensitivity</td>
+        <td class="neg">High — driven by necessity. Seeking promotions and specials.</td>
+        <td class="neg">Very high — driven by new anchoring. Temu/Shein have reset reference prices permanently.</td>
+      </tr>
+      <tr>
+        <td>Brand Loyalty</td>
+        <td class="neg">Eroding — consumers trading down to cheaper alternatives.</td>
+        <td class="neg">Largely collapsed for discretionary. Price loyalty dominates brand loyalty across all income segments.</td>
+      </tr>
+      <tr>
+        <td>Durable Goods Intent</td>
+        <td class="neg">CCI sub-index -35. "Highly inappropriate" to buy big-ticket items.</td>
+        <td class="neu">CCI sub-index recovering to -7 by Q1 2026 from Q4 2025 6-year high. Car sales up 19.2%.</td>
+      </tr>
+      <tr>
+        <td>Political Confidence</td>
+        <td class="neg">Pre-election anxiety. ANC majority at risk. Institutional trust low.</td>
+        <td class="neu">GNU formation positive. VAT hike reversed partially. Middle East war new risk. Fragile sentiment.</td>
+      </tr>
+      <tr>
+        <td>Savings Behaviour</td>
+        <td class="neg">Savings eroded by inflation. Credit impairments rising. Two-pot not yet available.</td>
+        <td class="neu">Two-pot R40B withdrawal in 2024 spent down. 2025 volumes lower. Some debt reduction achieved.</td>
+      </tr>
+      <tr>
+        <td>Online Retail Experience</td>
+        <td class="neu">Early adopter: 6% of retail. Takealot dominant. Shein growing.</td>
+        <td class="neg">Mainstream: ~10% of retail. Amazon launched. Temu dominant. 1 in 3 SA consumers use Temu.</td>
+      </tr>
+      <tr>
+        <td>For Retailers: Opportunity</td>
+        <td class="neg">Defend existing customers. Protect essentials. Cut costs.</td>
+        <td class="pos">Regain wallet share. Target recovering high-income. Digital channel critical. Value + trust proposition.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="conclusion-box">
+    <h3>The Structural Verdict: <em>What Has Changed Permanently</em></h3>
+    <p>The external data makes a clear distinction between <strong>cyclical damage</strong> (which is recovering) and <strong>structural transformation</strong> (which is permanent). Interest rates, inflation, and even load shedding are cyclical — they went up and have or will come down. But three things have changed permanently:</p>
+    <p><strong>1. The digital channel</strong> has taken a 10% structural share of retail that will never return to physical. Every year, this share grows further. Businesses without digital infrastructure are competing with one hand tied behind their back.</p>
+    <p><strong>2. Price anchors</strong> have been permanently reset by Shein, Temu, and the general availability of global price comparison. The consumer's internal model of "what things cost" has fundamentally shifted. Local retailers who compete on price against global scale logistics will lose. They must compete on trust, speed, returns experience, and local relevance.</p>
+    <p><strong>3. Consumer psychology</strong> has a new baseline of frugality and price consciousness that will persist for years even in a benign macro environment. The triple-shock of 2022–2023 created lasting behavioural imprints. Recovery in macro conditions does not produce recovery in spending at the same pace — the consumer psychology lags the economics by 12–24 months.</p>
+  </div>
+</section>
+
+<!-- ============ STRATEGIES ============ -->
+<section class="section" id="strategies">
+  <div class="section-header">
+    <div class="section-eyebrow">Strategic Response</div>
+    <h2 class="section-title">Strategic Recommendations — Informed by External Data</h2>
+  </div>
+  <hr class="section-rule">
+
+  <div class="three-col">
+    <div class="strat-card" style="margin-top:20px;">
+      <div class="strat-num red">IMMEDIATE</div>
+      <div class="strat-title">Defend the Recovering High-Income Segment</div>
+      <div class="strat-body">
+        <p>The FNB/BER CCI shows high-income household confidence at its highest since Q4 2024. Rate cuts have delivered R900/month savings to R1.5M bondholders. This segment is ready to spend. Target them with:</p>
+        <ul>
+          <li>Value proposition clearly differentiated from Temu/Shein (quality, warranty, speed)</li>
+          <li>Convenience and service as the differentiator, not price</li>
+          <li>Loyalty programme with meaningful rewards (not just discounts)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strat-card" style="margin-top:20px;">
+      <div class="strat-num blue">MEDIUM-TERM</div>
+      <div class="strat-title">Build Credible Digital Presence</div>
+      <div class="strat-body">
+        <p>With online retail at ~10% of total SA retail and growing, and with 71% of purchases via mobile, the digital channel is no longer optional. Required actions:</p>
+        <ul>
+          <li>Mobile-optimised online catalogue with real-time stock visibility</li>
+          <li>Price comparison anchoring — show value vs comparable online prices</li>
+          <li>WhatsApp commerce integration (highest SA social penetration)</li>
+          <li>Click-and-collect to leverage physical footprint advantage</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strat-card" style="margin-top:20px;">
+      <div class="strat-num green">STRATEGIC</div>
+      <div class="strat-title">Compete on Trust, Not Price</div>
+      <div class="strat-body">
+        <p>Shein and Temu win on price. Local wins on trust, accountability, and immediacy. Build the trust proposition:</p>
+        <ul>
+          <li>Same-day or next-day local delivery (vs Shein's 2–3 week international)</li>
+          <li>Easy returns with no hassle (Temu's cross-border returns are painful)</li>
+          <li>Verified local after-sales support</li>
+          <li>Community presence — local business narrative resonates post-GNU with "buy local" sentiment</li>
+          <li>Curated product range with quality guarantee</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-label">The Window of Opportunity — 2026</div>
+    <p>The external data confirms 2026 is a recovery year: inflation at 3%, rates easing, retail sales +3.7% in 2025, consumer confidence at Q4 2024 highs. But the recovery is fragile and bifurcated. Middle East conflict is pressuring oil prices upward from April 2026. The two-pot withdrawal boost of 2024 has diminished. The window to regain consumer wallet share is now, while macro tailwinds are present — but it requires meeting consumers where they are: <strong>price-conscious, digitally empowered, and trust-seeking</strong>.</p>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer style="background:var(--ink); color:rgba(255,255,255,0.6); padding:30px 60px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+  <div style="font-size:12px;">
+    <div style="color:white; font-family:'Playfair Display',serif; font-size:20px; margin-bottom:8px;">Valueco Strategic Intelligence</div>
+    <div>Data: Stats SA · SARB · FNB/BER · World Wide Worx · CSIR · Localisation Support Fund · April 2026</div>
+    <div style="margin-top:8px;">
+      <a href="external_data_report.html" style="color:var(--accent,#c44a1a); font-weight:600; text-decoration:none;">→ View External Data Report</a>
+    </div>
+  </div>
+  <div style="font-family:'Playfair Display',serif; font-size:28px; color:white; font-style:italic;">Valueco</div>
+</footer>
+
+</body>
+</html>

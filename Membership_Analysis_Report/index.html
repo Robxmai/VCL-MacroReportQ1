@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership & Cross-Shopping Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #Fdfbf7;
+            --surface: #ffffff;
+            --surface-light: #f5f2eb;
+            --accent: #8b4513;
+            --text-primary: #2b2824;
+            --text-secondary: #6e675e;
+            --border: #e6e2d8;
+            --border-hover: #d1cbc0;
+            --radius: 6px;
+            --valueco-red: #e31e24;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Nunito', system-ui, sans-serif; 
+            background: var(--bg); 
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .subtitle { font-family: 'Lora', serif; }
+
+        header {
+            padding: 24px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        header h1 { font-size: 1.5rem; font-weight: 500; color: var(--valueco-red); }
+        .subtitle { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .section h2 {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--valueco-red);
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left; 
+        }
+
+        th { 
+            padding: 12px 16px; 
+            background: var(--surface-light);
+            color: var(--text-secondary); 
+            font-size: 0.8rem; 
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td { 
+            padding: 12px 16px; 
+            border-bottom: 1px solid var(--border); 
+            font-size: 0.9rem; 
+        }
+
+        tr:hover td { background: var(--surface-light); }
+
+        .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .pct { font-weight: bold; color: var(--accent); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .box {
+            background: var(--surface-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .box .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--valueco-red);
+        }
+        .box .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Membership & Cross-Shopping Analysis</h1>
+            <p class="subtitle">Q1 2023 vs Q1 2026</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="section">
+            <h2>1. Member vs. Non-Member Revenue (Marketing Reach)</h2>
+            <p style="margin-bottom:20px;">Analyzes whether KVIs and promotions are driving new (non-member) footfall, or simply subsidizing existing members.</p>
+            <div id="split-grid" class="grid" style="margin-bottom: 20px;"></div>
+            <table id="splitTable">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Customer Type</th>
+                        <th class="num">Transactions</th>
+                        <th class="num">Total Sales</th>
+                    </tr>
+                </thead>
+                <tbody id="splitBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>2. Cross-Shopping Matrix (2026 YTD)</h2>
+            <p style="margin-bottom:20px;">Analyzes member loyalty to their "Home Store" vs. willingness to travel to other ValueCo branches.</p>
+            <table id="crossTable">
+                <thead>
+                    <tr>
+                        <th>Store</th>
+                        <th class="num">Total Member TX</th>
+                        <th class="num">Home Store TX</th>
+                        <th class="num">Cross-Store TX</th>
+                        <th class="num">Cross-Shop %</th>
+                    </tr>
+                </thead>
+                <tbody id="crossBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>3. Member Demographics (Active Q1 2026)</h2>
+            <div class="grid">
+                <div>
+                    <h3 style="margin-bottom: 10px;">By Age Group (Financial Value)</h3>
+                    <table id="ageTable">
+                        <thead>
+                            <tr>
+                                <th>Age Group</th>
+                                <th class="num">Active Members</th>
+                                <th class="num">Share of Spend</th>
+                                <th class="num">Avg. Tx Value (ATV)</th>
+                                <th class="num">Spend Per Member</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ageBody">
+                            <tr><td>35-44</td><td class="num">1,176</td><td class="num pct">32.5%</td><td class="num">R476.03</td><td class="num">R854.92</td></tr>
+                            <tr><td>55+</td><td class="num">1,002</td><td class="num pct">30.3%</td><td class="num">R451.15</td><td class="num">R935.63</td></tr>
+                            <tr><td>45-54</td><td class="num">945</td><td class="num pct">23.4%</td><td class="num">R424.06</td><td class="num">R766.00</td></tr>
+                            <tr><td>25-34</td><td class="num">686</td><td class="num pct">12.2%</td><td class="num">R334.60</td><td class="num">R547.75</td></tr>
+                            <tr><td>Under 25</td><td class="num">82</td><td class="num pct">1.6%</td><td class="num">R389.61</td><td class="num">R589.16</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 10px;">By Gender</h3>
+                    <table id="genderTable">
+                        <thead>
+                            <tr>
+                                <th>Gender</th>
+                                <th class="num">Active Members</th>
+                            </tr>
+                        </thead>
+                        <tbody id="genderBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Payment Methods & Loyalty Redemption (Q1 2026)</h2>
+            <p style="margin-bottom:20px;">Analyzes the liquidity reliance (Cash vs. Card) and the actual financial impact of the Loyalty Program across the VCL segment.</p>
+            <div class="grid">
+                <div class="box">
+                    <div class="value">86.4%</div>
+                    <div class="label">Card Payments (High Credit Reliance)</div>
+                </div>
+                <div class="box">
+                    <div class="value">13.4%</div>
+                    <div class="label">Cash Payments</div>
+                </div>
+                <div class="box">
+                    <div class="value" style="color: var(--text-secondary);">0.06%</div>
+                    <div class="label">Loyalty Point Redemptions</div>
+                </div>
+                <div class="box">
+                    <div class="value" style="color: var(--text-secondary);">R84.5M</div>
+                    <div class="label">Total Settled (VCL Q1 2026)</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="data.js"></script>
+<script>
+    function renderData() {
+        if (typeof window_membershipData === 'undefined') return;
+
+        const data = window_membershipData;
+
+        // 1. Split Data
+        const splitBody = document.getElementById('splitBody');
+        let memberSales26 = 0, nonMemberSales26 = 0;
+        
+        data.member_split.sort((a,b) => a.year - b.year || a.customerType.localeCompare(b.customerType)).forEach(row => {
+            if (row.year === 2026) {
+                if (row.customerType === 'Member') memberSales26 = row.totalSales;
+                if (row.customerType === 'Non-Member') nonMemberSales26 = row.totalSales;
+            }
+            
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>Q1 ${row.year}</td>
+                <td><strong>${row.customerType}</strong></td>
+                <td class="num">${row.txCount.toLocaleString()}</td>
+                <td class="num">R${row.totalSales.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+            `;
+            splitBody.appendChild(tr);
+        });
+
+        const total26 = memberSales26 + nonMemberSales26;
+        document.getElementById('split-grid').innerHTML = `
+            <div class="box">
+                <div class="value">${((memberSales26 / total26) * 100).toFixed(1)}%</div>
+                <div class="label">2026 Sales from Members</div>
+            </div>
+            <div class="box">
+                <div class="value">${((nonMemberSales26 / total26) * 100).toFixed(1)}%</div>
+                <div class="label">2026 Sales from Non-Members</div>
+            </div>
+        `;
+
+        // 2. Cross Shopping
+        const crossBody = document.getElementById('crossBody');
+        data.cross_shopping.sort((a,b) => b.total_member_tx - a.total_member_tx).forEach(row => {
+            const pct = row.total_member_tx > 0 ? (row.cross_store_tx / row.total_member_tx) * 100 : 0;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${row.storeCode}</td>
+                <td class="num">${row.total_member_tx.toLocaleString()}</td>
+                <td class="num">${row.home_store_tx.toLocaleString()}</td>
+                <td class="num">${row.cross_store_tx.toLocaleString()}</td>
+                <td class="num pct">${pct.toFixed(1)}%</td>
+            `;
+            crossBody.appendChild(tr);
+        });
+
+        // 3. Demographics
+        const ages = {};
+        const genders = {};
+        
+        data.demographics.forEach(row => {
+            ages[row.ageGroup] = (ages[row.ageGroup] || 0) + row.memberCount;
+            genders[row.gender] = (genders[row.gender] || 0) + row.memberCount;
+        });
+
+        const ageBody = document.getElementById('ageBody');
+        Object.entries(ages).sort((a,b) => b[1] - a[1]).forEach(([group, count]) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${group}</td><td class="num">${count.toLocaleString()}</td>`;
+            ageBody.appendChild(tr);
+        });
+
+        const genderBody = document.getElementById('genderBody');
+        Object.entries(genders).sort((a,b) => b[1] - a[1]).forEach(([gen, count]) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${gen}</td><td class="num">${count.toLocaleString()}</td>`;
+            genderBody.appendChild(tr);
+        });
+    }
+
+    window.onload = renderData;
+</script>
+</body>
+</html>

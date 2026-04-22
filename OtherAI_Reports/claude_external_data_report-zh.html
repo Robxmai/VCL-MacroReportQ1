@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>南非外部宏观数据报告 | 2023–2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&amp;family=DM+Serif+Display:ital@0;1&amp;family=Barlow:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0e1520;
+    --surface2: #141e2e;
+    --border: #1e2d42;
+    --accent: #00e5c0;
+    --accent2: #ff5e3a;
+    --accent3: #f0b429;
+    --text: #c9d8ec;
+    --text-dim: #6b849e;
+    --text-bright: #eaf2ff;
+    --green: #00d46a;
+    --red: #ff4158;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* SCANLINE OVERLAY */
+  body::before {
+    content:'';
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,229,192,0.012) 2px, rgba(0,229,192,0.012) 4px);
+    pointer-events:none; z-index:1000;
+  }
+
+  /* HEADER */
+  .report-header {
+    background: linear-gradient(135deg, #060a10 0%, #0a1525 50%, #060d18 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::after {
+    content:'';
+    position:absolute; top:-60px; right:-60px; width:400px; height:400px;
+    background: radial-gradient(circle, rgba(0,229,192,0.06) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .header-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .header-tag::before { content: '▶ '; }
+  h1.report-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    color: var(--text-bright);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  h1.report-title em { color: var(--accent); font-style: italic; }
+  .report-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+  }
+  .meta-row {
+    display: flex; gap: 40px; flex-wrap: wrap; margin-top: 30px;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-label { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-dim); letter-spacing:2px; text-transform:uppercase; }
+  .meta-value { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600; }
+
+  /* NAV */
+  .toc-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 60px;
+    display: flex; gap: 0; overflow-x: auto;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .toc-bar a {
+    font-family: 'IBM Plex Mono',monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 14px 20px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .toc-bar a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* LAYOUT */
+  .container { max-width: 1400px; margin: 0 auto; padding: 50px 60px; }
+  .section { margin-bottom: 70px; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono',monospace;
+    font-size: 11px; color: var(--accent);
+    background: rgba(0,229,192,0.08);
+    border: 1px solid rgba(0,229,192,0.2);
+    padding: 4px 10px; border-radius: 2px;
+    letter-spacing:2px;
+  }
+  h2.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px; color: var(--text-bright);
+  }
+
+  /* KPI GRID */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin-bottom: 40px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid transparent;
+    padding: 24px 20px;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .kpi-card:hover { transform: translateY(-2px); border-color: rgba(0,229,192,0.3); }
+  .kpi-card.green { border-top-color: var(--green); }
+  .kpi-card.red { border-top-color: var(--red); }
+  .kpi-card.yellow { border-top-color: var(--accent3); }
+  .kpi-card.cyan { border-top-color: var(--accent); }
+  .kpi-year {
+    font-family:'IBM Plex Mono',monospace; font-size:10px;
+    color:var(--text-dim); letter-spacing:2px; margin-bottom:8px;
+    text-transform: uppercase;
+  }
+  .kpi-value {
+    font-family:'IBM Plex Mono',monospace;
+    font-size:32px; font-weight:600;
+    color:var(--text-bright); margin-bottom:4px;
+    line-height:1;
+  }
+  .kpi-label {
+    font-size:12px; color:var(--text-dim); margin-bottom:12px;
+  }
+  .kpi-delta {
+    font-family:'IBM Plex Mono',monospace; font-size:11px;
+    font-weight:600; padding:2px 8px; border-radius:2px; display:inline-block;
+  }
+  .kpi-delta.pos { background:rgba(0,212,106,0.1); color:var(--green); }
+  .kpi-delta.neg { background:rgba(255,65,88,0.1); color:var(--red); }
+  .kpi-delta.neu { background:rgba(240,180,41,0.1); color:var(--accent3); }
+
+  /* BAR CHART */
+  .chart-wrap {
+    background: var(--surface); border: 1px solid var(--border); padding: 30px;
+    margin-bottom: 24px;
+  }
+  .chart-title {
+    font-family:'IBM Plex Mono',monospace; font-size:11px;
+    color:var(--accent); letter-spacing:2px; text-transform:uppercase;
+    margin-bottom:24px;
+  }
+  .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 180px; }
+  .bar-group { display:flex; flex-direction:column; align-items:center; flex:1; height:100%; justify-content:flex-end; }
+  .bar {
+    width:100%; position:relative;
+    transition: height 0.6s ease;
+    border-top: 2px solid transparent;
+    min-height: 2px;
+  }
+  .bar.positive { background: rgba(0,212,106,0.25); border-top-color: var(--green); }
+  .bar.negative { background: rgba(255,65,88,0.2); border-top-color: var(--red); }
+  .bar.highlight { background: rgba(0,229,192,0.25); border-top-color: var(--accent); }
+  .bar.mid { background: rgba(240,180,41,0.2); border-top-color: var(--accent3); }
+  .bar-val {
+    position:absolute; top:-20px; left:50%; transform:translateX(-50%);
+    font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-dim);
+    white-space:nowrap;
+  }
+  .bar-label {
+    font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-dim);
+    margin-top:8px; text-align:center;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative; padding-left: 30px;
+  }
+  .timeline::before {
+    content:''; position:absolute; left:10px; top:0; bottom:0;
+    width:1px; background: var(--border);
+  }
+  .tl-item {
+    position:relative; margin-bottom:24px; padding-left:20px;
+  }
+  .tl-item::before {
+    content:''; position:absolute; left:-24px; top:6px;
+    width:8px; height:8px; border-radius:50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+  .tl-item.red::before { background: var(--red); }
+  .tl-item.yellow::before { background: var(--accent3); }
+  .tl-item.green::before { background: var(--green); }
+  .tl-date {
+    font-family:'IBM Plex Mono',monospace; font-size:10px;
+    color:var(--accent); letter-spacing:2px; margin-bottom:4px;
+  }
+  .tl-text { color:var(--text); font-size:13px; }
+  .tl-text strong { color: var(--text-bright); }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
+  .data-table th {
+    background:var(--surface2); border:1px solid var(--border);
+    padding:10px 14px; text-align:left;
+    font-family:'IBM Plex Mono',monospace; font-size:10px;
+    color:var(--accent); letter-spacing:1.5px; text-transform:uppercase;
+  }
+  .data-table td {
+    border:1px solid var(--border); padding:10px 14px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text);
+  }
+  .data-table tr:hover td { background:rgba(0,229,192,0.03); }
+  .data-table td.pos { color:var(--green); }
+  .data-table td.neg { color:var(--red); }
+  .data-table td.neu { color:var(--accent3); }
+  .data-table td.hi { color:var(--text-bright); font-weight:600; }
+
+  /* TWO-COL */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px; margin-bottom: 16px;
+  }
+  .info-box.warn { border-left-color: var(--accent3); }
+  .info-box.danger { border-left-color: var(--red); }
+  .info-box.success { border-left-color: var(--green); }
+  .info-box-title {
+    font-family:'IBM Plex Mono',monospace; font-size:11px;
+    color:var(--accent); letter-spacing:2px; text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .info-box.warn .info-box-title { color:var(--accent3); }
+  .info-box.danger .info-box-title { color:var(--red); }
+  .info-box.success .info-box-title { color:var(--green); }
+  .info-box p { font-size:13px; color:var(--text); line-height:1.7; }
+
+  /* COMPARISON */
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin-bottom:24px;
+  }
+  .compare-col {
+    background: var(--surface); padding: 28px;
+  }
+  .compare-col.col-b { background: var(--surface2); }
+  .compare-year {
+    font-family:'IBM Plex Mono',monospace; font-size:22px;
+    font-weight:600; margin-bottom:16px;
+  }
+  .compare-year.yr-a { color:var(--red); }
+  .compare-year.yr-b { color:var(--green); }
+  .compare-item {
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 8px 0; border-bottom:1px solid var(--border);
+    font-size:12px;
+  }
+  .compare-item:last-child { border-bottom:none; }
+  .compare-item .ci-label { color:var(--text-dim); font-size:11px; }
+  .compare-item .ci-val { font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13px; }
+
+  /* PSYCHOLOGY SECTION */
+  .psych-factor {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px; margin-bottom: 16px;
+    display: grid; grid-template-columns: 200px 1fr 120px;
+    gap: 24px; align-items: start;
+  }
+  .psych-factor-name {
+    font-size:14px; font-weight:600; color:var(--text-bright);
+    margin-bottom:4px;
+  }
+  .psych-factor-cat {
+    font-family:'IBM Plex Mono',monospace; font-size:10px;
+    color:var(--text-dim); letter-spacing:2px; text-transform:uppercase;
+  }
+  .psych-impact { font-size:13px; color:var(--text); line-height:1.6; }
+  .psych-score-wrap { text-align:center; }
+  .psych-score {
+    font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:600;
+    line-height:1;
+  }
+  .psych-score.high { color:var(--red); }
+  .psych-score.med { color:var(--accent3); }
+  .psych-score.low { color:var(--green); }
+  .psych-score-label { font-size:10px; color:var(--text-dim); margin-top:4px; letter-spacing:1px; }
+
+  /* FUNNEL */
+  .funnel-row {
+    display:flex; align-items:center; margin-bottom:8px; gap:12px;
+  }
+  .funnel-label { font-size:12px; color:var(--text); width:180px; flex-shrink:0; }
+  .funnel-bar-wrap { flex:1; background:var(--surface2); height:28px; position:relative; }
+  .funnel-bar-fill {
+    height:100%; display:flex; align-items:center; padding-left:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--bg);
+    font-weight:600; transition: width 1s ease;
+  }
+  .funnel-note { font-size:11px; color:var(--text-dim); width:80px; text-align:right; }
+
+  /* CONCLUSIONS */
+  .verdict-card {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--border); border-top: 4px solid var(--accent);
+    padding: 30px; margin-bottom: 16px;
+  }
+  .verdict-title {
+    font-family:'DM Serif Display',serif; font-size:20px; color:var(--text-bright);
+    margin-bottom:12px;
+  }
+  .verdict-body { font-size:13px; color:var(--text); line-height:1.8; }
+
+  /* FOOTER */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 30px 60px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  footer .ft-left { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-dim); }
+  footer .ft-brand { font-family:'DM Serif Display',serif; font-size:18px; color:var(--accent); }
+
+  /* ANIMATE ON LOAD */
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  .section { animation: fadeInUp 0.5s ease both; }
+  .section:nth-child(1) { animation-delay:0.1s; }
+  .section:nth-child(2) { animation-delay:0.2s; }
+  .section:nth-child(3) { animation-delay:0.3s; }
+
+  /* INLINE CHART */
+  .sparkline { display:inline-block; vertical-align:middle; }
+  .heatmap-row { display:flex; gap:4px; margin-bottom:4px; align-items:center; }
+  .heatmap-label { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-dim); width:30px; }
+  .heatmap-cell {
+    width:40px; height:28px; display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600;
+    border-radius:2px;
+  }
+
+  @media (max-width: 900px) {
+    .report-header { padding:40px 24px 30px; }
+    .container { padding:30px 24px; }
+    .two-col, .three-col { grid-template-columns:1fr; }
+    .psych-factor { grid-template-columns:1fr; }
+    .compare-grid { grid-template-columns:1fr; }
+    h1.report-title { font-size:36px; }
+  }
+</style>
+</head>
+<body>
+ 标头 
+<header class="report-header">
+<div class="header-tag">Valueco战略情报</div>
+<h1 class="report-title">南非<br/><em>外部宏观数据</em><br/>分析报告</h1>
+<div class="report-subtitle">// 深入的外部数据情报 // 消费者经济学 // 零售业驱动因素 //</div>
+<div class="meta-row">
+<div class="meta-item"><span class="meta-label">报告类型</span><span class="meta-value">外部数据分析</span></div>
+<div class="meta-item"><span class="meta-label">时期</span><span class="meta-value">2023 – Q1 2026</span></div>
+<div class="meta-item"><span class="meta-label">数据来源</span><span class="meta-value">南非统计局 · 南非储备银行 · FNB/BER · World Wide Worx · CSIR</span></div>
+<div class="meta-item"><span class="meta-label">分类</span><span class="meta-value">内部战略</span></div>
+</div>
+</header>
+<!-- NAV -->
+<nav class="toc-bar">
+<a href="#macro">01 · 国内生产总值</a>
+<a href="#inflation">02 · 通胀</a>
+<a href="#rates">03 · 利率</a>
+<a href="#energy">04 · 停电</a>
+<a href="#employment">05 · 就业</a>
+<a href="#confidence">06·CCI</a>
+<a href="#currency">07·兰德与燃料</a>
+<a href="#ecommerce">08·电子商务</a>
+<a href="#disruption">09 · 颠覆</a>
+<a href="#psychology">10·消费者心理学</a>
+<a href="#verdicts">11 · 判决</a>
+</nav>
+<div class="container">
+ ============ 第 1 部分：GDP ============ 
+<section class="section" id="macro">
+<div class="section-header">
+<span class="section-num">01</span>
+<h2 class="section-title">GDP增长 &amp; Economic Output</h2>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card red">
+<div class="kpi-year">2022</div>
+<div class="kpi-value">2.1%</div>
+<div class="kpi-label">GDP年增长率</div>
+<span class="kpi-delta pos">↑ 新冠疫情后高峰</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">2023</div>
+<div class="kpi-value">0.8%</div>
+<div class="kpi-label">GDP年增长率</div>
+<span class="kpi-delta neg">↓ 减载阻力-1.8pp</span>
+</div>
+<div class="kpi-card red">
+<div class="kpi-year">2024</div>
+<div class="kpi-value">0.5%</div>
+<div class="kpi-label">GDP年增长率</div>
+<span class="kpi-delta neg">↓ 恢复缓慢</span>
+</div>
+<div class="kpi-card cyan">
+<div class="kpi-year">2025</div>
+<div class="kpi-value">1.1%</div>
+<div class="kpi-label">GDP年增长率</div>
+<span class="kpi-delta pos">↑ 三年新高</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">10 年平均</div>
+<div class="kpi-value">0.76%</div>
+<div class="kpi-label">Average GDP增长</div>
+<span class="kpi-delta neu">⚠ 结构性停滞</span>
+</div>
+</div>
+<div class="chart-wrap">
+<div class="chart-title">// 南澳 GDP 年增长率</div>
+<div class="bar-chart">
+<div class="bar-group">
+<div class="bar positive" style="height:42%"><span class="bar-val">2.1</span></div>
+<div class="bar-label">2022</div>
+</div>
+<div class="bar-group">
+<div class="bar mid" style="height:16%"><span class="bar-val">0.8</span></div>
+<div class="bar-label">2023</div>
+</div>
+<div class="bar-group">
+<div class="bar mid" style="height:10%"><span class="bar-val">0.5</span></div>
+<div class="bar-label">2024</div>
+</div>
+<div class="bar-group">
+<div class="bar highlight" style="height:22%"><span class="bar-val">1.1</span></div>
+<div class="bar-label">2025</div>
+</div>
+<div class="bar-group">
+<div class="bar mid" style="height:28%"><span class="bar-val">1.4F</span></div>
+<div class="bar-label">2026F</div>
+</div>
+</div>
+</div>
+<div class="info-box warn">
+<div class="info-box-title">⚠ 结构背景</div>
+<p>South Africa's GDP growth has averaged only 0.76% per year over the last decade — well below population growth (~1.5%), meaning GDP per capita has been declining. The 2023 performance was particularly damaging: the 南非储备银行 estimated load shedding alone cost 1.8 percentage points of GDP growth. Manufacturing has posted negative growth for two consecutive years (2024–2025). Construction sector is in its 9th consecutive year of decline.</p>
+</div>
+</section>
+<!-- ============ SECTION 2: 通胀 ============ -->
+<section class="section" id="inflation">
+<div class="section-header">
+<span class="section-num">02</span>
+<h2 class="section-title">通胀 (CPI) — The Squeeze on Real Purchasing Power</h2>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card red">
+<div class="kpi-year">2022</div>
+<div class="kpi-value">7.0%</div>
+<div class="kpi-label">平均消费物价指数</div>
+<span class="kpi-delta neg">↑ 峰值：2022 年 7 月 7.8%</span>
+</div>
+<div class="kpi-card red">
+<div class="kpi-year">2023</div>
+<div class="kpi-value">6.1%</div>
+<div class="kpi-label">平均消费物价指数</div>
+<span class="kpi-delta neg">↓ 仍远高于目标</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">2024</div>
+<div class="kpi-value">4.4%</div>
+<div class="kpi-label">平均消费物价指数</div>
+<span class="kpi-delta neu">↓ 审核</span>
+</div>
+<div class="kpi-card green">
+<div class="kpi-year">2025</div>
+<div class="kpi-value">3.2%</div>
+<div class="kpi-label">平均消费物价指数</div>
+<span class="kpi-delta pos">↓ 21年新低</span>
+</div>
+<div class="kpi-card green">
+<div class="kpi-year">2026 年 2 月</div>
+<div class="kpi-value">3.0%</div>
+<div class="kpi-label">当前 CPI</div>
+<span class="kpi-delta pos">↓ Near 南非储备银行 3% target</span>
+</div>
+</div>
+<table class="data-table">
+<thead><tr>
+<th>时期</th><th>Food 通胀</th><th>运输</th><th>住房和公用事业</th><th>核心消费物价指数</th><th>总体消费者物价指数</th>
+</tr></thead>
+<tbody>
+<tr><td>2023年高峰期（上半年）</td><td class="neg">~10%</td><td class="neg">~8%</td><td class="neg">~12%</td><td class="neg">~5%</td><td class="neg">6.9–7.1%</td></tr>
+<tr><td>2023年结束</td><td class="neu">5.9%</td><td class="neu">5.5%</td><td class="neg">11.9%</td><td class="neu">4.5%</td><td class="neu">5.1%</td></tr>
+<tr><td>2024年平均</td><td class="neu">4.4%</td><td class="neu">3.2%</td><td class="neg">8.5%</td><td class="neu">4.1%</td><td class="neu">4.4%</td></tr>
+<tr><td>2025年平均</td><td class="pos">4.4%</td><td class="pos">-2%</td><td class="neu">4.9%</td><td class="pos">3.3%</td><td class="pos hi">3.2%</td></tr>
+<tr><td>2026 年 2 月</td><td class="pos">3.7%</td><td class="pos">-2.1%</td><td class="neu">4.8%</td><td class="pos">3.0%</td><td class="pos hi">3.0%</td></tr>
+</tbody>
+</table>
+<div class="info-box danger">
+<div class="info-box-title">🔴累积伤害</div>
+<p>虽然目前通胀率较低，但 <strong>2021-2023年累计价格水平上涨</strong> 很严重。在此期间价格上涨约 18-22%。这意味着消费者在 2020 年花费 100 兰特的一篮子商品，到 2025 年将花费约 122 兰特——尽管当前的通货膨胀率为 3%。损害已然显现。实际工资已经持续两年多下降，BankservAfrica 的数据显示，仅 2023 年 4 月平均名义工资就下降了 10.4%。</p>
+</div>
+<div class="info-box">
+<div class="info-box-title">📊 2023 年消费者紧缩的主要驱动因素</div>
+<p>电价上涨 <strong>2023 年 4 月为 18.65%</strong>。食品价格上涨 12% 以上。内陆地区平均燃油为 R23+/升。住房贷款利息飙升。可支配收入受到的综合打击在 2008 年后时代是前所未有的。低收入家庭（LSM 1-5）经历了最严重的实际收入损失，因为食品和能源在其支出篮子中所占比例较高。</p>
+</div>
+</section>
+<!-- ============ SECTION 3: 利率 ============ -->
+<section class="section" id="rates">
+<div class="section-header">
+<span class="section-num">03</span>
+<h2 class="section-title">利率周期——债务负担与消费者减免</h2>
+</div>
+<div class="timeline">
+<div class="tl-item red">
+<div class="tl-date">2021 年 11 月</div>
+<div class="tl-text"><strong>回购利率：3.50%</strong> ——新冠疫情后的历史低点。消费者债务很便宜。支出增加。</div>
+</div>
+<div class="tl-item red">
+<div class="tl-date">2022 年 – 2023 年 5 月</div>
+<div class="tl-text"><strong>连续7次加息</strong> — 南非储备银行 raised repo from 3.5% to <strong>8.25%</strong> （14年新高）。最优惠利率达到11.75%。每加息 25 个基点，R1M 债券每月就会增加约 130 兰特。</div>
+</div>
+<div class="tl-item yellow">
+<div class="tl-date">2023 年 5 月 – 2024 年 8 月</div>
+<div class="tl-text"><strong>18个月的峰值费率</strong> 利率为 8.25%/11.75%。消费者支付最大的偿债成本。家庭财务面临严峻压力。消费者信用减值 R40B+。</div>
+</div>
+<div class="tl-item green">
+<div class="tl-date">2024 年 9 月 – 2025 年 11 月</div>
+<div class="tl-text"><strong>连续6次切割</strong> — 回购利率降至 6.75%，优惠利率降至 10.25%。总缓解：150bps。与峰值相比，R1.5M 债券每月可节省约 900 兰特。两年来首次为消费者提供有意义的喘息空间。</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">2026年1月</div>
+<div class="tl-text"><strong>南非储备银行 pauses</strong> at 6.75%. Middle East conflict, USD strength, and foot-and-mouth inflation risk cited. 降息s cycle likely near end. 南非储备银行 QPM targets ~6.25% end-2026.</div>
+</div>
+</div>
+<div class="info-box danger">
+<div class="info-box-title">🔴 2023-2024 年对消费者支出的影响</div>
+<p>南澳家庭债务与可支配收入之比约为 63-67%。由于主要利率为 11.75%，拥有 30 万兰特个人贷款和 150 万兰特债券的消费者每月需要额外支付约 2,400 兰特，与 2021 年的水平相比。这直接抑制了非必需零售的可自由支配支出。家具、电子产品、服装和休闲支出大幅萎缩。 CCI 分类指数的“耐用品”部分在 2023 年第二季度触及 -35，接近历史低点。</p>
+</div>
+</section>
+<!-- ============ SECTION 4: 停电危机 ============ -->
+<section class="section" id="energy">
+<div class="section-header">
+<span class="section-num">04</span>
+<h2 class="section-title">停电 — The R2.8 Trillion Catastrophe</h2>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card red">
+<div class="kpi-year">2023年总成本</div>
+<div class="kpi-value">R2.8T</div>
+<div class="kpi-label">CSIR 估算 Economic Loss</div>
+<span class="kpi-delta neg">有记录以来最糟糕的一年</span>
+</div>
+<div class="kpi-card red">
+<div class="kpi-year">每日费用（第 6 阶段）</div>
+<div class="kpi-value">R900M</div>
+<div class="kpi-label">每日经济损失</div>
+<span class="kpi-delta neg">南非储备银行 estimate</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">2023 年 GDP 影响</div>
+<div class="kpi-value">-1.8pp</div>
+<div class="kpi-label">GDP增长 Lost</div>
+<span class="kpi-delta neg">南非储备银行 estimate</span>
+</div>
+<div class="kpi-card green">
+<div class="kpi-year">2024 年 4 月至 12 月</div>
+<div class="kpi-value">300+</div>
+<div class="kpi-label">Consecutive Days WITHOUT 停电</div>
+<span class="kpi-delta pos">历史性的进步</span>
+</div>
+</div>
+<div class="two-col">
+<div class="info-box danger">
+<div class="info-box-title">2023 年——最糟糕的一年</div>
+<p>南非经验丰富 <strong>第六阶段减载</strong> 长时间使用。没有一天是没有减载的。 Eskom 的能源可用性系数 (EAF) 下降至 50.4%。企业在发电机柴油上花费了 R1B+。 TFG 等零售商在两周内损失了 4 亿兰特； Shoprite 每月额外花费 9300 万兰特购买柴油。小企业无力承担缓解措施——40% 的企业损失了 20% 以上的收入。停电期间，实体零售业的消费者客流量锐减。电价上涨 18.65% 获得批准，生活成本进一步上升。</p>
+</div>
+<div class="info-box success">
+<div class="info-box-title">2024–2025 — 复苏</div>
+<p>从 <strong>2024 年 4 月</strong>，有效消除了甩负荷。发电机的柴油使用量从 Eskom 容量的 12% 下降到 6%。业务成本正常化。消费者客流量有所恢复。然而，电价仍然较高（批准 2024 年上涨 12.74%）。心理伤害依然存在——尽管供应有所改善，消费者仍然保持谨慎且对价格敏感。一个 <strong>短暂返回第六阶段</strong> 2025 年初重新燃起恐惧，导致 CCI 在 2025 年第一季度跌至-20。</p>
+</div>
+</div>
+</section>
+<!-- ============ SECTION 5: 就业 ============ -->
+<section class="section" id="employment">
+<div class="section-header">
+<span class="section-num">05</span>
+<h2 class="section-title">失业——结构性需求破坏者</h2>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card red">
+<div class="kpi-year">2023</div>
+<div class="kpi-value">32.1%</div>
+<div class="kpi-label">官方失业率</div>
+<span class="kpi-delta neg">三分之一的工人失业</span>
+</div>
+<div class="kpi-card red">
+<div class="kpi-year">2024</div>
+<div class="kpi-value">33.2%</div>
+<div class="kpi-label">官方失业率</div>
+<span class="kpi-delta neg">↑ 尽管复苏但仍在上升</span>
+</div>
+<div class="kpi-card red">
+<div class="kpi-year">青少年（15-34 岁）</div>
+<div class="kpi-value">~60%</div>
+<div class="kpi-label">青年失业率</div>
+<span class="kpi-delta neg">需求基础锐减</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">扩展</div>
+<div class="kpi-value">~42%</div>
+<div class="kpi-label">包括灰心丧气的工人</div>
+<span class="kpi-delta neg">真实需求能力</span>
+</div>
+</div>
+<div class="info-box warn">
+<div class="info-box-title">⚠ 这对零售需求意味着什么</div>
+<p>和 <strong>三分之一的南非人失业</strong> 而青年失业率接近60%，有效消费基础受到严重制约。就业中产阶级推动了大部分零售支出。当这一群体同时面临高通胀、高利率和减负荷时，这两者的结合会导致支出收缩，影响到所有零售领域。社会补助金（SRD R350→R370）部分缓冲了最低收入群体，但不会推动可自由支配的零售。 2024 年中期 GNU 的组建有所改善 <em>情绪</em> 但结构性失业未变。</p>
+</div>
+</section>
+ ============ 第 6 部分：消费者信心 ============ 
+<section class="section" id="confidence">
+<div class="section-header">
+<span class="section-num">06</span>
+<h2 class="section-title">消费者信心 Index (FNB/BER CCI)</h2>
+</div>
+<div class="info-box">
+<div class="info-box-title">关于CCI</div>
+<p>The FNB/BER 消费者信心 Index measures consumer willingness to spend. Range: -100 to +100. Historical average since 1994: <strong>-1</strong>。负面数据表明消费者对支出的悲观情绪多于乐观情绪。深度负值（-15 及以下）与零售收缩密切相关。</p>
+</div>
+ CCI 热图时间表 
+<div class="chart-wrap">
+<div class="chart-title">// FNB/BER CCI 季度历史</div>
+<div class="data-table" style="margin-bottom:0;">
+<table class="data-table" style="margin-bottom:0;">
+<thead><tr>
+<th>季度</th><th>CCI</th><th>与平均 (-1)</th><th>关键驱动程序</th>
+</tr></thead>
+<tbody>
+<tr><td>Q4 2022</td><td class="neu">-8</td><td class="neu">-7</td><td>乌克兰战争后的冲击，利率上升</td></tr>
+<tr><td>Q1 2023</td><td class="neg">-23</td><td class="neg">-22</td><td>第六阶段减负荷、加息、食品/燃料激增</td></tr>
+<tr><td>Q2 2023</td><td class="neg">-25</td><td class="neg">-24</td><td>自 1994 年以来第二差的读数。接近创纪录的悲观情绪</td></tr>
+<tr><td>Q3 2023</td><td class="neg">-16</td><td class="neg">-15</td><td>略有复苏——利率暂停，通胀疲软</td></tr>
+<tr><td>Q4 2023</td><td class="neg">-17</td><td class="neg">-16</td><td>选举前的焦虑，持续的减负荷</td></tr>
+<tr><td>Q1 2024</td><td class="neg">-15</td><td class="neg">-14</td><td>逐步改善——通胀下降</td></tr>
+<tr><td>Q2 2024</td><td class="neg">-12</td><td class="neg">-11</td><td>18 个月高点——GNU 成立，没有减载</td></tr>
+<tr><td>Q3 2024</td><td class="neg">-5</td><td class="neg">-4</td><td>创5年新高！ GNU 乐观、降息、权力稳定</td></tr>
+<tr><td>Q4 2024</td><td class="neu">-6</td><td class="neu">-5</td><td>节日提振。两罐养老金提取</td></tr>
+<tr><td>Q1 2025</td><td class="neg">-20</td><td class="neg">-19</td><td>增值税上涨担忧、特朗普关税、短暂的第六阶段回报</td></tr>
+<tr><td>Q2 2025</td><td class="neg">-10</td><td class="neg">-9</td><td>修订后的预算中增值税上涨幅度有所放缓</td></tr>
+<tr><td>Q3 2025</td><td class="neg">-13</td><td class="neg">-12</td><td>创造就业机会疲弱，中产阶级受到挤压</td></tr>
+<tr><td>Q4 2025</td><td class="neg">-9</td><td class="neu">-8</td><td>假期、降息、燃油价格缓解</td></tr>
+<tr><td>Q1 2026</td><td class="neu">-7</td><td class="neu">-6</td><td>Best since Q4 2024. 高-income improvement only</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="info-box danger">
+<div class="info-box-title">🔴 批判性见解：CCI 与零售销售的相关性</div>
+<p>CCI 低于 -15 的每个季度，零售贸易销售额都会同比收缩。 2023 年第一季度至第二季度的 CCI (-23/-25) 恰逢零售业连续 5 个月下降。随后在 2024 年第三季度恢复至-5，引发零售业反弹，2024 年在线零售同比增长 35%。 2025 年第一季度暴跌至 -20（增值税冲击）立即抑制了可自由支配的购买——“购买耐用品的时间”分类指数达到了 -28。 CCI 数据直接从宏观层面解释了 Valueco 的绩效模式。</p>
+</div>
+</section>
+ ============ 第 7 节：货币和燃料 ============ 
+<section class="section" id="currency">
+<div class="section-header">
+<span class="section-num">07</span>
+<h2 class="section-title">兰特汇率和燃油价格</h2>
+</div>
+<div class="two-col">
+<div>
+<table class="data-table">
+<thead><tr><th>时期</th><th>平均南非兰特/美元</th><th>政权</th></tr></thead>
+<tbody>
+<tr><td>2022</td><td class="neg">~R16.4</td><td>削弱</td></tr>
+<tr><td>2023</td><td class="neg">~R18.5</td><td>急剧贬值</td></tr>
+<tr><td>2024</td><td class="neg">~R18.6</td><td>选举前后波动</td></tr>
+<tr><td>Q3 2025</td><td class="neu">~R18.2</td><td>GNU 驱动的稳定性</td></tr>
+<tr><td>Q4 2025</td><td class="pos">&lt;R17.0</td><td>多年最强时期</td></tr>
+<tr><td>2026 年 4 月</td><td class="neg">~R16.6</td><td>中东冲突、油价飙升</td></tr>
+</tbody>
+</table>
+</div>
+<div>
+<table class="data-table">
+<thead><tr><th>时期</th><th>汽油 95 内陆</th><th>消费者影响</th></tr></thead>
+<tbody>
+<tr><td>2022年6月</td><td class="neg">R25.74/L</td><td>创历史新高——疼痛峰值</td></tr>
+<tr><td>2023 年平均</td><td class="neg">~R23.10/L</td><td>与新冠疫情爆发前相比仍然较高</td></tr>
+<tr><td>2024 年平均</td><td class="neg">~R23.24/L</td><td>没有真正的缓解</td></tr>
+<tr><td>2024 年 10 月</td><td class="neu">~R21.60/L</td><td>油价下跌带来一些缓解</td></tr>
+<tr><td>2025 年平均</td><td class="pos">~R21.00/L</td><td>明显缓解</td></tr>
+<tr><td>2026 年 4 月</td><td class="neg">↑ 增加</td><td>中东冲突加剧</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="info-box warn">
+<div class="info-box-title">⚠ The Fuel–通胀 Linkage</div>
+<p>南非进口原油和精炼石油产品。每贬值 1 兰特/美元，零售价就会增加大约 25-30 美分/升。 2023 年，兰特汇率为 R18.5+，加上布伦特原油价格上涨（约 80-90 美元/桶），导致燃料成本居高不下。交通费用占低收入家庭预算的 5-8%。 2024-2025 年燃油价格下调（预计与 2023 年相比每升降低 1.50-2.50 兰特）带来了有意义的可支配收入复苏，直接促进了 2025 年数据中可见的零售业复苏（同比增长 3.7%）。</p>
+</div>
+</section>
+ ============ 第 8 部分：电子商务 ============ 
+<section class="section" id="ecommerce">
+<div class="section-header">
+<span class="section-num">08</span>
+<h2 class="section-title">电子商务增长——渠道颠覆</h2>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card cyan">
+<div class="kpi-year">2022</div>
+<div class="kpi-value">R55B</div>
+<div class="kpi-label">南澳在线零售 (WWX)</div>
+<span class="kpi-delta pos">同比+35%</span>
+</div>
+<div class="kpi-card cyan">
+<div class="kpi-year">2023</div>
+<div class="kpi-value">R71B</div>
+<div class="kpi-label">南澳在线零售 (WWX)</div>
+<span class="kpi-delta pos">同比增长 29% · 占零售总额的 6%</span>
+</div>
+<div class="kpi-card cyan">
+<div class="kpi-year">2024</div>
+<div class="kpi-value">R96B</div>
+<div class="kpi-label">南澳在线零售 (WWX)</div>
+<span class="kpi-delta pos">同比+35%</span>
+</div>
+<div class="kpi-card cyan">
+<div class="kpi-year">2025F</div>
+<div class="kpi-value">~10%</div>
+<div class="kpi-label">电子商务占零售总额的份额</div>
+<span class="kpi-delta pos">WWX预测：R110B+</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">2024 手机</div>
+<div class="kpi-value">71%</div>
+<div class="kpi-label">通过智能手机进行 B2C 电子商务</div>
+<span class="kpi-delta neu">移动优先占主导地位</span>
+</div>
+</div>
+<div class="info-box">
+<div class="info-box-title">📱 关键结构转变：减载 → 在线行为链接</div>
+<p>矛盾的是，减载 <em>加速的</em> 网上购物行为。家里有逆变器/太阳能的消费者发现，即使在停电期间，他们也可以在网上购物。移动互联网保持连接。 Takealot、Checkers Sixty60 和 Pick n Pay Online 均出现激增。这是一种结构性的、永久性的行为改变。由于 ICASA 中频段频谱分配，数据资费自 2023 年以来下降了 25%，进一步促进了移动商务。南非目前拥有超过 5000 万互联网用户（2025 年）。</p>
+</div>
+</section>
+<!-- ============ SECTION 9: 竞争格局冲击 ============ -->
+<section class="section" id="disruption">
+<div class="section-header">
+<span class="section-num">09</span>
+<h2 class="section-title">竞争颠覆——Shein、Temu 和亚马逊</h2>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card red">
+<div class="kpi-year">2024</div>
+<div class="kpi-value">37.1%</div>
+<div class="kpi-label">Shein + Temu 在线 CTFL 销售额的份额</div>
+<span class="kpi-delta neg">R7.3B 合并收入</span>
+</div>
+<div class="kpi-card red">
+<div class="kpi-year">2025</div>
+<div class="kpi-value">15.3%</div>
+<div class="kpi-label">Shein + Temu 在所有在线购物中的份额</div>
+<span class="kpi-delta neg">仅竞争对手 Takealot (32%)</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">工作影响</div>
+<div class="kpi-value">8,000</div>
+<div class="kpi-label">被取代/未创造的就业岗位 (LSF)</div>
+<span class="kpi-delta neg">R960M 失去制造</span>
+</div>
+<div class="kpi-card yellow">
+<div class="kpi-year">2024年5月</div>
+<div class="kpi-value">发射</div>
+<div class="kpi-label">亚马逊 SA 上线</div>
+<span class="kpi-delta neg">杂货、电子产品、时装</span>
+</div>
+</div>
+<table class="data-table">
+<thead><tr>
+<th>平台</th><th>入口</th><th>2025 年市场份额（在线）</th><th>竞争优势</th><th>南澳零售商影响</th>
+</tr></thead>
+<tbody>
+<tr><td class="hi">塔阿洛特</td><td>2020年之前</td><td class="pos">32% #1</td><td>本地信任、回报、速度</td><td>仍占主导地位</td></tr>
+<tr><td class="hi">谢因</td><td>2020</td><td class="neg">15.1% ↑</td><td>超便宜的快时尚、病毒式社交</td><td>TFG、普莱斯先生、Truworths 热门</td></tr>
+<tr><td class="hi">特姆</td><td>2024</td><td class="neg">16.6% ↑</td><td>极严峻 discounts, broad categories</td><td>多品类本地零售商</td></tr>
+<tr><td class="hi">亚马逊公司</td><td>2024年5月</td><td class="neg">成长迅速</td><td>当天送达、信任、评论</td><td>电子产品、家居用品</td></tr>
+<tr><td class="hi">跳棋/S60</td><td>2020</td><td class="pos">16.3%</td><td>杂货速度、真空低温烹调法/等</td><td>颠覆传统杂货店</td></tr>
+</tbody>
+</table>
+<div class="info-box warn">
+<div class="info-box-title">⚠ 价格敏感性陷阱</div>
+<p>谢因和特姆有 <strong>永久重新调整消费者价格预期</strong>。一位消费者从 Shein 购买了 89 兰特的 T 恤，不会再回到当地商店支付 299 兰特。这种价格锚定效应对于 Valueco 相邻类别（家居用品、家庭用品、电子配件）尤其严重。 “像亿万富翁一样购物”的竞选心理——以超低的价格获得丰富的商品——已经重新设定了消费者对“价值”的看法。即使 SARS 于 2024 年 9 月关闭 R500 进口漏洞的增值税也未能完全扭转这一转变。</p>
+</div>
+</section>
+ ============ 第 10 节：消费者心理 ============ 
+<section class="section" id="psychology">
+<div class="section-header">
+<span class="section-num">10</span>
+<h2 class="section-title">消费者心理——2023年与2026年深度分析</h2>
+</div>
+<div class="compare-grid">
+<div class="compare-col">
+<div class="compare-year yr-a">2023 年——危机消费者</div>
+<div class="compare-item"><span class="ci-label">主要情绪</span><span class="ci-val" style="color:var(--red)">生存模式</span></div>
+<div class="compare-item"><span class="ci-label">CCI范围</span><span class="ci-val" style="color:var(--red)">-25 to -16</span></div>
+<div class="compare-item"><span class="ci-label">通胀 Felt</span><span class="ci-val" style="color:var(--red)">平均 6.1% · 峰值 7.1%</span></div>
+<div class="compare-item"><span class="ci-label">回购利率</span><span class="ci-val" style="color:var(--red)">8.25% · 优质 11.75%</span></div>
+<div class="compare-item"><span class="ci-label">停电</span><span class="ci-val" style="color:var(--red)">第六阶段 · 日常干扰</span></div>
+<div class="compare-item"><span class="ci-label">耐用品意图</span><span class="ci-val" style="color:var(--red)">CCI分类指数：-35</span></div>
+<div class="compare-item"><span class="ci-label">网上购物</span><span class="ci-val">零售额的 6% · R71B</span></div>
+<div class="compare-item"><span class="ci-label">决策驱动因素</span><span class="ci-val" style="color:var(--red)">仅限必需品</span></div>
+<div class="compare-item"><span class="ci-label">品牌忠诚度</span><span class="ci-val" style="color:var(--accent3)">迅速侵蚀</span></div>
+<div class="compare-item"><span class="ci-label">频道偏好</span><span class="ci-val">实体+早期线上</span></div>
+</div>
+<div class="compare-col col-b">
+<div class="compare-year yr-b">2026 年——谨慎乐观主义者</div>
+<div class="compare-item"><span class="ci-label">主要情绪</span><span class="ci-val" style="color:var(--accent3)">谨慎复苏</span></div>
+<div class="compare-item"><span class="ci-label">CCI范围</span><span class="ci-val" style="color:var(--accent3)">-20 至 -7（易挥发）</span></div>
+<div class="compare-item"><span class="ci-label">通胀 Felt</span><span class="ci-val" style="color:var(--green)">3.0%·21年新低</span></div>
+<div class="compare-item"><span class="ci-label">回购利率</span><span class="ci-val" style="color:var(--green)">6.75% · 优质 10.25%</span></div>
+<div class="compare-item"><span class="ci-label">停电</span><span class="ci-val" style="color:var(--green)">大部分已解决（简短返回 Q1'25）</span></div>
+<div class="compare-item"><span class="ci-label">耐用品意图</span><span class="ci-val" style="color:var(--accent3)">CCI分类指数：-28然后恢复</span></div>
+<div class="compare-item"><span class="ci-label">网上购物</span><span class="ci-val">约占零售量的 10% · R96B+</span></div>
+<div class="compare-item"><span class="ci-label">决策驱动因素</span><span class="ci-val" style="color:var(--accent3)">价值追求</span></div>
+<div class="compare-item"><span class="ci-label">品牌忠诚度</span><span class="ci-val" style="color:var(--red)">折叠 — 价格规则</span></div>
+<div class="compare-item"><span class="ci-label">频道偏好</span><span class="ci-val" style="color:var(--accent)">移动优先数字主导</span></div>
+</div>
+</div>
+<h3 style="font-family:'DM Serif Display',serif; font-size:22px; color:var(--text-bright); margin:32px 0 20px;">关键的心理转变——因素分析</h3>
+<div class="psych-factor">
+<div>
+<div class="psych-factor-name">永久价格重置</div>
+<div class="psych-factor-cat">行为经济学</div>
+</div>
+<div class="psych-impact">Shein/Temu的超低定价永久重置了消费者的内部价格参考。以低于当地零售价 70% 的价格购买产品后，锚定偏差会阻止返回到“完整”当地价格。这不仅仅是一种趋势，也是当地零售商无法轻易逆转的价格认知的结构性调整。加上通货膨胀侵蚀的储蓄，2026 年的消费者是南澳零售史上对价格最敏感的消费者。</div>
+<div class="psych-score-wrap"><div class="psych-score high">9/10</div><div class="psych-score-label">影响严重程度</div></div>
+</div>
+<div class="psych-factor">
+<div>
+<div class="psych-factor-name">创伤后的节俭</div>
+<div class="psych-factor-cat">危机后心理学</div>
+</div>
+<div class="psych-impact">2022年至2023年的经济三重冲击（通货膨胀+加息+减负荷）造成了持久的行为创伤。即使 2025 年至 2026 年宏观环境有所改善，消费者也会表现出“创伤后的节俭”——保持储蓄第一的行为，推迟大额购买，即使理论上他们可以买得起更多东西，但他们也会购买有价值的东西。即使总体 CCI 恢复，耐用品 CCI 分类指数仍为负值，这一点可见一斑。</div>
+<div class="psych-score-wrap"><div class="psych-score high">8/10</div><div class="psych-score-label">影响严重程度</div></div>
+</div>
+<div class="psych-factor">
+<div>
+<div class="psych-factor-name">数字诞生加速</div>
+<div class="psych-factor-cat">渠道行为</div>
+</div>
+<div class="psych-impact">自相矛盾的是，减电创造了一批永久的在线购物者，他们出于必要而发现了这个渠道（在减电期间在手机上购物）。该队列不会恢复。 5000 万以上的互联网用户、71% 的移动商务份额以及 2024 年的 R96B 在线零售市场代表了一个根本不同的分销格局。 2026 年的消费者在做出购买决定之前会比较 Takealot、亚马逊、Shein、Temu 和实体店的价格。</div>
+<div class="psych-score-wrap"><div class="psych-score high">9/10</div><div class="psych-score-label">影响严重程度</div></div>
+</div>
+<div class="psych-factor">
+<div>
+<div class="psych-factor-name">线段分叉</div>
+<div class="psych-factor-cat">收入分层</div>
+</div>
+<div class="psych-impact">2026 年的消费市场将出现两极分化：高收入家庭（每月收入 4 万兰特以上）正在复苏——2024 年提取 40 兰特的两罐养老金导致支出激增，而降息则改善了他们的抵押贷款成本。与此同时，低收入家庭将在 2025 年面临持续失业、储蓄减少和两罐提款减少等问题。2026 年第一季度 FNB/BER CCI 显示高收入信心恢复至 2024 年第四季度以来的最高水平，而低收入信心则恢复至 2024 年第四季度以来的最高水平。 <em>恶化的</em> 更远。</div>
+<div class="psych-score-wrap"><div class="psych-score med">7/10</div><div class="psych-score-label">影响严重程度</div></div>
+</div>
+<div class="psych-factor">
+<div>
+<div class="psych-factor-name">信任碎片化</div>
+<div class="psych-factor-cat">品牌动态</div>
+</div>
+<div class="psych-impact">选择的激增（Takealot、Amazon、Temu、Shein、Bash、Sixty60）导致品牌忠诚度支离破碎。 2026 年 SA 消费者默认是全渠道的——他们比较、等待、优化。 27% 的南非在线购物者“比较各个网站的价格，并愿意等待更低的价格”（Vishakha，2024 年）。任何单一零售商的忠实回头客的概念已经从根本上减弱。这对任何实体优先零售商的重复购买模式都是结构性威胁。</div>
+<div class="psych-score-wrap"><div class="psych-score high">8/10</div><div class="psych-score-label">影响严重程度</div></div>
+</div>
+</section>
+ ============ 第 11 节：判决 ============ 
+<section class="section" id="verdicts">
+<div class="section-header">
+<span class="section-num">11</span>
+<h2 class="section-title">External Data Verdicts — 确认 Factors for Sales Decline</h2>
+</div>
+<div class="verdict-card">
+<div class="verdict-title">结论 1：2023 年的危机是一场完美风暴</div>
+<div class="verdict-body">The external data confirms that 2023 was objectively the most hostile retail environment since 2020 (COVID). CCI at -25 (2nd worst since 1994). Load shedding cost the economy R2.8T and retailers hundreds of millions directly in diesel, food waste, and lost footfall. 通胀 at 6%+. Interest rates at 14-year highs. Any retail business that maintained even flat sales in 2023 was outperforming the macro environment.</div>
+</div>
+<div class="verdict-card">
+<div class="verdict-title">结论2：电子商务是结构性再分配，而不是循环</div>
+<div class="verdict-body">2023 年在线零售增长 29%，2024 年增长 35%，而实体零售则出现萎缩。渠道转变是永久性的并且正在加速。到 2025 年，南非零售业的在线渗透率将超过 10%。无论宏观经济如何复苏，没有可靠数字渠道的企业都将面临结构性销量侵蚀。仅 Shein 和 Temu 就占据了在线服装市场 37% 的份额——仅靠价格匹配无法挽回这一局面。</div>
+</div>
+<div class="verdict-card">
+<div class="verdict-title">结论3：2025-2026年是恢复期，但存在结构性伤痕</div>
+<div class="verdict-body">宏观环境确实有所改善：通胀率为3%，回购利率为6.75%，电力稳定，GNU情绪积极，2025年零售额增长3.7%。然而，消费者心理受到持久损害——价格敏感性升高，数字比较购物成为默认行为，品牌忠诚度崩溃，收入分化意味着复苏不平衡。企业需要针对 LSM 5-7（追求价值、价格锚定）与 LSM 8-10（追求质量/便利、恢复信心）采取不同的策略。</div>
+</div>
+<div class="verdict-card">
+<div class="verdict-title">结论 4：全球竞争重置是永久性的</div>
+<div class="verdict-body">Amazon、Shein、Temu 和 Bash 并不是暂时的干扰。它们代表了具有根本不同的成本结构（全球规模、物流优势、算法定价）的永久性结构性竞争。当地零售商必须在信任、速度、服务和当地知识上竞争，而不是在价格上竞争。 SARS 的监管干预（对低于 500 兰特的进口商品征收增值税）在一定程度上创造了公平的竞争环境，但消费者心理的转变已经完成。价格锚已经移动。</div>
+</div>
+</section>
+</div> /容器 
+<footer>
+<div class="ft-left">
+<div>外部数据分析报告·Valueco战略情报</div>
+<div style="margin-top:4px">Data: 南非统计局 · 南非储备银行 · FNB/BER · World Wide Worx · CSIR · LSF · Trading Economics · 2026年4月</div>
+<div style="margin-top:8px"><a href="main_report.html" style="color:var(--accent); text-decoration:none; font-weight:600">← 返回主要销售分析报告</a></div>
+</div>
+<div class="ft-brand">瓦卢科</div>
+</footer>
+</body>
+</html>

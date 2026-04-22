@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络与门店绩效分析</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #Fdfbf7;
+            --surface: #ffffff;
+            --surface-light: #f5f2eb;
+            --accent: #8b4513;
+            --text-primary: #2b2824;
+            --text-secondary: #6e675e;
+            --border: #e6e2d8;
+            --valueco-red: #e31e24;
+            --radius: 6px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 24px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        header h1 { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--valueco-red); }
+        .subtitle { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+
+        .filter-bar {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .filter-bar select {
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        th {
+            padding: 16px;
+            background: var(--surface-light);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover { background: var(--border); }
+
+        th::after { content: ' \2195'; opacity: 0.2; font-size: 0.8rem; margin-left: 4px; }
+        th.asc::after { content: ' \2191'; opacity: 1; color: var(--accent); }
+        th.desc::after { content: ' \2193'; opacity: 1; color: var(--accent); }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        tr:hover td { background: var(--surface-light); }
+
+        .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .neg { color: #a64b2a; font-weight: 600; }
+        .pos { color: #4b7a47; font-weight: 600; }
+        .bold { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>网络与门店绩效分析</h1>
+            <p class="subtitle">2023年第一季度 vs 2026年第一季度（两类门店的命运对比）</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="filter-bar">
+            <label><strong>筛选门店类型：</strong></label>
+            <select id="typeFilter" onchange="applyFilters()">
+                <option value="ALL">所有门店</option>
+                <option value="VC (Original)">VC（原始）仅</option>
+                <option value="VCL (Acquired)">VCL（收购）仅</option>
+            </select>
+        </div>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th data-key="storeCode">门店</th>
+                    <th data-key="storeType">类型</th>
+                    <th class="num" data-key="sales2023">2023年Q1销售额</th>
+                    <th class="num" data-key="sales2026">2026年Q1销售额</th>
+                    <th class="num" data-key="sales_var_pct">销售额差异%</th>
+                    <th class="num" data-key="atv_2023">客单价'23</th>
+                    <th class="num" data-key="atv_2026">客单价'26</th>
+                    <th class="num" data-key="conv_2023">转化率'23</th>
+                    <th class="num" data-key="conv_2026">转化率'26</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+    </div>
+
+<script src="data.js"></script>
+<script>
+    let filteredData = [];
+    let sortConfig = { key: 'sales2026', direction: 'desc' };
+
+    function loadData() {
+        if (typeof window_storeData === 'undefined') return;
+        applyFilters();
+
+        document.querySelectorAll('th[data-key]').forEach(th => {
+            th.addEventListener('click', () => {
+                const key = th.getAttribute('data-key');
+                if (sortConfig.key === key) {
+                    sortConfig.direction = sortConfig.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    sortConfig.key = key;
+                    sortConfig.direction = 'desc';
+                }
+                renderTable();
+            });
+        });
+    }
+
+    function applyFilters() {
+        const typeVal = document.getElementById('typeFilter').value;
+        filteredData = window_storeData;
+
+        if (typeVal !== 'ALL') {
+            filteredData = filteredData.filter(d => d.storeType === typeVal);
+        }
+
+        renderTable();
+    }
+
+    function renderTable() {
+        const key = sortConfig.key;
+        const dir = sortConfig.direction === 'asc' ? 1 : -1;
+
+        filteredData.sort((a, b) => {
+            let valA = a[key];
+            let valB = b[key];
+            if (typeof valA === 'string') valA = valA.toLowerCase();
+            if (typeof valB === 'string') valB = valB.toLowerCase();
+            if (valA < valB) return -1 * dir;
+            if (valA > valB) return 1 * dir;
+            return 0;
+        });
+
+        document.querySelectorAll('th').forEach(th => {
+            th.classList.remove('asc', 'desc');
+            if (th.getAttribute('data-key') === key) {
+                th.classList.add(sortConfig.direction);
+            }
+        });
+
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+
+        filteredData.forEach(row => {
+            const tr = document.createElement('tr');
+
+            const varStr = (row.sales_var_pct > 0 ? '+' : '') + row.sales_var_pct.toFixed(1) + '%';
+            let varClass = '';
+            if (row.sales2023 > 0) {
+                 varClass = row.sales_var_pct < 0 ? 'neg' : (row.sales_var_pct > 0 ? 'pos' : '');
+            } else {
+                 varClass = 'pos'; // New store
+            }
+
+            tr.innerHTML = `
+                <td><strong title="${row.storeName}">${row.storeCode}</strong></td>
+                <td>${row.storeType}</td>
+                <td class="num">R${row.sales2023.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                <td class="num bold">R${row.sales2026.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                <td class="num ${varClass}">${row.sales2023 === 0 ? 'N/A' : varStr}</td>
+                <td class="num">R${row.atv_2023.toFixed(2)}</td>
+                <td class="num">R${row.atv_2026.toFixed(2)}</td>
+                <td class="num">${row.conv_2023 > 0 ? row.conv_2023.toFixed(1) + '%' : '-'}</td>
+                <td class="num">${row.conv_2026 > 0 ? row.conv_2026.toFixed(1) + '%' : '-'}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    window.onload = loadData;
+</script>
+</body>
+</html>

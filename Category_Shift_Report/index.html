@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Category Shift Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #Fdfbf7;
+            --surface: #ffffff;
+            --surface-light: #f5f2eb;
+            --accent: #8b4513;
+            --text-primary: #2b2824;
+            --text-secondary: #6e675e;
+            --border: #e6e2d8;
+            --valueco-red: #e31e24;
+            --radius: 6px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Nunito', system-ui, sans-serif; 
+            background: var(--bg); 
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 24px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        header h1 { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--valueco-red); }
+        .subtitle { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .box {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        
+        .box h3 { margin-bottom: 15px; color: var(--text-secondary); }
+        
+        .mix-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .mix-stat {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mix-val { font-size: 2.5rem; font-weight: bold; color: var(--valueco-red); }
+        .mix-lbl { font-size: 0.85rem; text-transform: uppercase; color: var(--text-secondary); font-weight: bold; }
+
+        .filter-bar {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .filter-bar select {
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: var(--surface);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        th { 
+            padding: 16px; 
+            background: var(--surface-light);
+            color: var(--text-secondary); 
+            font-size: 0.8rem; 
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover { background: var(--border); }
+        th::after { content: ' \2195'; opacity: 0.2; font-size: 0.8rem; margin-left: 4px; }
+        th.asc::after { content: ' \2191'; opacity: 1; color: var(--accent); }
+        th.desc::after { content: ' \2193'; opacity: 1; color: var(--accent); }
+
+        td { 
+            padding: 16px; 
+            border-bottom: 1px solid var(--border); 
+            font-size: 0.9rem; 
+        }
+
+        tr:hover td { background: var(--surface-light); }
+
+        .num { text-align: right; font-variant-numeric: tabular-nums; }
+        .neg { color: #a64b2a; font-weight: 600; }
+        .pos { color: #4b7a47; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Macro Category Shift Analysis</h1>
+            <p class="subtitle">Lifestyle vs. Utility Pivot (Q1 2023 vs Q1 2026)</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="grid" id="mixGrid">
+            <!-- Populated via JS -->
+        </div>
+
+        <div class="filter-bar">
+            <label><strong>Filter Category:</strong></label>
+            <select id="catFilter" onchange="applyFilters()">
+                <option value="ALL">All Categories</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Utility">Utility</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th data-key="deptName">Department</th>
+                    <th data-key="category">Category</th>
+                    <th class="num" data-key="sales2023">Q1 2023 Sales</th>
+                    <th class="num" data-key="sales2026">Q1 2026 Sales</th>
+                    <th class="num" data-key="variance">Sales Variance</th>
+                    <th class="num" data-key="variance_pct">Var %</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+    </div>
+
+<script src="data.js"></script>
+<script>
+    let filteredData = [];
+    let sortConfig = { key: 'variance', direction: 'asc' };
+
+    function loadData() {
+        if (typeof window_categoryData === 'undefined') return;
+        
+        let totalSales23 = 0, totalSales26 = 0;
+        let lifeSales23 = 0, lifeSales26 = 0;
+        let utilSales23 = 0, utilSales26 = 0;
+        
+        window_categoryData.forEach(d => {
+            totalSales23 += d.sales2023;
+            totalSales26 += d.sales2026;
+            if (d.category === 'Lifestyle') {
+                lifeSales23 += d.sales2023;
+                lifeSales26 += d.sales2026;
+            } else if (d.category === 'Utility') {
+                utilSales23 += d.sales2023;
+                utilSales26 += d.sales2026;
+            }
+        });
+        
+        const lifeMix23 = totalSales23 > 0 ? (lifeSales23 / totalSales23) * 100 : 0;
+        const lifeMix26 = totalSales26 > 0 ? (lifeSales26 / totalSales26) * 100 : 0;
+        const utilMix23 = totalSales23 > 0 ? (utilSales23 / totalSales23) * 100 : 0;
+        const utilMix26 = totalSales26 > 0 ? (utilSales26 / totalSales26) * 100 : 0;
+        
+        document.getElementById('mixGrid').innerHTML = `
+            <div class="box">
+                <h3>Lifestyle Mix</h3>
+                <div class="mix-container">
+                    <div class="mix-stat">
+                        <span class="mix-val">${lifeMix23.toFixed(1)}%</span>
+                        <span class="mix-lbl">Q1 2023</span>
+                    </div>
+                    <div class="mix-stat">
+                        <span class="mix-val" style="color: #a64b2a;">${lifeMix26.toFixed(1)}%</span>
+                        <span class="mix-lbl">Q1 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Utility Mix</h3>
+                <div class="mix-container">
+                    <div class="mix-stat">
+                        <span class="mix-val">${utilMix23.toFixed(1)}%</span>
+                        <span class="mix-lbl">Q1 2023</span>
+                    </div>
+                    <div class="mix-stat">
+                        <span class="mix-val" style="color: #4b7a47;">${utilMix26.toFixed(1)}%</span>
+                        <span class="mix-lbl">Q1 2026</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        applyFilters();
+        
+        document.querySelectorAll('th[data-key]').forEach(th => {
+            th.addEventListener('click', () => {
+                const key = th.getAttribute('data-key');
+                if (sortConfig.key === key) {
+                    sortConfig.direction = sortConfig.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    sortConfig.key = key;
+                    sortConfig.direction = (key === 'deptName' || key === 'category') ? 'asc' : 'desc';
+                }
+                renderTable();
+            });
+        });
+    }
+
+    function applyFilters() {
+        const catVal = document.getElementById('catFilter').value;
+        filteredData = window_categoryData.map(d => {
+            const variance = d.sales2026 - d.sales2023;
+            const variance_pct = d.sales2023 > 0 ? (variance / d.sales2023) * 100 : (d.sales2026 > 0 ? 100 : 0);
+            return {...d, variance, variance_pct};
+        });
+        
+        if (catVal !== 'ALL') {
+            filteredData = filteredData.filter(d => d.category === catVal);
+        }
+        
+        renderTable();
+    }
+
+    function renderTable() {
+        const key = sortConfig.key;
+        const dir = sortConfig.direction === 'asc' ? 1 : -1;
+
+        filteredData.sort((a, b) => {
+            let valA = a[key];
+            let valB = b[key];
+            if (typeof valA === 'string') valA = valA.toLowerCase();
+            if (typeof valB === 'string') valB = valB.toLowerCase();
+            if (valA < valB) return -1 * dir;
+            if (valA > valB) return 1 * dir;
+            return 0;
+        });
+
+        document.querySelectorAll('th').forEach(th => {
+            th.classList.remove('asc', 'desc');
+            if (th.getAttribute('data-key') === key) {
+                th.classList.add(sortConfig.direction);
+            }
+        });
+
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+
+        filteredData.forEach(row => {
+            const tr = document.createElement('tr');
+            
+            const varStr = (row.variance > 0 ? '+' : '') + 'R' + Math.abs(row.variance).toLocaleString(undefined, {maximumFractionDigits:0});
+            const varPctStr = (row.variance_pct > 0 ? '+' : '') + row.variance_pct.toFixed(1) + '%';
+            const varClass = row.variance < 0 ? 'neg' : (row.variance > 0 ? 'pos' : '');
+
+            tr.innerHTML = `
+                <td><strong>${row.deptName}</strong></td>
+                <td>${row.category}</td>
+                <td class="num">R${row.sales2023.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                <td class="num">R${row.sales2026.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+                <td class="num ${varClass}">${varStr}</td>
+                <td class="num ${varClass}">${row.sales2023 === 0 ? 'N/A' : varPctStr}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    window.onload = loadData;
+</script>
+</body>
+</html>
