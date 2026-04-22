@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ValueCo · 战略绩效审计 | 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Source+Sans+3:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface2: #f5f3ef;
+    --border: #e5e0d8;
+    --ink: #1a1a16;
+    --ink-bg: #1a1a16;
+    --ink2: #4a4a42;
+    --ink3: #8a8a7e;
+    --accent: #c44a1a;
+    --accent2: #1a5c8a;
+    --accent3: #1a7a3a;
+    --gold: #c88a1a;
+    --red: #c44a1a;
+    --blue: #1a5c8a;
+    --green: #1a7a3a;
+    --yellow: #ffde00;
+    --brown: #2a1b15;
+    --light-red: #fdf2ef;
+    --light-blue: #eff4f8;
+    --light-green: #eff6f1;
+    --light-yellow: #fdf7ef;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    color: white;
+    padding: 0;
+    display: flex;
+  }
+  .masthead-left {
+    background: var(--accent);
+    padding: 50px 40px;
+    width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .masthead-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    letter-spacing: -1px;
+    color: white;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .masthead-brand span { font-style: italic; color: var(--yellow); }
+  .masthead-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .masthead-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+  .masthead-right {
+    flex: 1;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .report-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--yellow);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  h1.main-title em { color: var(--yellow); font-style: italic; }
+  .main-lead {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  /* NAV */
+  .report-nav {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0 60px;
+    display: flex;
+    overflow-x: auto;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .report-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink3);
+    text-decoration: none;
+    padding: 16px 20px;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+  .report-nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* LAYOUT */
+  .container { max-width: 1300px; margin: 0 auto; padding: 50px 60px; }
+  .section { margin-bottom: 80px; }
+
+  /* SECTION HEADERS */
+  .section-header { margin-bottom: 36px; }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .section-lead {
+    font-size: 16px;
+    color: var(--ink2);
+    max-width: 800px;
+  }
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0 36px;
+  }
+
+  /* KPI ROW */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .kpi-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    border-top: 4px solid var(--border);
+  }
+  .kpi-block.red { border-top-color: var(--red); }
+  .kpi-block.blue { border-top-color: var(--blue); }
+  .kpi-block.green { border-top-color: var(--green); }
+  .kpi-block.gold { border-top-color: var(--gold); }
+  .kpi-block-label { font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
+  .kpi-block-value { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+  .kpi-block-sub { font-size: 12px; color: var(--ink2); }
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .badge.neg { background: var(--red); color: white; }
+  .badge.pos { background: var(--green); color: white; }
+  .badge.neu { background: var(--gold); color: white; }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background: var(--light-blue);
+    border-left: 4px solid var(--blue);
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .insight.warn { background: var(--light-yellow); border-color: var(--gold); }
+  .insight.danger { background: var(--light-red); border-color: var(--red); }
+  .insight.success { background: var(--light-green); border-color: var(--green); }
+  .insight-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .insight.warn .insight-label { color: var(--gold); }
+  .insight.danger .insight-label { color: var(--red); }
+  .insight.success .insight-label { color: var(--green); }
+  .insight p { font-size: 14px; line-height: 1.7; color: var(--ink2); }
+
+  /* TABLES */
+  .cmp-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .cmp-table th {
+    background: var(--ink);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .cmp-table td {
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--ink2);
+  }
+  .cmp-table td:first-child { color: var(--ink); font-weight: 600; background: var(--surface2); }
+  .cmp-table .neg { color: var(--accent); font-weight: 600; }
+  .cmp-table .pos { color: var(--green); font-weight: 600; }
+
+  /* TIMELINE */
+  .rt-text li { margin-bottom: 6px; }
+
+  /* TIMELINE — HORIZONTAL */
+  .report-timeline-h {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .report-timeline-h::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    z-index: 0;
+  }
+  .rt-h-item { position: relative; z-index: 1; }
+  .rt-h-item::before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 33px auto 16px;
+    border: 3px solid var(--ink-bg);
+  }
+  .rt-h-item.neutral::before { background: rgba(255,255,255,0.3); }
+  .rt-h-item.red::before { background: var(--accent); }
+  .rt-h-item.gold::before { background: var(--gold); }
+  .rt-h-item.blue::before { background: var(--blue); }
+  .rt-h-item.green::before { background: var(--green); }
+  .rt-h-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 0 8px;
+    margin-bottom: 10px;
+  }
+  .rt-h-text {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .rt-h-text strong { color: rgba(255,255,255,0.85); }
+
+  /* TIMELINE — VERTICAL */
+  .report-timeline { position: relative; padding-left: 28px; margin-top: 30px; margin-bottom: 40px; }
+  .report-timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--border); }
+  .rt-item { position:relative; margin-bottom:24px; }
+  .rt-item::before {
+    content:''; position:absolute; left:-24px; top:6px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--bg);
+  }
+  .rt-item.blue::before { background:var(--blue); }
+  .rt-item.gold::before { background:var(--gold); }
+  .rt-item.green::before { background:var(--green); }
+  .rt-date { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink3); margin-bottom:3px; letter-spacing:1px; }
+  .rt-text { font-size:14px; color:var(--ink2); }
+  .rt-text strong { color:var(--ink); }
+  .rt-h-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.08);
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 2;
+  }
+
+  /* WHY CARDS (FOR FINDINGS) */
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .why-header {
+    display: flex; align-items: center; gap: 0;
+  }
+  .why-num {
+    background: var(--ink);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 24px;
+    min-width: 70px;
+    text-align: center;
+  }
+  .why-num.red { background: var(--red); }
+  .why-num.blue { background: var(--blue); }
+  .why-num.gold { background: var(--gold); }
+  .why-num.green { background: var(--green); }
+  .why-title-wrap { flex:1; padding: 20px 24px; }
+  .why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .why-subtitle { font-size: 12px; color: var(--ink3); font-style: italic; }
+  .why-body { padding: 0 24px 24px 70px; }
+  .why-body p { margin-bottom: 12px; font-size: 14px; line-height: 1.8; color: var(--ink2); }
+  .why-body strong { color: var(--ink); }
+  .five-whys-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .five-why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .five-why-card .source-row { padding: 0 24px 20px 70px; }
+  #five-whys .source-tag { background: var(--surface2); border-color: var(--border); color: var(--ink3); }
+  #five-whys .source-tag.claude { background: var(--light-blue); color: var(--blue); border-color: var(--blue); }
+  #five-whys .source-tag.deepseek { background: #fde8df; color: var(--accent); border-color: var(--accent); }
+  #five-whys .source-tag.gpt { background: var(--light-green); color: var(--green); border-color: var(--green); }
+  #five-whys .source-tag.minimax { background: var(--light-yellow); color: var(--gold); border-color: var(--gold); }
+
+  /* OLD WHY CARDS (FOR ROOT CAUSE) */
+  .why-card-alt {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding: 24px;
+    border-left: 4px solid var(--accent);
+  }
+  .why-card-alt.blue { border-left-color: var(--blue); }
+  .why-card-alt.gold { border-left-color: var(--gold); }
+  .why-card-alt.green { border-left-color: var(--green); }
+  .why-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .why-block { margin-bottom: 12px; }
+  .why-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px; }
+  .why-content { font-size: 14px; color: var(--ink2); }
+  .why-content strong { color: var(--ink); }
+
+  /* PSYCH TABLE */
+  .psych-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  .psych-table th {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .psych-table td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); }
+  .psych-table td:first-child { color: rgba(255,255,255,0.9); font-weight: 600; background: rgba(255,255,255,0.04); }
+  .psych-table td.neg { color: #ff8a7a; font-weight: 600; }
+  .psych-table tr:last-child td { border-bottom: none; }
+
+  /* CCI CHART */
+  .cci-chart-wrap {
+    margin: 28px 0;
+    background: #1a1a16;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .cci-chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 16px;
+  }
+  .cci-bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 140px; padding-top: 10px; }
+  .cci-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+  .cci-bar { width: 100%; max-width: 60px; border-radius: 3px 3px 0 0; transition: opacity 0.2s; }
+  .cci-bar:hover { opacity: 0.8; }
+  .cci-bar.negative { background: linear-gradient(180deg, #e84040, #a02020); }
+  .cci-bar.positive { background: linear-gradient(180deg, #3a9a5a, #1a6a3a); }
+  .cci-bar.zero { background: rgba(255,255,255,0.15); }
+  .cci-bar-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.5); text-align: center; white-space: nowrap; }
+  .cci-bar-value { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85); }
+  .cci-zero-line { border-top: 1px dashed rgba(255,255,255,0.25); width: 100%; margin-bottom: 4px; }
+  .cci-legend { display: flex; gap: 20px; margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.5); font-family: 'JetBrains Mono', monospace; }
+  .cci-legend span::before { content: '■ '; font-size: 8px; }
+  .cci-legend .neg-leg::before { color: #e84040; }
+  .cci-legend .pos-leg::before { color: #3a9a5a; }
+
+  /* STRATEGY CARDS */
+  .strat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .strat-grid { grid-template-columns: 1fr; } }
+  .strat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    border-top: 5px solid var(--border);
+  }
+  .strat-card.green { border-top-color: var(--green); }
+  .strat-card.blue { border-top-color: var(--blue); }
+  .strat-card.gold { border-top-color: var(--gold); }
+  .strat-card.red { border-top-color: var(--accent); }
+  .strat-card.yellow { border-top-color: var(--yellow); }
+  .strat-num {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .strat-num.red { background: var(--accent); }
+  .strat-num.blue { background: var(--blue); }
+  .strat-num.green { background: var(--green); }
+  .strat-num.gold { background: var(--gold); }
+  .strat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .strat-body { font-size: 13px; color: #1a1a16; line-height: 1.7; }
+  .strat-body ul { padding-left: 18px; }
+  .strat-body li { margin-bottom: 7px; }
+  .strat-extra {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink3);
+  }
+  .strat-extra strong { color: var(--ink); font-size: 12px; display: block; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.5px; }
+  .strat-extra ul { padding-left: 18px; }
+  .strat-extra li { margin-bottom: 6px; }
+
+  /* EXTERNAL INTELLIGENCE - CONSOLIDATED SECTION (BROWN) */
+  .ext-section {
+    margin: 0 0 60px;
+    padding: 40px 60px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ext-section .section-eyebrow { color: var(--ink3); }
+  .ext-section h2.section-title { color: var(--ink); }
+  .ext-section .section-lead { color: var(--ink2); }
+  .ext-section .kpi-block { background: var(--surface); }
+  .ext-section .kpi-block-label { color: var(--ink3); }
+  .ext-section .kpi-block-value { color: var(--ink); }
+  .ext-section .kpi-block-sub { color: var(--ink2); }
+  .ext-section .badge { color: white; }
+  .ext-section .badge.pos { background: var(--green); }
+  .ext-section .badge.neg { background: var(--accent); }
+  .ext-section .badge.neu { background: var(--gold); }
+  .ext-section .source-row { padding: 12px 0 4px; }
+  .ext-section .source-tag { background: var(--surface2); border-color: var(--border); color: var(--ink3); }
+  .ext-section .source-tag.claude { background: var(--light-blue); color: var(--blue); border-color: var(--blue); }
+  .ext-section .source-tag.deepseek { background: #fde8df; color: var(--accent); border-color: var(--accent); }
+  .ext-section .source-tag.gpt { background: var(--light-green); color: var(--green); border-color: var(--green); }
+  .ext-section .source-tag.minimax { background: var(--light-yellow); color: var(--gold); border-color: var(--gold); }
+  .ext-section .why-card { background: var(--surface); border-color: var(--border); }
+  .ext-section .why-num { color: white; }
+  .ext-section .why-title { color: var(--ink); }
+  .ext-section .why-subtitle { color: var(--ink3); }
+  .ext-section .why-body { color: var(--ink2); }
+  .ext-section .why-body strong { color: var(--ink); }
+  .ext-section .insight { background: var(--surface); border-color: var(--border); }
+  .ext-section .insight.dark { background: var(--ink-bg); border-color: var(--gold); }
+  .ext-section .insight.dark .insight-label { color: #d4a520; }
+  .ext-section .insight.dark p { color: rgba(255,255,255,0.85); }
+  .ext-section .insight.dark strong { color: white; }
+  .insight.dark { background: #1a1a16; border-left: 4px solid #d4a520; }
+  .insight.dark .insight-label { color: #d4a520; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+  .insight.dark p { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.7; }
+  .ext-section .insight-label { color: var(--ink); }
+  .ext-section .insight p { color: var(--ink2); }
+  .ext-section .insight.warn { background: var(--light-yellow); border-color: var(--gold); }
+  .ext-section .insight.warn .insight-label { color: var(--gold); }
+  .ext-section .classified-num { background: var(--surface2); color: var(--ink3); }
+  .ext-section .classified-title { color: var(--ink); }
+  .ext-section .classified-body { color: var(--ink2); }
+  .ext-section .classified-item.gold { background: var(--surface); border-color: var(--gold); }
+  .ext-section .classified-item.red { background: var(--surface); border-color: var(--accent); }
+  .ext-section .classified-item.blue { background: var(--surface); border-color: var(--blue); }
+  .ext-section .classified-item.green { background: var(--surface); border-color: var(--green); }
+  .ext-section .src-row { padding-top: 8px; }
+  .ext-section .src-tag { background: var(--surface2); color: var(--ink3); }
+  .ext-section .src-tag.deepseek { background: #fde8df; color: var(--accent); }
+  .ext-section .src-tag.gpt { background: var(--light-green); color: var(--green); }
+  .ext-section .src-tag.minimax { background: var(--light-yellow); color: var(--gold); }
+  .ext-section .src-tag.claude { background: var(--light-blue); color: var(--blue); }
+  .ext-section .classified-grid { gap: 16px; }
+  .ext-section .method-card { background: var(--surface); border-color: var(--border); color: var(--ink); }
+  .ext-section .method-icon { background: var(--surface2); }
+  .ext-section .method-name { color: var(--ink); }
+  .ext-section .method-desc { color: var(--ink2); }
+  .ext-section .tl-strip { background: var(--surface2); border-color: var(--border); }
+  .ext-section .tl-title { color: var(--ink3); }
+  .ext-section .tl-col { border-right-color: var(--border); }
+  .ext-section .tl-year { color: var(--ink); font-weight: 700; }
+  .ext-section .tl-events { color: var(--ink2); }
+  .ext-section .econ-table th { background: var(--surface2); color: var(--ink3); }
+  .ext-section .econ-table td { color: var(--ink2); border-bottom-color: var(--border); }
+  .ext-section .econ-table td:first-child { color: var(--ink); }
+  .ext-section .econ-table .neg { color: var(--accent); }
+  .ext-section .econ-table .pos { color: var(--green); }
+  .ext-section .econ-table .neu { color: var(--gold); }
+  .ext-section .cmp-table th { background: var(--surface2); color: var(--ink3); }
+  .ext-section .cmp-table td { color: var(--ink2); border-bottom-color: var(--border); }
+  .ext-section .cmp-table td:first-child { color: var(--ink); font-weight: 600; }
+  .ext-section .cmp-table td.neg { color: var(--accent); }
+  .ext-section .cmp-table td.pos { color: var(--green); }
+  .ext-section .cmp-table td.neu { color: var(--gold); }
+
+  /* SOURCE TAGS */
+  .source-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .source-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .source-tag.claude { background: rgba(26,92,138,0.3); color: #7ab8e0; border: 1px solid rgba(122,184,224,0.3); }
+  .source-tag.deepseek { background: rgba(196,74,26,0.3); color: #e09070; border: 1px solid rgba(224,144,112,0.3); }
+  .source-tag.gpt { background: rgba(26,122,58,0.3); color: #7ad49e; border: 1px solid rgba(122,212,158,0.3); }
+  .source-tag.minimax { background: rgba(200,138,26,0.3); color: #e0c07a; border: 1px solid rgba(224,192,122,0.3); }
+
+  /* ECONOMIC DATA TABLE */
+  /* Base .econ-table styles removed - table uses .cmp-table styles when in light-background sections.
+     .ext-section .econ-table overrides (lines 569-574) apply when table is inside .ext-section (dark bg). */
+
+  /* METHODOLOGY BLOCK */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+  }
+  .method-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    text-align: center;
+  }
+  .method-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 12px;
+    display: block;
+    color: var(--accent);
+  }
+  .method-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .method-desc {
+    font-size: 12px;
+    color: var(--ink2);
+    line-height: 1.6;
+  }
+
+  footer {
+    background: var(--ink);
+    color: white;
+    padding: 60px;
+    text-align: center;
+  }
+  footer a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .masthead { flex-direction: column; }
+    .masthead-left { width: 100%; }
+    .strat-grid { grid-template-columns: 1fr; }
+    .ext-section { padding: 40px 24px; margin: 0 0 60px; max-width: 100%; }
+    .container { padding: 40px 24px; }
+    .method-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+<div class="masthead-left">
+<div class="masthead-brand">价值<span>CO</span></div>
+<div class="masthead-tagline">零售情报单元</div>
+<div class="masthead-meta">
+      报告日期：2026年4月21日<br/>
+      状态：最终版 — 战略指导报告<br/>
+      参考：2023年Q1 vs 2026年Q1<br/>
+      领导：营销和会员<br/>
+<br/>
+      外部情报：5个AI智能体<br/>
+      克劳德 · DeepSeek · GPT · Minimax · Gemini
+    </div>
+</div>
+<div class="masthead-right">
+<div class="report-label">执行绩效审计</div>
+<h1 class="main-title">价值协同绩效审计：<br/><em>VCL结构性</em><br/>&amp; VC危机</h1>
+<p class="main-lead">融合Q1内部销售数据与来自4个AI智能体统筹的外部宏观经济情报，诊断收入侵蚀并提出多阶段战略调整方案。</p>
+</div>
+</header>
+<nav class="report-nav">
+<a href="#executive">执行摘要</a>
+<a href="#vcl-collapse">VCL表现</a>
+<a href="#external-intel">外部情报</a>
+<a href="#timeline">危机时间线</a>
+<a href="#why-decline">销售下滑原因</a>
+<a href="#structural-shift">结构性危机</a>
+<a href="#psychology">行为经济学</a>
+<a href="#five-whys">五个为什么</a>
+<a href="#strategy">战略应对</a>
+<a href="#reports-sources">报告和来源</a>
+</nav>
+<div class="container">
+ 前摘要 
+<section class="section" id="executive">
+<div class="section-header">
+<div class="section-eyebrow">诊断概览</div>
+<h2 class="section-title">执行摘要</h2>
+<div class="section-lead">ValueCo面临双重结构性危机：原有VC码头因零售消费崩溃而受重创，而从Westpack时代收购的VCL码头基准经历了灾难性后果。本报告整合5个AI智能体的情报与内部SQL数据，呈现明确的战略路线图。</div>
+</div>
+<hr class="section-rule"/>
+<div class="method-grid">
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M7 16V12M12 16V8M17 16v-4"></path></svg></div>
+<div class="method-name">定量分析（内部）</div>
+<div class="method-desc">大约 1M 事务行的 SQL 提取和 Pandas 规范化。 2023 年第一季度与 2026 年第一季度比较。</div>
+</div>
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+<div class="method-name">定性分析（外部）</div>
+<div class="method-desc">网页摘要、HelloPeter 情感分析及来自 4 个独立 AI 智能体的研究综合。</div>
+</div>
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></div>
+<div class="method-name">根因分析（五个为什么）</div>
+<div class="method-desc">将内部数据（发生了什么）与外部市场力量（为什么发生）相连接。</div>
+</div>
+</div>
+<div class="kpi-row">
+<div class="kpi-block red">
+<div class="kpi-block-label">VCL第一季度销量下降</div>
+<div class="kpi-block-value">68.6%</div>
+<div class="kpi-block-sub">R2050万 → R640万</div>
+<div class="badge neg">↓ 罔单崩溃</div>
+</div>
+<div class="kpi-block red">
+<div class="kpi-block-label">家居和厨房支柱</div>
+<div class="kpi-block-value">-69.1%</div>
+<div class="kpi-block-sub">标准化Q1缺口</div>
+<div class="badge neg">↓ 亚的斯亚贝巴丢失</div>
+</div>
+<div class="kpi-block gold">
+<div class="kpi-block-label">VCL 与 Westpack 基准</div>
+<div class="kpi-block-value">—</div>
+<div class="kpi-block-sub">Westpack Q1'23 → VCL Q1'26</div>
+<div class="badge neg">vs基准</div>
+</div>
+<div class="kpi-block red">
+<div class="kpi-block-label">原有VC增长</div>
+<div class="kpi-block-value">-16.8%</div>
+<div class="kpi-block-sub">2026年月均</div>
+<div class="badge neg">↓ 生活方式曝露</div>
+</div>
+</div>
+<div class="insight" style="background: var(--ink-bg); border-left: 4px solid var(--red); margin-top: 32px;">
+<div class="insight-label" style="color: var(--yellow);">根因诊断 — 24个月累计下降18.7%</div>
+<p style="color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.8;">
+<strong style="color: white;">两个结构性因素解释完整个下降：</strong>
+</p>
+<ul style="color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.9; padding-left: 20px; margin-top: 8px;">
+<li><strong style="color: white;">结构性利润压缩：</strong> 供应商成本上涨<strong>22.3%</strong>，零售定价仅调整<strong>7.1%</strong> — a <strong>12.4个百分点</strong> 毛利率差距直接侵蚀了每笔交易的盈利能力。</li>
+<li><strong style="color: white;">渠道错配：</strong> <strong>68%</strong> 的品类销售额下降发生在电子商务竞争对手目前占据的细分市场 <strong>&gt;40% 市场份额</strong>。实体零售无法捍卫已迁移至线上的品类。</li>
+</ul>
+</div>
+</section>
+ VCL崩溃 
+<section class="section" id="vcl-collapse">
+<div class="section-header">
+<div class="section-eyebrow">业绩深度分析</div>
+<h2 class="section-title">VCL产品类崩溃</h2>
+<div class="section-lead">Q1业绩的细粒度视图揭示了崩溃的支柱，以及恢复路线图中必须解决的结构性漏洞。</div>
+</div>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>品类（标准化）</th>
+<th>2023年Q1销售</th>
+<th>2026年Q1销售</th>
+<th>缺口</th>
+<th>变化%</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>家居和厨房支柱</td><td>R6,991,000</td><td>R2,157,565</td><td>-R4,833,435</td><td class="neg">-69.1%</td></tr>
+<tr><td>家居及清洁</td><td>R4,945,004</td><td>R1,957,067</td><td>-R2,987,937</td><td class="neg">-60.4%</td></tr>
+<tr><td>派对及礼品支柱</td><td>R2,718,232</td><td>R732,223</td><td>-R1,986,009</td><td class="neg">-73.1%</td></tr>
+<tr><td>办公室和学校支柱</td><td>R2,063,073</td><td>R666,600</td><td>-R1,396,473</td><td class="neg">-67.7%</td></tr>
+</tbody>
+</table>
+<div class="insight warn">
+<div class="insight-label">洞察：预装包空缺</div>
+<p>Westpack历史数据确认，“预装包商品”贡献了<strong>4940万兰特</strong>这个B2B餐饮细分市场——当地餐饮商和小企业——在ValueCo转型中完全亏损，形成了5000万兰特的基准缺口。</p>
+</div>
+</section>
+ 会员仪表板 
+<div class="section-header" style="margin-top: 40px;">
+<div class="section-eyebrow">// 内部忠诚度情报</div>
+<h2 class="section-title">会员计划分析</h2>
+<div class="section-lead">基于内部VCL交易数据。查看完整的交互仪表板，<a href="Membership_Analysis_Report/index-zh.html" style="color: var(--blue); font-weight: 600;">查看会员仪表板</a>.</div>
+</div>
+<div class="kpi-row" style="margin-top: 28px;">
+<div class="kpi-block green">
+<div class="kpi-block-label">会员销售渗透率</div>
+<div class="kpi-block-value">78%</div>
+<div class="kpi-block-sub">占全部VCL交易</div>
+<div class="badge pos">忠诚度基础设施存在</div>
+</div>
+<div class="kpi-block green">
+<div class="kpi-block-label">忠诚度兑换率</div>
+<div class="kpi-block-value">0.06%</div>
+<div class="kpi-block-sub">R8450万收入中R5.6万</div>
+<div class="badge neg">隐形货币</div>
+</div>
+<div class="kpi-block gold">
+<div class="kpi-block-label">最高消费群体</div>
+<div class="kpi-block-value">55+</div>
+<div class="kpi-block-sub">R935.63 每会员消费</div>
+<div class="badge pos">老年韧性</div>
+</div>
+<div class="kpi-block blue">
+<div class="kpi-block-label">会员与非会员</div>
+<div class="kpi-block-value">78/22</div>
+<div class="kpi-block-sub">2026年Q1销售分配</div>
+<div class="badge pos">忠诚度主导</div>
+</div>
+</div>
+<table class="cmp-table" style="margin-top: 28px;">
+<thead>
+<tr>
+<th>年龄组</th>
+<th>会员数量</th>
+<th>占比</th>
+<th>平均消费/会员 (2023)</th>
+<th>平均消费/会员 (2026)</th>
+<th>消费增长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>55+</td>
+<td class="pos">高的</td>
+<td class="pos">30.3%</td>
+<td>R451.15</td>
+<td class="pos">R935.63</td>
+<td class="pos">+107.4%</td>
+</tr>
+<tr>
+<td>35–44</td>
+<td class="neu">中等的</td>
+<td class="neu">24.1%</td>
+<td>R312.00</td>
+<td class="neu">R621.40</td>
+<td class="pos">+99.2%</td>
+</tr>
+<tr>
+<td>25–34</td>
+<td class="neu">中等的</td>
+<td class="neu">21.3%</td>
+<td>R289.50</td>
+<td class="neu">R540.20</td>
+<td class="pos">+86.6%</td>
+</tr>
+<tr>
+<td>18–24</td>
+<td class="neg">降低</td>
+<td class="neg">16.2%</td>
+<td>R198.30</td>
+<td class="neg">R312.70</td>
+<td class="pos">+57.7%</td>
+</tr>
+</tbody>
+</table>
+<div class="insight warn" style="margin-top: 20px; background: var(--light-yellow); border-color: var(--gold);">
+<div class="insight-label" style="color: var(--gold);">战略洞察：忠诚悖论</div>
+<p>尽管有78%的会员渗透率，但只有0.06%的收入通过积分积分实现。该计划在结构上消失——59%的南非人优先选择积分/积分购物积分的商店（点击ClubCard、eBucks），但ValueCo的隐藏折扣结构意味着78%的现有会员在不知不觉中重置该计划。</p>
+</div>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">部门组合 — 2023年Q1 vs 2026年Q1</h3>
+<table class="cmp-table" style="font-size: 13px;">
+<thead>
+<tr style="background: var(--ink);">
+<th style="color: white;">部门</th>
+<th style="text-align: right; color: white;">Q1 2023<br/><span style="font-weight: normal; font-size: 10px;">西派生活方式</span></th>
+<th style="text-align: right; color: white;">Q1 2026<br/><span style="font-weight: normal; font-size: 10px;">VCL</span></th>
+<th style="text-align: right; color: white;">差异</th>
+<th style="text-align: center; color: white;">％ 改变</th>
+<th style="text-align: center; color: white;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>家居用品杂货及日用品</td>
+<td style="text-align: right;">R72.7M</td>
+<td class="neg" style="text-align: right;">R26.0M</td>
+<td class="neg" style="text-align: right;">-R46.7M</td>
+<td style="text-align: center;"><span class="badge neg">-64%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">家居与清洁 + 家居与厨房</td>
+</tr>
+<tr>
+<td>家居装饰厨房和花园用品</td>
+<td style="text-align: right;">R28.5M</td>
+<td class="neg" style="text-align: right;">R24.7M</td>
+<td class="neg" style="text-align: right;">-R3.8M</td>
+<td style="text-align: center;"><span class="badge neg">-13%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">户外 + 储藏系列</td>
+</tr>
+<tr>
+<td>派对及礼品</td>
+<td style="text-align: right;">R17.2M</td>
+<td class="neg" style="text-align: right;">R3.5M</td>
+<td class="neg" style="text-align: right;">-R13.7M</td>
+<td style="text-align: center;"><span class="badge neg">-79%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">气球、聚会用品、礼品崩溃</td>
+</tr>
+<tr>
+<td>包装和包装</td>
+<td style="text-align: right;">R16.7M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td class="neg" style="text-align: right;">-R16.7M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">在当前VCL系列中基本出口</td>
+</tr>
+<tr>
+<td>学校及办公用品</td>
+<td style="text-align: right;">R15.3M</td>
+<td class="neg" style="text-align: right;">R12.2M</td>
+<td class="neg" style="text-align: right;">-R3.1M</td>
+<td style="text-align: center;"><span class="badge neg">-20%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">开学文具被整体办公下滑抵消</td>
+</tr>
+<tr>
+<td>玩具游戏和婴儿用品</td>
+<td style="text-align: right;">R8.8M</td>
+<td class="neg" style="text-align: right;">R2.5M</td>
+<td class="neg" style="text-align: right;">-R6.3M</td>
+<td style="text-align: center;"><span class="badge neg">-71%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">儿童品类大幅减少</td>
+</tr>
+<tr>
+<td>服装 鞋类 箱包及配饰</td>
+<td style="text-align: right;">R5.9M</td>
+<td class="neg" style="text-align: right;">R2.3M</td>
+<td class="neg" style="text-align: right;">-R3.6M</td>
+<td style="text-align: center;"><span class="badge neg">-62%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">PREPACK包包崩溃</td>
+</tr>
+<tr>
+<td>食品饮料和烟草</td>
+<td style="text-align: right;">—</td>
+<td class="pos" style="text-align: right;">R6.3M</td>
+<td class="pos" style="text-align: right;">+R6.3M</td>
+<td style="text-align: center;"><span class="badge pos">NEW</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">2023年数据中不存在的新品类</td>
+</tr>
+<tr style="background: var(--ink);">
+<td style="background: var(--surface2); color: var(--ink); font-weight: 700;"><strong>合计</strong></td>
+<td style="text-align: right; color: white;"><strong>R172.0M</strong></td>
+<td style="text-align: right; color: white;"><strong>R84.4M</strong></td>
+<td style="text-align: right; color: white;"><strong>-R87.6M</strong></td>
+<td style="text-align: center;"><span style="background: rgba(255,255,255,0.25); color: white; padding: 3px 10px; border-radius: 3px; font-weight: 700; font-size: 11px;">-51%</span></td>
+<td style="color: rgba(255,255,255,0.75); font-size: 11px;">22家门店</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size: 11px; color: #666; margin-top: 8px;">
+<strong>方法论注释：</strong> 2023年第一季度的数据使用适用于2023年第一季度单位销售额的每单位平均售价（期间总销售额÷2022-2024年销售单位总数）——这修正了Westpack数据中的混合计量单位。 2023年第一季度，总计1.72亿兰特涉足了1.87亿兰特现金季度的约92%（8%补贴=现金购买、未获得的物品）。 2026 年第一季度 = R84.4M 商品级 POS。除食品和饮料外，所有主要类别均明显引人注目——这是一个全面崩溃的故事，而不是转型的故事。
+  </p>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">供应商组合 — 2023年Q1 vs 2026年Q1</h3>
+<p style="font-size: 12px; color: var(--ink3); margin: 0 0 16px;">跟踪2023年Q1 Westpack 20强供应商在2026年Q1 VCL中的表现。通过标准化的供应商名称在两个数据集中匹配。</p>
+<table class="cmp-table" style="font-size: 13px;">
+<thead>
+<tr style="background: var(--ink);">
+<th style="color: white;">供应商</th>
+<th style="text-align: right; color: white;">Q1 2023<br/><span style="font-weight: normal; font-size: 10px;">西派生活方式</span></th>
+<th style="text-align: right; color: white;">Q1 2026<br/><span style="font-weight: normal; font-size: 10px;">VCL</span></th>
+<th style="text-align: center; color: white;">变化</th>
+<th style="text-align: center; color: white;">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>嗡嗡声交易一百四CC</td>
+<td style="text-align: right;">R12.6M</td>
+<td class="neg" style="text-align: right;">R5.0M</td>
+<td style="text-align: center;"><span class="badge neg">-60%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">仍有活跃，缩减</td>
+</tr>
+<tr>
+<td>尤萨布科工业公司</td>
+<td style="text-align: right;">R12.5M</td>
+<td class="neg" style="text-align: right;">R3.7M</td>
+<td style="text-align: center;"><span class="badge neg">-70%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">仍然活跃，减少</td>
+</tr>
+<tr>
+<td>新星论文</td>
+<td style="text-align: right;">R8.3M</td>
+<td class="neg" style="text-align: right;">R7.6M</td>
+<td style="text-align: center;"><span class="badge neg">-8%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">最稳定的供应商关系</td>
+</tr>
+<tr>
+<td>台塑</td>
+<td style="text-align: right;">R8.5M</td>
+<td class="neg" style="text-align: right;">R0.2M</td>
+<td style="text-align: center;"><span class="badge neg">-98%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">实际已丢失</td>
+</tr>
+<tr>
+<td>Funki Lines（包括WES200）</td>
+<td style="text-align: right;">R10.6M</td>
+<td class="neg" style="text-align: right;">R0.2M</td>
+<td style="text-align: center;"><span class="badge neg">-98%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">有效丢失</td>
+</tr>
+<tr>
+<td>West Pack 分布（发行）</td>
+<td style="text-align: right;">R5.8M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失——内部分销消失</td>
+</tr>
+<tr>
+<td>永升塑胶</td>
+<td style="text-align: right;">R4.5M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失</td>
+</tr>
+<tr>
+<td>哥伦布清洁解决方案（Redchem）</td>
+<td style="text-align: right;">R4.0M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr>
+<td>自由文具</td>
+<td style="text-align: right;">R3.9M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr>
+<td>大自然最佳制造</td>
+<td style="text-align: right;">R3.4M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr>
+<td>国民文具</td>
+<td style="text-align: right;">R3.1M</td>
+<td class="neg" style="text-align: right;">R0.3M</td>
+<td style="text-align: center;"><span class="badge neg">-92%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">近乎丢失</td>
+</tr>
+<tr>
+<td>兰克软件</td>
+<td style="text-align: right;">R2.9M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr>
+<td>曼尼糖果及更多</td>
+<td style="text-align: right;">R2.8M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr>
+<td>阿尔罗德南经销商</td>
+<td style="text-align: right;">R2.8M</td>
+<td class="neg" style="text-align: right;">R0.3M</td>
+<td style="text-align: center;"><span class="badge neg">-90%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">差点迷失</td>
+</tr>
+<tr>
+<td>AWG交易</td>
+<td style="text-align: right;">R2.7M</td>
+<td class="neg" style="text-align: right;">R0.2M</td>
+<td style="text-align: center;"><span class="badge neg">-91%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">差点迷失</td>
+</tr>
+<tr>
+<td>永努塑料</td>
+<td style="text-align: right;">R2.5M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr>
+<td>盾化学</td>
+<td style="text-align: right;">R2.4M</td>
+<td class="neg" style="text-align: right;">R1.1M</td>
+<td style="text-align: center;"><span class="badge neg">-55%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">减少但仍有活跃</td>
+</tr>
+<tr>
+<td>异国香料</td>
+<td style="text-align: right;">R2.2M</td>
+<td class="neg" style="text-align: right;">R1.1M</td>
+<td style="text-align: center;"><span class="badge neg">-51%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">减少但仍然活跃</td>
+</tr>
+<tr>
+<td>多层包装</td>
+<td style="text-align: right;">R2.0M</td>
+<td class="neg" style="text-align: right;">R0.6M</td>
+<td style="text-align: center;"><span class="badge neg">-68%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">减少但仍然活跃</td>
+</tr>
+<tr>
+<td>蝴蝶产品</td>
+<td style="text-align: right;">R1.8M</td>
+<td class="neg" style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">-100%</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失的</td>
+</tr>
+<tr style="background: var(--ink);">
+<td style="background: var(--surface2); color: var(--ink); font-weight: 700;"><strong>20强合计</strong></td>
+<td style="text-align: right; color: white;"><strong>R116.3M</strong></td>
+<td style="text-align: right; color: white;"><strong>R21.6M</strong></td>
+<td style="text-align: center;"><span style="background: rgba(255,255,255,0.25); color: white; padding: 3px 10px; border-radius: 3px; font-weight: 700; font-size: 11px;">-81%</span></td>
+<td style="color: rgba(255,255,255,0.75); font-size: 11px;">Westpack 81% 的供应商收入消失</td>
+</tr>
+</tbody>
+</table>
+<div class="insight warn" style="margin-top: 16px; background: var(--light-yellow); border-color: var(--gold);">
+<div class="insight-label" style="color: var(--gold);">战略洞察：供应商基础崩溃</div>
+<p>前20强Westpack供应商2023年Q1 R1.163亿销售中，2026年Q1相同供应商基础仅恢复R216万（19%）。Nova Papers（-8%）是最稳定的关系。其余Westpack供应商基础已被有效放弃。2026年Q1新主要供应商——中国城贸易商、VC生活方式直接进口、Buzz交易（缩减）——几乎完全是无2023年历史的新关系。</p>
+</div>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">供应商风险评分 — 2023年Q1 vs 2026年Q1</h3>
+<p style="font-size: 12px; color: var(--ink3); margin: 0 0 16px;">前20强Westpack供应商按风险分类：稳定性（收入保留&gt;80%）、增量（40-80%保留）、损失（&lt;40%或零）。风险评分 = Q1 2026收入 ÷ Q1 2023收入。</p>
+<table class="cmp-table" style="font-size: 12px;">
+<thead>
+<tr style="background: var(--ink);">
+<th style="color: white;">供应商</th>
+<th style="text-align: right; color: white;">Q1 2023</th>
+<th style="text-align: right; color: white;">Q1 2026</th>
+<th style="text-align: center; color: white;">保留率%</th>
+<th style="text-align: center; color: white;">风险</th>
+<th style="text-align: center; color: white;">建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>诺瓦纸业（PTY）有限公司</td>
+<td style="text-align: right;">R8.3M</td>
+<td style="text-align: right;">R7.6M</td>
+<td style="text-align: center;"><span class="badge pos">92%</span></td>
+<td style="text-align: center;"><span style="background: #c6efce; color: #276221; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">稳定</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">保护——锚供应商</td>
+</tr>
+<tr>
+<td>希德化学（PTY）有限公司</td>
+<td style="text-align: right;">R2.4M</td>
+<td style="text-align: right;">R1.1M</td>
+<td style="text-align: center;"><span class="badge neg">45%</span></td>
+<td style="text-align: center;"><span style="background: #ffeb9c; color: #9c5700; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">下滑</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">监控——部分恢复可能</td>
+</tr>
+<tr>
+<td>异国香料 (ES)</td>
+<td style="text-align: right;">R2.2M</td>
+<td style="text-align: right;">R1.1M</td>
+<td style="text-align: center;"><span class="badge neg">49%</span></td>
+<td style="text-align: center;"><span style="background: #ffeb9c; color: #9c5700; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">下降</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">监控——可以部分恢复</td>
+</tr>
+<tr>
+<td>嗡嗡声交易一百四CC</td>
+<td style="text-align: right;">R12.6M</td>
+<td style="text-align: right;">R5.0M</td>
+<td style="text-align: center;"><span class="badge neg">40%</span></td>
+<td style="text-align: center;"><span style="background: #ffeb9c; color: #9c5700; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">下降</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">调查——范围或关系问题</td>
+</tr>
+<tr>
+<td>Multiwrap (PTY) 有限公司</td>
+<td style="text-align: right;">R1.95M</td>
+<td style="text-align: right;">R0.6M</td>
+<td style="text-align: center;"><span class="badge neg">32%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">严重</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">紧急恢复——原包装支柱</td>
+</tr>
+<tr>
+<td>Usabco工业有限公司</td>
+<td style="text-align: right;">R12.5M</td>
+<td style="text-align: right;">R3.7M</td>
+<td style="text-align: center;"><span class="badge neg">30%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 12px; border-radius: 2px; font-size: 11px; font-weight: 600; white-space: nowrap;">批判的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">优先恢复——亚的斯系列</td>
+</tr>
+<tr>
+<td>自由文具（PTY）有限公司</td>
+<td style="text-align: right;">R3.9M</td>
+<td style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">0%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">已丢失</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">联系供应商——他们会回来吗？</td>
+</tr>
+<tr>
+<td>台塑 (FP)</td>
+<td style="text-align: right;">R8.5M</td>
+<td style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">0%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">丢失的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失——最大单一供应商损失</td>
+</tr>
+<tr>
+<td>Funki Lines（WES200 + FL组合）</td>
+<td style="text-align: right;">R10.6M</td>
+<td style="text-align: right;">R0.2M</td>
+<td style="text-align: center;"><span class="badge neg">2%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">丢失的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失——散装塑料消失</td>
+</tr>
+<tr>
+<td>永升塑胶</td>
+<td style="text-align: right;">R4.5M</td>
+<td style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">0%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">丢失的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失——塑料品类崩溃</td>
+</tr>
+<tr>
+<td>哥伦布清洁解决方案（Redchem）</td>
+<td style="text-align: right;">R4.0M</td>
+<td style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">0%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">丢失的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失——清洁品类空白</td>
+</tr>
+<tr>
+<td>West Pack 分布（发行）</td>
+<td style="text-align: right;">R5.8M</td>
+<td style="text-align: right;">R0.0M</td>
+<td style="text-align: center;"><span class="badge neg">0%</span></td>
+<td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">丢失的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">丢失——内部分配消失</td>
+</tr>
+<tr style="background: var(--ink);">
+<td><strong>跟踪合计（前20强）</strong></td>
+<td style="text-align: right;"><strong>R97.7M</strong></td>
+<td style="text-align: right;"><strong>R19.6M</strong></td>
+<td style="text-align: center;"><strong>20%</strong></td>
+<td style="text-align: center; color: white; font-size: 11px;">81%丢失</td>
+<td style="color: rgba(255,255,255,0.5); font-size: 11px;">20强中3家稳定或恢复中</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size: 11px; color: #666; margin-top: 8px;">
+<strong>方法：</strong>风险评分 = Q1 2026收入 ÷ Q1 2023收入。稳定性&gt;80%，高达40–80%，严重10–40%，损失&lt;10%。跟踪的前20强Westpack供应商中，只有3家保留超过其2023年Q1收入基础的40%。
+  </p>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">跨品类关联 — 供应商共购信号</h3>
+<p style="font-size: 12px; color: var(--ink3); margin: 0 0 16px;">共享供应商的部门可能被一起购买——这揭示了自然的跨品类捆绑机会。基于2026年Q1 253家跨部门供应商的共享供应商数量。</p>
+<table class="cmp-table" style="font-size: 12px;">
+<thead>
+<tr style="background: var(--ink);">
+<th style="color: white;">部门对</th>
+<th style="text-align: center; color: white;">共享供应商</th>
+<th style="text-align: center; color: white;">跨销信号</th>
+<th style="text-align: center; color: white;">建议措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>家居装饰 ↔ 学校和办公室</td>
+<td style="text-align: center;"><strong style="color: var(--accent);">109</strong></td>
+<td style="text-align: center;"><span class="badge pos">极强</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">将HomeDecor预览与开学文套装套装</td>
+</tr>
+<tr>
+<td>家居装饰 ↔ 家居用品杂货</td>
+<td style="text-align: center;"><strong style="color: var(--accent);">108</strong></td>
+<td style="text-align: center;"><span class="badge pos">非常强</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">将厨房工具与清洁用品共同陈列</td>
+</tr>
+<tr>
+<td>HomeDecor ↔ 聚会与礼品</td>
+<td style="text-align: center;"><strong style="color: var(--accent);">83</strong></td>
+<td style="text-align: center;"><span class="badge pos">强的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">将派对用品与家居装饰购买交叉推广</td>
+</tr>
+<tr>
+<td>家居装饰 ↔ 玩具和婴儿</td>
+<td style="text-align: center;"><strong style="color: var(--accent);">82</strong></td>
+<td style="text-align: center;"><span class="badge pos">强的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">儿童玩具家具 + 家居储藏捆绑机会</td>
+</tr>
+<tr>
+<td>家庭用品杂货 ↔ 学校和办公室</td>
+<td style="text-align: center;"><strong style="color: var(--accent);">80</strong></td>
+<td style="text-align: center;"><span class="badge pos">强的</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">家庭消耗品 + 学校用品篮子</td>
+</tr>
+<tr>
+<td>学校和办公室 ↔ 玩具和婴儿</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;"><span class="badge pos">中等</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">开学季节——利用联合促销</td>
+</tr>
+<tr>
+<td>派对和礼物 ↔ 学校和办公室</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;"><span class="badge pos">缓和</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">礼品包装纸放在学校用品展示附近</td>
+</tr>
+<tr>
+<td>服装和箱包 ↔ 学校和办公室</td>
+<td style="text-align: center;">61</td>
+<td style="text-align: center;"><span class="badge neu">新兴</span></td>
+<td style="text-align: center; color: var(--ink3); font-size: 11px;">背包 + 文具——开学锚捆绑</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size: 11px; color: #666; margin-top: 8px;">
+<strong>方法论：</strong> 当部门在VCL数据集中共享相同的供应商时，它们共同出现。共享供应商数量是跨品类购买可能性的指标——为多个品类服务的供应商表明，从一个品类购买的客户在结构上很可能也来自另一个品类购买。HomeDecor是中央品类枢纽，连接所有其他主要部门。
+  </p>
+</div><!-- /container -->
+
+<!-- ============================================================ -->
+<!-- 外部情报 - 综合部分 -->
+<!-- ============================================================ -->
+<div class="ext-section" id="external-intel">
+<div class="section-header">
+<div class="section-eyebrow">统筹外部情报 · 5个AI智能体</div>
+<h2 class="section-title">南非零售战场：<br/>一部编年史 (2022–2026)</h2>
+<div class="section-lead">以下分析整合来自Claude、DeepSeek、GPT、Minimax和Gemini的发现——与Stats SA、SARB、FNB/BER、World Wide Worx、NielsenIQ、TransUnion及20多个权威来源进行三角验证。每项发现按来源分类并交叉验证。</div>
+</div>
+<div class="kpi-row">
+<div class="kpi-block red">
+<div class="kpi-block-label">2023年GDP增​​​​长</div>
+<div class="kpi-block-value">0.8%</div>
+<div class="kpi-block-sub">对比2022年2.1%</div>
+<div class="badge neg">↓ 停电拖曳</div>
+</div>
+<div class="kpi-block red">
+<div class="kpi-block-label">2022/23峰值通胀</div>
+<div class="kpi-block-value">7.8%</div>
+<div class="kpi-block-sub">CPI高峰于2022年7月</div>
+<div class="badge neg">侵蚀实际收入</div>
+</div>
+<div class="kpi-block red">
+<div class="kpi-block-label">峰值回购利率</div>
+<div class="kpi-block-value">8.25%</div>
+<div class="kpi-block-sub">2023年5月——14年高位</div>
+<div class="badge neg">最大债务负担</div>
+</div>
+<div class="kpi-block red">
+<div class="kpi-block-label">2023年第二季度CCI</div>
+<div class="kpi-block-value">-25</div>
+<div class="kpi-block-sub">1994年以来第二差</div>
+<div class="badge neg">近乎纪录悲观</div>
+</div>
+<div class="kpi-block green">
+<div class="kpi-block-label">2025年平均CPI</div>
+<div class="kpi-block-value">3.2%</div>
+<div class="kpi-block-sub">21年低位</div>
+<div class="badge pos">重大缓解</div>
+</div>
+<div class="kpi-block green">
+<div class="kpi-block-label">当前回购利率</div>
+<div class="kpi-block-value">6.75%</div>
+<div class="kpi-block-sub">从峰值降息150个基点</div>
+<div class="badge pos">消费者喘息空间</div>
+</div>
+</div>
+ 经济数据表 
+<table class="cmp-table">
+<thead>
+<tr>
+<th>指标</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+<th>2026（预计）</th>
+<th>趋势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GDP增长</td>
+<td class="pos">2.1%</td>
+<td class="neg">0.8%</td>
+<td class="neg">0.5%</td>
+<td class="neu">1.1%</td>
+<td class="neu">~1.4%</td>
+<td class="neu">低于潜力复苏</td>
+</tr>
+<tr>
+<td>通货膨胀（CPI）</td>
+<td class="neg">7.0%</td>
+<td class="neg">6.1%</td>
+<td class="neu">4.4%</td>
+<td class="pos">3.2%</td>
+<td class="pos">~3.0%</td>
+<td class="pos">2025年21年低位</td>
+</tr>
+<tr>
+<td>回购利率</td>
+<td class="pos">3.50%</td>
+<td class="neg">8.25%</td>
+<td class="neu">7.75%</td>
+<td class="pos">6.75%</td>
+<td class="pos">6.75%</td>
+<td class="pos">从峰值-150个基点</td>
+</tr>
+<tr>
+<td>失业率</td>
+<td class="neu">33.0%</td>
+<td class="neg">32.1%</td>
+<td class="neg">33.2%</td>
+<td class="neg">32.4%</td>
+<td class="neg">~31.4%</td>
+<td class="neg">结构性危机</td>
+</tr>
+<tr>
+<td>电子商务（十亿兰特）</td>
+<td class="neu">R55B</td>
+<td class="pos">R71B</td>
+<td class="pos">R96B</td>
+<td class="pos">R130B</td>
+<td class="pos">~R160B</td>
+<td class="pos">占总零售10%+</td>
+</tr>
+<tr>
+<td>在线赌博</td>
+<td class="neu">~R8B</td>
+<td class="neg">~R16B</td>
+<td class="neg">~R32B</td>
+<td class="neg">R49B</td>
+<td class="neg">R55B+</td>
+<td class="neg">4年内6倍</td>
+</tr>
+<tr>
+<td>CCI (FNB/BER)</td>
+<td class="neu">-8</td>
+<td class="neg">-25</td>
+<td class="neu">-5</td>
+<td class="neg">-20→-9</td>
+<td class="neu">-7</td>
+<td class="neu">复苏中</td>
+</tr>
+</tbody>
+</table>
+ 机密调查结果 
+<div class="section-header" style="margin-top: 40px;">
+<div class="section-eyebrow">// 关键情报发现 — 按来源和严重性分类</div>
+<h2 class="section-title">15项分类战略发现</h2>
+<div class="section-lead">跨所有4个AI智能体交叉验证，并与权威外部来源三角验证。每项发现对ValueCo的战略调整都有直接影响。</div>
+</div>
+<div class="findings-list">
+ 发现1 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">01</div>
+<div class="why-title-wrap">
+<div class="why-title">赌博流失 — R490亿从可选消费转移</div>
+<div class="why-subtitle">严重威胁 · 资金流失</div>
+</div>
+</div>
+<div class="why-body">
+<p>在线博彩收入：2020/21年R80亿 → 2024/25财年R490亿——4年增长6倍。现在博彩行业总收入的66%。每支出1兰特的娱乐开支占25分流向博彩。TFG（The Foschini Group）已将这来自比Shein或Temu更大的竞争威胁。</p>
+<p><strong>含义：</strong> 对于流向ValueCo活动产品（派对和礼品、家居和厨房装饰）的“可自由支配兰特”而言，这是一个直接、巨大的过去竞争对手。 之前购买R200礼品装的现在消费者在老虎机上“为了刺激”下注R200。</p>
+<div class="source-row">
+<span class="source-tag deepseek">深度搜索</span>
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现2 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">02</div>
+<div class="why-title-wrap">
+<div class="why-title">便利垄断 — Sixty60重新定义了习惯</div>
+<div class="why-subtitle">结构性威胁 · 平台垄断</div>
+</div>
+</div>
+<div class="why-body">
+<p>2025年，Checkers Sixty60占有超过80%的杂货商品市场，经营约875家商店，每周处理约150万份订单。该平台仅在2025年就增长了47%，年销售额接近190亿兰特。</p>
+<p><strong>含义：</strong> 他们不仅仅夺取了市场贡献——他们重新定义了家务。消费者现在将开车去开放价值中心买“洗涤剂和铝浪费”视为时间管理的失败。当6060以相同价格60分钟送达时，花50分钟往返R300补充购物在心理上被联想为“”。城市消费者的家居简单品“目的地购物”习惯已被永久打破。</p>
+<div class="source-row">
+<span class="source-tag claude">克洛德</span>
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现3 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">03</div>
+<div class="why-title-wrap">
+<div class="why-title">停电习惯化 — 200多天永久改变了南非购物方式</div>
+<div class="why-subtitle">结构性威胁 · 行为改变</div>
+</div>
+</div>
+<div class="why-body">
+<p>2022/23年有200多天一个6级停电状态，消费者永久改变了烹饪和食品储存行为。这种转变：从批量“食品储藏室”旅行（需要可靠的冷藏和储存）转向更小、更频繁的通过送货的新鲜商店。 这不是暂时的适应——它已经成为习惯。</p>
+<p><strong>含义：</strong> VCL最初的商业模式建立在“囤货省钱”的大宗购物上。停电扼杀了这种情况。消费者发现他们可以当天收到少量的新鲜面包、清洁产品和乳制品。VCL在结构上不再是作为默认行为的大宗购物而定位的。</p>
+<div class="source-row">
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现4 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">04</div>
+<div class="why-title-wrap">
+<div class="why-title">Shein/Temu 价格 — 无法取消的心理重置</div>
+<div class="why-subtitle">永久重置 · 价格锚定</div>
+</div>
+</div>
+<div class="why-body">
+<p>Shein和Temu在2024年关注了在线服装销售的37%，以及全部在线购物的15.3%（总计R73亿）。这些平台让南非消费者接触到R89的T恤和R150的厨房整理套装——包邮。这永久地重新布局了消费者的内部价格参考。</p>
+<p><strong>含义：</strong> 在以R150购买厨房整理套装后（对比Checkers的R450），消费者的价格已经移动了。ValueCo在大篮子上的5-9%折扣不是“划算”——在每周有25-35%的家居用品促销的市场中，它是“标准价格”。对于参考价格低70%的消费者来说，5-9%的折扣是看不见的。</p>
+<div class="source-row">
+<span class="source-tag claude">克洛德</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现5 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">05</div>
+<div class="why-title-wrap">
+<div class="why-title">电子商务是结构性再分配者 — 而非周期性趋势</div>
+<div class="why-subtitle">结构性转变 · 渠道迁移</div>
+</div>
+</div>
+<div class="why-body">
+<p>在线零售额从 2022 年的 R55B（占零售额的 5%）增长到 2026 年的 R160B+（占零售额的 10%）。2024 年实体零售增长 2.5%。线上零售增长 35%。比率为14x。 电子商务并不是在低迷时期抢夺份额——它是在永久性地重新分配渠道选择。</p>
+<p><strong>含义：</strong> 无论宏观经济如何复苏，没有可靠数字渠道的企业都将面临结构性销量侵蚀。 问题不是“我们如何让客户回到旧方式？”——而是“我们如何在客户现在所在的位置与他们会面：移动优先、便利驱动、价格比较？”。</p>
+<div class="source-row">
+<span class="source-tag claude">克洛德</span>
+<span class="source-tag deepseek">深度搜索</span>
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现 6 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">06</div>
+<div class="why-title-wrap">
+<div class="why-title">流动性陷阱 — 86.4%依赖刷卡且67.6%被拒信贷</div>
+<div class="why-subtitle">流动性危机 · 信贷紧缩</div>
+</div>
+</div>
+<div class="why-body">
+<p>VCL 2026年Q1 86.4%的销售通过刷卡结算，只有13.3%用现金。NCR报告2025年新信贷申请被拒收67.6%。想要购买R800厨房套装的消费者实际上无法信贷使用购买。</p>
+<p><strong>含义：</strong> ValueCo极易受到信贷紧缩的影响。BNPL缺口很大：只有6%的南非人使用BNPL，但57%持有BNPL账户。战略性的BNPL合作伙伴可以解除目前被信贷拒绝的R500-R2000急速范围。</p>
+<div class="source-row">
+<span class="source-tag claude">克劳德（内部）</span>
+<span class="source-tag gpt">GPT</span>
+</div>
+</div>
+</div>
+ 发现 7 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">07</div>
+<div class="why-title-wrap">
+<div class="why-title">创伤后节俭 — 2022-2023年的创伤不会愈合</div>
+<div class="why-subtitle">心理创伤 · 永久行为</div>
+</div>
+</div>
+<div class="why-body">
+<p>2022-2023年的经济三重冲击（通胀+7% + 利率至8.25% + 200天6级停电）造成了持久的行为创伤。 即使2025-2026年宏观条件改善，消费者仍保持"创伤后节俭"——优先储蓄、延迟大件购买，即使负担得起也进行价格优化。</p>
+<p><strong>含义：</strong> 耐用品的CCI子指数即使在总体CCI恢复时仍深度为负。依赖宏观改善自然提升VCL销售的策略将表现不佳。</p>
+<div class="source-row">
+<span class="source-tag minimax">极小极大</span>
+<span class="source-tag claude">克洛德</span>
+</div>
+</div>
+</div>
+ 发现 8 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">08</div>
+<div class="why-title-wrap">
+<div class="why-title">分裂的消费者 — 高收入复苏，中低收入收缩</div>
+<div class="why-subtitle">收入分化 · 复苏分化</div>
+</div>
+</div>
+<div class="why-body">
+<p>高收入家庭（R4万+/月）正在复苏——房产财富（+17%）、降息、两罐。低收入家庭陷入持续停滞（32%+）、地位被统计和两罐获取和。FNB/BER CCI 2026年第一季度显示高收入信心在2024年第四季度以来的最高水平，而低收入家庭信心进一步升温。</p>
+<p><strong>含义：</strong> VCL的核心客户（35-54岁，LSM 5-7）以“生存模式”解读。VCL的复苏需要准确理解这个定义：现金、价格痴迷、数字连接但平台疲倦的消费者需求——而不是等待高收入复苏的滴流效应。</p>
+<div class="source-row">
+<span class="source-tag deepseek">深度搜索</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现9 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">09</div>
+<div class="why-title-wrap">
+<div class="why-title">"零售娱乐"崩溃 — 庆典预算被重新定向</div>
+<div class="why-subtitle">娱乐侵蚀 · 可选消费崩溃</div>
+</div>
+</div>
+<div class="why-body">
+<p>DStv高级套餐下降67%，中级下降53%，而入门EasyView套餐飙升139%。与危机前相比，每周就餐活动下降近30%。现在每1兰特的娱乐消费含25分流向博彩。“娱乐”级财富类别——阿联酋是礼品和晚会庆典的推动力——已被摧毁。</p>
+<p><strong>含义：</strong> VCL的派对和礼品类别（下降73.1%）不仅仅是新冠疫情造成的损失——它反映了南澳家庭“庆祝预算”的系统性破坏。聚会场合的购买动机已经结构性下降，而如果没有更广泛的收入复苏，这种情况就不会恢复。</p>
+<div class="source-row">
+<span class="source-tag deepseek">深度搜索</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现10 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">10</div>
+<div class="why-title-wrap">
+<div class="why-title">忠诚度陷阱 — 78%会员渗透率，0.06%收入兑换</div>
+<div class="why-subtitle">忠诚度计划失败 · 隐形货币</div>
+</div>
+</div>
+<div class="why-body">
+<p>到2026年Q1，忠诚度积分贡献仅占微乎其微的总收入0.06%（R8450万中的R5.6万）。尽管78%的VCL交易行为来自忠诚度会员，但该计划实际上表现为财务减压阀。在59%的南非购物者优先考虑可以消耗/消耗积分（点击ClubCard、eBucks）的商店市场中，ValueCo的忠诚度货币能够推动改变。</p>
+<p><strong>含义：</strong> 忠诚度计划在结构上已经损坏。如果ValueCo重新推出一个可见的、可见的度计划和有意义的即时奖励，它目前可以通过全价购买计划的22%忠诚度非度客户实现。</p>
+<div class="source-row">
+<span class="source-tag claude">克劳德（内部数据）</span>
+</div>
+</div>
+</div>
+ 发现 11 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">11</div>
+<div class="why-title-wrap">
+<div class="why-title">SARS监管曲线 — 漏洞关闭部分平衡竞争环境</div>
+<div class="why-subtitle">监管转变 · 进口竞争</div>
+</div>
+</div>
+<div class="why-body">
+<p>SARS在2024年9月至11月关闭了R500进口漏洞，以全面WCO关税税率取代统一的20%关税率，将所有低价值关税全部纳入关税范围。2025年4月进一步收紧。虽然这影响了Shein/Temu的增长，但因此消费者心理已经发生——价格已经移动。</p>
+<p><strong>含义：</strong> 监管放松即将到来——但时已晚。ValueCo必须在总篮子价值、信任和体验上竞争——而非寄望于监管干预恢复2022年前的价格预期。</p>
+<div class="source-row">
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+</div>
+ 发现 12 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num green">12</div>
+<div class="why-title-wrap">
+<div class="why-title">数字原生悖论 — 停电永久加速了在线采用</div>
+<div class="why-subtitle">数字加速 · 悖论性转变</div>
+</div>
+</div>
+<div class="why-body">
+<p>矛盾的是，停电加速了网购行为。 有逆变器/太阳能的消费者发现即使在停电期间也能用手机购物。现在78%的南非人每月至少网购一次。85%的电商交易通过移动端。 这是永久性的结构性转变，而非回到2022年前的模式。</p>
+<p><strong>含义：</strong> ValueCo的开放价值中心是为前数字世界构建的。 VCL需要一个可信的数字货架——即使是基本的“网上购物，店内提货”功能也能吸引那些已经在网上转向但仍希望以ValueCo购买价格家庭必需品的消费者。</p>
+<div class="source-row">
+<span class="source-tag minimax">极小极大</span>
+<span class="source-tag claude">克洛德</span>
+</div>
+</div>
+</div>
+ 发现 13 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">13</div>
+<div class="why-title-wrap">
+<div class="why-title">小篮子、高频次 — 大宗囤货之旅的死亡</div>
+<div class="why-subtitle">篮子动态 · 频次转变</div>
+</div>
+</div>
+<div class="why-body">
+<p>月杂货支出勉强跟上通胀（名义上从2023年的R2050到2024年的R2100——实际数量下降）。平均篮子规模决定性地缩小。消费者已更加紧张地考虑购买更小的数量，优先新鲜度和视线管理而非大规模规模。6060（每周150万订单）和零售零售（Boxer + 12％）的证实增长了这一点。</p>
+<p><strong>含义：</strong> VCL的原始模式——大篮子、批量省钱、每周目的地行程——与当前消费者行为在结构上不协调。向“实用补充”购物的转变是必然的——不仅仅是为了增长，而是为了生存。这意味着重新思考商店的业态、与商品中心的位置邻接以及数字化订购。</p>
+<div class="source-row">
+<span class="source-tag minimax">极小极大</span>
+<span class="source-tag deepseek">深度搜索</span>
+</div>
+</div>
+</div>
+ 发现 14 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">14</div>
+<div class="why-title-wrap">
+<div class="why-title">品牌信任真空 — 传奇品牌被未经证实的进口取代</div>
+<div class="why-subtitle">信任赤字 · 品牌侵蚀</div>
+</div>
+</div>
+<div class="why-body">
+<p>在2022-2023年供应中断期间，ValueCo用无品牌直接进口取代了值得信赖的传统品牌（Addis、Usabco、Formosa Plastic）。在消费者优先考虑“品牌信任作为金融安全网”的经济时期——将未知品牌视为比已知产品支付风险更大——这种替代品是灾难性的。</p>
+<p><strong>含义：</strong> 2026年的南非消费者是零售历史上最危险的。用无品牌进口取代亚的斯亚贝巴（100年历史，与耐用性同义）同时保持限制性的7天进口政策，作为双重心理红色警告。恢复供应商信任——夺取南非家庭信任的品牌——是任何定价或营销策略有效的前提条件。</p>
+<div class="source-row">
+<span class="source-tag claude">克洛德</span>
+</div>
+</div>
+</div>
+ 发现 15 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">15</div>
+<div class="why-title-wrap">
+<div class="why-title">7天退货政策 — 行业落后的不信任信号</div>
+<div class="why-subtitle">政策信号 · 退货政策作为信任指标</div>
+</div>
+</div>
+<div class="why-body">
+<p>目前ValueCo的7天退货政策是行业标准的减少。Takealot提供14-30天。Makro提供30天。Amazon SA提供30天。在这个市场中，59%的消费者优先考虑可能消耗/忠诚度积分的商店，而参与者的选择是由信任信号心理驱动的，7天政策是一个警告标志，表明“我们对我们产品的信任度阻碍了您有时间思考。”</p>
+<p><strong>含义：</strong> 《南澳消费者保护法》仅强制要求退回有缺陷的商品（6 个月）。 “改变主意”退货受商店政策约束。 14天与市场领导者一致，并消除了风险，因为消费者购买非必需品的一个已记录的障碍——消耗了30天政策的全部成本。</p>
+<div class="source-row">
+<span class="source-tag claude">克洛德</span>
+</div>
+</div>
+</div>
+</div>
+</div><!-- /ext-section -->
+<div class="container">
+ 危机时间表 
+<section class="section" id="timeline">
+<div class="section-header">
+<div class="section-eyebrow">年代学</div>
+<h2 class="section-title">零售危机时间线</h2>
+</div>
+<hr class="section-rule"/>
+<div class="report-timeline">
+<div class="rt-item">
+<div class="rt-date">2022 Q3–Q4</div>
+<div class="rt-text"><strong>通货膨胀率达到 7.8% 的峰值</strong> （2022年7月）。俄罗斯-乌克兰战争推动全球食品和燃料价格上涨。SARB开始激进的​​加息周期。零售销售开始疲软。2022年第二季度CCI为-25。</div>
+</div>
+<div class="rt-item">
+<div class="rt-date">2023 Q1</div>
+<div class="rt-text"><strong>完美风暴开始。</strong>6级停电持续。无停电天数：零。2月9日：拉马福萨总统宣布因能源危机进入全国连续灾难状态。回购利率上调至7.75%。CCI暴跌至-23。零售贸易开始5个月下降。</div>
+</div>
+<div class="rt-item">
+<div class="rt-date">2023 Q2–Q3</div>
+<div class="rt-text"><strong>CCI -25——近乎历史最低位。</strong>4月零售贸易同比下降1.6%（连续第5个月下降）。电费上涨18.65%。平均工资名义下降10.4%。5月：回购利率达到8.25%——14年高位。经济有效地靠生命维持。</div>
+</div>
+<div class="rt-item">
+<div class="rt-date">2023 Q4</div>
+<div class="rt-text"><strong>Shein和Temu广告攀登。</strong>Shein：Google Play上下载量最大的应用。CCI稳定在-16。汽油价格小幅上涨。进一步加息。零售业复苏——但低于平均水平。</div>
+</div>
+<div class="rt-item blue">
+<div class="rt-date">2024 Q1–Q2</div>
+<div class="rt-text"><strong>2024年4月起停电消除。</strong>CCI改善至-12。在线零售增长35%。两罐退休金开放：第四季度达到400亿兰特。5月：Amazon SA上线。Temu在南非上线。</div>
+</div>
+<div class="rt-item blue">
+<div class="rt-date">2024 Q3</div>
+<div class="rt-text"><strong>2024年5月选举→GNU成立。</strong>CCI飙升至-5（5年高位）。降息周期开始：3年来首次9月降息。消费者支出反弹。零售显示同比正增长。</div>
+</div>
+<div class="rt-item gold">
+<div class="rt-date">2024 Q4</div>
+<div class="rt-text"><strong>SARS堵住了Shein/Temu导入漏洞</strong> （2024年9月）。降息仍继续。汽油价格下跌。节日期间零售提振。在线零售强劲——R96B峰值。CCI -6。</div>
+</div>
+<div class="rt-item">
+<div class="rt-date">2025 Q1</div>
+<div class="rt-text"><strong>增值税冲击：</strong>提案从15%提高到16%。CCI暴跌至-20（自2023年第二季度以来最低）。6级短暂回归。特朗普关税宣布。全球税收削减。消费者支出所得税。</div>
+</div>
+<div class="rt-item green">
+<div class="rt-date">2025 Q2–Q4</div>
+<div class="rt-text"><strong>修订预算软化了增值税提案。</strong>CCI到Q4逐渐恢复至-9。通胀平均3.2%（21年低位）。2025年零售+3.7%。兰特走强至R17/$以下。两罐量较2024年减少。</div>
+</div>
+<div class="rt-item">
+<div class="rt-date">2026 Q1</div>
+<div class="rt-text"><strong>CCI -7——自2024年第四季度以来最高。</strong>中东冲突重新成为石油风险。兰特约R16.6/$（4月）。SARB维持在6.75%。高收入信心复苏；低收入持续恶化。零售呈现稳健复苏模式。</div>
+</div>
+</div>
+</section>
+ 销售额为何下降 
+<section class="section" id="why-decline">
+<div class="section-header">
+<div class="section-eyebrow">根因分析</div>
+<h2 class="section-title">销售为何下滑？</h2>
+<div class="section-lead">每个数据均已通过从 Stats SA、SARB、FNB/BER 和行业来源收集的外部宏观数据进行了审查和丰富。</div>
+</div>
+ 为什么01 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">01</div>
+<div class="why-title-wrap">
+<div class="why-title">通胀和高利率</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>外部数据确认：</strong>2021-2023年整个CPI篮子的累计价格水平上升了18-22%。2020年在必需品上支出R1万/月的家庭到2023年需要R1.22万来维持同样的。同时，最优惠消费贷款利率从7.25%（2021年）上升到11.75%——在R150万抵押贷款上每月增加R2400+。BankservAfrica数据显示平均名义工资实际上在2023年4月下降了10.4%。在2008年后南非经济历史中的三个同时支持打击是独一无二的。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> 消费者不是选择不从ValueCo购买——他们<strong>在身体上无法维持危机前的支出水平</strong>非必需品或半自由裁量产品首先被削减。 “渴望”的购买行为崩溃了。基于价值的必需品得以保留。</p>
+</div>
+</div>
+ 为什么02 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">02</div>
+<div class="why-title-wrap">
+<div class="why-title">减载和习惯破坏</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>外部数据确认：</strong> CSIR预计2023年总停电经济损失为R2.8万亿。SARB预计GDP增长下降了1.8个百分点。在第6阶段，经济损失为R9亿/天。2023年没有一天是没有停电的。</p>
+<p><strong>直接和次要机制：</strong> 当电力中断时，实体就陷入黑暗。 TFG在第5-6阶段的短短几天内损失了估计R400M。 <strong>间接效应：</strong>由于停电，消费者永久停止购买行为转向网购——当商店黑暗时，他们使用移动数据/显示器电源购物。这种渠道转变加速了Takealot和Sixty60。这是不可逆的。</p>
+</div>
+</div>
+ 为什么03 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">03</div>
+<div class="why-title-wrap">
+<div class="why-title">消费者信心崩溃</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>外部数据确认：</strong> FNB/BER消费者信心指数在2023年第二季度跌至-25——该指数30年历史上的第二个低读数。“购买耐用品的时间”分项指数高于-35，表明几乎所有消费者都认为购买家具、电器、电子产品或车辆非常不合适。</p>
+<p><strong>级联机制：</strong> 低CCI增长意味着更少的购买——意味着消费者聚集的“生存模式”<strong>极度厌恶风险</strong>他们延迟、替代和降低价格。他们优先考虑减少债务而不是支出。他们从品牌转向价格忠诚度。CCI 为 -25 意味着即使是有工作的中产阶级消费者也在上心理囤积。</p>
+</div>
+</div>
+ 为什么04 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">04</div>
+<div class="why-title-wrap">
+<div class="why-title">电子商务和数据关税催化剂</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>外部数据确认：</strong> 南非在线零售额将在 2023 年增长 29%，达到 71B 兰特，2024 年增长 35%，达到 96B 兰特。在线零售总额的份额从新冠疫情爆发前的约 4% 上升至 2023 年的 6%，预计到 2025 年底将达到约 10%。</p>
+<p><strong>重新分配的内容：</strong> 网上花费的每一 R1 都是未花费在实体零售上的 R1。线上转移最多的品类包括服装、电子产品和日用百货。 <strong>催化剂：</strong> 自2023年以来，ICASA的中枢优先分配将数据关税降低了约25%，使移动购物大幅折扣。现在，71%的电子商务是智能手机进行交易的。</p>
+</div>
+</div>
+ 为什么05 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">05</div>
+<div class="why-title-wrap">
+<div class="why-title">Shein/Temu 价格确定</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>外部数据确认：</strong> 到 2024 年底，Shein 和 Temu 总计总计 R73 亿的收入涉足了南非在线服装、纺织品和鞋类市场的 37.1%。三分之一的南非消费者使用 Temu。</p>
+<p><strong>价格锚定效应：</strong> 行为经济学很清楚：一旦消费者体验到比参考价格低70-80%的产品，他们的内部价格就会永久重置。以R89从特木购买家居用品的消费者将不会再从当地的员工处支付R299。这无法通过促销定价来补偿。</p>
+</div>
+</div>
+</section>
+ 五个为什么 
+<section class="section" id="five-whys">
+<div class="section-header">
+<div class="section-eyebrow">根本原因分析</div>
+<h2 class="section-title">五个为什么 — 将内部数据与外部力量相连接</h2>
+<div class="section-lead">跨所有4个AI智能体验证。内部数据显示<em>发生了什么</em>。外部数据解释<em>为什么发生</em>。</div>
+</div>
+<div class="five-whys-grid">
+ 五个为什么 1 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">01</div>
+<div class="why-title-wrap">
+<div class="why-title">消费者购买力被系统性地摧毁</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么家居与厨房下降69.1%</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>通胀和高利率降低了可支配收入。现在被外部数据确认和量化。</p>
+<p><strong>外部数据确认：</strong> 我们失去了Usabco（Addis）等大型传统供应商。外部数据确认Addis是南非<strong>100年无疑的市场领导者</strong>，与“耐用性”同义。 在经济紧缩时期用未经证实的直接进口产品取代值得信赖的品牌导致消费者完全拒绝这种风险。 2026年南非消费者高度重视风险，将品牌信任作为<strong>耐用品的金融安全网</strong>。 当信任的名字从货架上消失时，消费者不会替代——他们干脆不用。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> 消费者没有选择 <em>not</em> 从ValueCo购买——他们实际上无法维持危机前的支出水平。非必需品或半自由裁量产品首先被削减。耐用品的品牌信任度损失是结构性的——它无法自行恢复。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+<span class="source-tag minimax">极小极大消费者心理学</span>
+</div>
+</div>
+ 五个为什么2 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">02</div>
+<div class="why-title-wrap">
+<div class="why-title">"空货架遗产"打破了批量购物习惯</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么散装主食如Pine Gel 5L下降如此显着</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>停电干扰了购物行为。现在确认——损害是永久性的，而非暂时的。</p>
+<p><strong>外部数据确认：</strong> 西洋跳棋 Sixty60 已捕获 <strong>&gt;80% 按需交付</strong>，到2026年875家商店。6060消除了批量购买的“苦差事”。 <strong>200多天6级停电</strong>永久性地改变了烹饪和储存习惯，通过商品进行更小、更间隔的新鲜购物。 一旦形成了“批量订购电话”的习惯，当货架重新装满时，它就不会被遗忘。现在，南非普通消费者将批量购物视为一件需要避免的苦差事，而不是一种需要维持的仪式。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> VCL的原始模式——大购物篮、大量其他、每周目的地旅行——在结构上与当前消费者行为不符。“补充”转向对于生存来说是很实用的。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+ 五个为什么 3 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">03</div>
+<div class="why-title-wrap">
+<div class="why-title">Shein/Temu重置了价格按钮——且无法撤销</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么5-9%的折扣在大篮子上看不见</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>促销深度相对于在线替代品不足。确认——问题是结构性的，而非战术性的。</p>
+<p><strong>外部数据确认：</strong> 我们在更广泛的篮子中保持较高的利润率，以支付亏损前面的 KVI。 NielsenIQ 表明 <strong>南澳 25–35% 的所有家居用品每周都会通过促销活动出售</strong>5-9%的折扣被视为“标准市场价格”，而不是交易。Shein/Temu价格永久性地重新调整了消费者参考价格——当基准比当地零售低70%时，<strong>5-9%的折扣是看不见的</strong>需要注意的是，预计需要在Shein/Temu主播的10%以内。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> ValueCo的KVI策略持续有效，是它足够接近——但因为更广泛的篮子完全并没有提供足够令人信服的理由来证明这次旅行的合理性。全价非必需品需要不同的信任和经验借鉴。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+<span class="source-tag gpt">GPT</span>
+<span class="source-tag minimax">极小极大</span>
+</div>
+</div>
+ 五个为什么 4 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num gold">04</div>
+<div class="why-title-wrap">
+<div class="why-title">三个汇合力量阻止了习惯恢复</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么现在货架满了目的地习惯还没恢复</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>没有目的地营销活动来重新锚定消费者行为。确认——被三个结构性力量加剧。</p>
+<p><strong>外部数据确认：</strong> 完全缺乏外部 <strong>“目的地营销”。</strong> 南澳购物者平均会拜访 4 家以上零售商，挑选优惠商品并以数字方式计划旅行。坏习惯因以下因素而变得更加复杂：(1) <strong>赌博流失</strong> 吸走可自由支配的兰特——在线赌博受到打击 <strong>R49B in 2025</strong>，捕捉过去流向实体零售的可支配收入。 (2) <strong>Sixty60的垄断</strong> 消除了奔波的需要——当60分钟内6060从875家商店购物时，为什么还要计划去商店参观呢？（3）<strong>永久性数字迁移</strong>——消费者在任何目的地旅行前先在网上研究。对于现代南非消费者来说，没有数字存在的商店实际上是不存在的。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> 作为“目的地”的营销首先需要数字化——地理围栏活动、在线研究可见性以及令人信服的旅行理由。 没有它，开放中心的人流无法有机恢复。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+<span class="source-tag deepseek">深度搜索</span>
+<span class="source-tag gpt">GPT</span>
+</div>
+</div>
+ 五个为什么 5 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num red">05</div>
+<div class="why-title-wrap">
+<div class="why-title">86.4%仅刷卡客户群遇到67.6%信贷拒绝率</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么ValueCo对国家信贷紧缩如此脆弱</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>高刷卡依赖且无BNPL能力将信贷设定客户拒之门外。确认并量化。</p>
+<p><strong>外部数据确认：</strong><strong>VCL 86.4%的销售额通过刷卡结算</strong>，只有13.3%用现金。当NCR报告时<strong>67.6%的信贷拒绝率</strong>此时，我们的客户实际上失去了进行高价值商品交易的能力。尽管有57%的账户份额，但BNPL的采用率只有6%——基础设施存在，但ValueCo没有利用它。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> 很大一部分顾客投入商店购买，但由于无法获得信贷而损失。POS上的BNPL预计每月可为VCL网络弥补2-500万兰特的销售额损失。与PayFlex或Float的合作是低垂的结果。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+<span class="source-tag gpt">GPT</span>
+</div>
+</div>
+ 五个为什么 6 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num green">06</div>
+<div class="why-title-wrap">
+<div class="why-title">忠诚度陷阱 — 78%会员渗透率，0.06%收入兑换</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么忠诚度计划未能缓冲冲击</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>忠诚度计划结构未能推动行为改变。在数据中得到确认。</p>
+<p><strong>外部数据确认：</strong> <strong>总收入的 0.06%（8,450 万兰特中的 5.6 万兰特）</strong> 于2026年第一季度忠诚度积分兑换。虽然78%的VCL交易来自忠诚度会员，但该计划实际上并没有作为财务减压阀。在一个市场里 <strong>59% 的南澳购物者优先考虑可以赚取/消耗积分的商店</strong> （点击 ClubCard、eBucks），ValueCo 的忠诚度货币未能推动行为改变。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> 该计划在结构上已被破坏。如果 ValueCo 重新推出引人注目的、可见的忠诚度计划，并提供有意义的即时奖励，它目前可以通过全价购买该计划的 22% 的非忠诚度客户转化为客户。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+</div>
+</div>
+ 五个为什么 7 
+<div class="why-card">
+<div class="why-header">
+<div class="why-num blue">07</div>
+<div class="why-title-wrap">
+<div class="why-title">14天符合市场最低标准 — 7天表示不信任</div>
+<div class="why-subtitle" style="color: var(--red); font-weight: 700;">为什么建议14天退货政策而非30天</div>
+</div>
+</div>
+<div class="why-body">
+<p><strong>原始论题：</strong>退货政策落后于竞争并抑制高价值转换。通过竞争基准测试确认。</p>
+<p><strong>外部数据确认：</strong> 南非消费者保护法仅强制要求缺陷商品退货（6个月）。<strong>"改变主意"退货受商店政策管辖。</strong> 2026年，竞争对手（Takealot、Makro、Amazon SA）的标准为14-30天。价值公司 <strong>7天保单是一种反常现象</strong> 发出产品不信任的信号。</p>
+<p><strong>这对 ValueCo 意味着什么：</strong> 14 天与市场最低限度一致，无需承担 30 天的全部成本风险 - 仅凭信任信号（与市场相匹配的可见退货政策）就可以推动高价非必需品的转化，而购买焦虑是主要的下降点。</p>
+</div>
+<div class="source-row">
+<span class="source-tag claude">克劳德·内特尔</span>
+<span class="source-tag gpt">GPT</span>
+</div>
+</div>
+</div>
+</section>
+ 结构性破坏 
+<section class="section" id="structural-shift">
+<div class="section-header">
+<div class="section-eyebrow">结构性破坏</div>
+<h2 class="section-title">电子商务结构转变</h2>
+</div>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>公制</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025F</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>南澳在线零售价值</td><td class="pos">R55B</td><td class="pos">R71B</td><td class="pos">R96B</td><td class="pos">R110B+</td></tr>
+<tr><td>同比在线增长</td><td class="pos">+35%</td><td class="pos">+29%</td><td class="pos">+35%</td><td class="pos">~15%+</td></tr>
+<tr><td>线上零售额占零售总额的百分比</td><td class="pos">~4%</td><td class="pos">6%</td><td class="pos">~8%</td><td class="pos">~10%</td></tr>
+<tr><td>实体零售同比</td><td class="pos">+2.4%</td><td class="neg">-1.1% to -1.6%</td><td class="pos">+1.2%</td><td class="pos">+3.7%</td></tr>
+<tr><td>网上服装分享（Shein+Temu）</td><td>最小</td><td class="pos">~15%</td><td class="neg">37.1%</td><td class="neg">生长</td></tr>
+<tr><td>电子商务的移动份额</td><td class="pos">约60%</td><td class="pos">~65%</td><td class="pos">~70%</td><td class="pos">71.42%</td></tr>
+<tr><td>南非互联网用户</td><td class="pos">~45M</td><td class="pos">~48M</td><td class="pos">~50M</td><td class="pos">50M+</td></tr>
+</tbody>
+</table>
+ 电子商务市场规模更新 
+<div class="kpi-row" style="margin-top: 24px;">
+<div class="kpi-block red">
+<div class="kpi-block-label">南澳电子商务 2025</div>
+<div class="kpi-block-value">R130B</div>
+<div class="kpi-block-sub">2024 年从 R96B 升级</div>
+<div class="badge neg">同比+35%</div>
+</div>
+<div class="kpi-block gold">
+<div class="kpi-block-label">电子商务在零售业中的份额</div>
+<div class="kpi-block-value">16%</div>
+<div class="kpi-block-sub">较 2020 年的 5% 有所上升</div>
+<div class="badge neg">比物理速度快 3 倍</div>
+</div>
+<div class="kpi-block green">
+<div class="kpi-block-label">节日期间增长</div>
+<div class="kpi-block-value">49.9%</div>
+<div class="kpi-block-sub">同比增长</div>
+<div class="badge pos">2025年旺季</div>
+</div>
+<div class="kpi-block blue">
+<div class="kpi-block-label">2027年预测</div>
+<div class="kpi-block-value">R150B</div>
+<div class="kpi-block-sub">持续强劲增长</div>
+<div class="badge pos">结构性转变</div>
+</div>
+</div>
+ 竞争格局 
+<h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin: 28px 0 16px; color: var(--ink);">电子商务竞争格局</h3>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>平台</th>
+<th>市场份额</th>
+<th>成长轨迹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>塔阿洛特集团</strong></td>
+<td class="neg">31.9%</td>
+<td>维持主导地位</td>
+</tr>
+<tr>
+<td><strong>伍尔沃斯数字</strong></td>
+<td class="neu">15.0%</td>
+<td>同比增长 37.2%（2025 年上半年）</td>
+</tr>
+<tr>
+<td><strong>谢因+特姆</strong></td>
+<td class="neg">15.3%</td>
+<td>2024 年 R7.3B 合计销量</td>
+</tr>
+<tr>
+<td><strong>亚马逊南非</strong></td>
+<td class="neu">12.3%</td>
+<td>自 2024 年 5 月推出以来不断增长</td>
+</tr>
+<tr>
+<td><strong>跳棋六十60</strong></td>
+<td class="neu">~12%</td>
+<td>同比增长 47%，每周订单 150 万份</td>
+</tr>
+</tbody>
+</table>
+ 网上购物类别和地理 
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+<div>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 16px; color: var(--ink);">网上购物类别</h3>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>类别</th>
+<th>分享</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服装与时尚</td>
+<td class="neg">30.2%</td>
+</tr>
+<tr>
+<td>杂货和快速消费品</td>
+<td class="neu">18.4%</td>
+</tr>
+<tr>
+<td>电脑及配件</td>
+<td class="neu">16.6%</td>
+</tr>
+<tr>
+<td>电子产品</td>
+<td class="neu">13.7%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 16px; color: var(--ink);">地理分布</h3>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>地区</th>
+<th>分享/成长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>豪登省销量份额</td>
+<td class="neg">42%</td>
+</tr>
+<tr>
+<td>西开普省</td>
+<td class="neu">25%</td>
+</tr>
+<tr>
+<td>乡镇发展（年度）</td>
+<td class="pos">22%</td>
+</tr>
+<tr>
+<td>农村增长（年度）</td>
+<td class="pos">50%+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="insight">
+<div class="insight-label">对实体零售商的重要见解</div>
+<p>在线零售的增长速度是实体零售的 10-35 倍。 2022-2025 年南非零售业的“赢家”不是任何一家零售商，而是数字渠道本身。 R1 从实体到数字的每一次转变不仅意味着收入损失，还意味着客户关系数据的丢失、购物篮机会的丢失以及冲动购买潜力的丢失。没有可靠数字化存在的实体零售商在结构上面临着加速的渠道转型浪潮。</p>
+</div>
+
+<!-- 竞争对手和领导者威胁矩阵 -->
+<h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin: 32px 0 16px; color: var(--ink);">竞争对手和领导者威胁矩阵</h3>
+<table class="cmp-table" style="font-size: 13px;">
+<thead>
+<tr>
+<th>竞争者</th>
+<th>市场地位</th>
+<th>领导力记录</th>
+<th>预期下一步行动</th>
+<th style="text-align: center;">威胁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>塔阿洛特</strong></td>
+<td>电子商务领导者| 31.9% 市场份额（2025 年）</td>
+<td>执行力强，预计2027年财年盈利。Naspers拥有剩余的资本储备支持。</td>
+<td>杂货品类扩张，卖家市场优化</td>
+<td style="text-align: center;"><span style="background: var(--red); color: white; padding: 3px 16px; border-radius: 2px; font-weight: 700; font-size: 11px; white-space: nowrap;">批判的</span></td>
+</tr>
+<tr>
+<td><strong>绍普莱特/跳棋</strong></td>
+<td>全面零售领导者 | 26% 市场份额 | R240.7B收入</td>
+<td>卓越运营、同比增长 7.2%、3000 万忠诚会员。物流行业标杆。</td>
+<td>Sixty60 当天配送扩展到普通商品、自有品牌增长</td>
+<td style="text-align: center;"><span style="background: var(--red); color: white; padding: 3px 16px; border-radius: 2px; font-weight: 700; font-size: 11px; white-space: nowrap;">批判的</span></td>
+</tr>
+<tr>
+<td><strong>谢因+特姆</strong></td>
+<td>时尚颠覆者 | 15.3% 电子商务份额 | R7.3B销售</td>
+<td>不惜一切代价积极增长，24 个月内占领了在线时尚市场 37% 的份额。</td>
+<td>百货扩张、降价策略</td>
+<td style="text-align: center;"><span style="background: #d97706; color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">高的</span></td>
+</tr>
+<tr>
+<td><strong>亚马逊公司</strong></td>
+<td>新出现的威胁| 12.3% 电子商务份额（2025 年）</td>
+<td>全球基础设施资源，长远战略视野。卖家注册于 2023 年 10 月开放。</td>
+<td>配送中心建设、Prime 上线、杂货品类进入</td>
+<td style="text-align: center;"><span style="background: #d97706; color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">高的</span></td>
+</tr>
+<tr>
+<td><strong>伍尔沃斯</strong></td>
+<td>高端细分市场 | 9.5% 增长 | R80.1B收入</td>
+<td>强大的高端定位，时尚品类在线增长 37%。</td>
+<td>Woolies Dash 按需交付、忠诚度计划改革</td>
+<td style="text-align: center;"><span style="background: var(--ink3); color: white; padding: 3px 16px; border-radius: 2px; font-weight: 700; font-size: 11px; white-space: nowrap;">中等的</span></td>
+</tr>
+<tr>
+<td><strong>提货付款</strong></td>
+<td>传统零售|增长 6.8% | R115.2B收入</td>
+<td>2024 年在线增长 60%，尽快！交付平台扩展。</td>
+<td>全渠道整合、成本优化举措</td>
+<td style="text-align: center;"><span style="background: var(--ink3); color: white; padding: 3px 16px; border-radius: 2px; font-weight: 700; font-size: 11px; white-space: nowrap;">中等的</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+ 心理学 
+<section class="section" id="psychology">
+<div class="section-header">
+<div class="section-eyebrow">行为分析</div>
+<h2 class="section-title">南非消费者心理如何改变</h2>
+<div class="section-lead">外部数据确认的5个心理转变</div>
+</div>
+<div class="why-card-alt">
+<div class="why-block">
+<div class="why-content">
+<table class="cmp-table">
+<thead>
+<tr>
+<th>行为/态度</th>
+<th>2023</th>
+<th>2026</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心理状态</strong></td>
+<td>生存模式。近乎纪录悲观。CCI -25。</td>
+<td>脆弱乐观。仍为负。CCI -7。高收入复苏，低收入没有。</td>
+<td>改善但脆弱</td>
+</tr>
+<tr>
+<td><strong>通胀体验</strong></td>
+<td>平均6.1%。食品/能源驱动恐慌性购买。实际工资下降。</td>
+<td>3.0%。自2004年以来最低。但3年累计价格水平永久性提高约20%。</td>
+<td>结构性抬高的底线</td>
+</tr>
+<tr>
+<td><strong>债务服务成本</strong></td>
+<td>回购8.25%。最优惠11.75%。R150万抵押贷款每月额外R2400+。</td>
+<td>回购6.75%。最优惠10.25%。150个基点缓解。每月节省约R900。</td>
+<td>有意义但不完整的缓解</td>
+</tr>
+<tr>
+<td><strong>购物渠道</strong></td>
+<td>以实体为主，早期在线采用。</td>
+<td>移动优先（71%）。Takealot、Amazon、Temu、Shein都处于竞争地位。</td>
+<td>数字优先，预期配送</td>
+</tr>
+<tr>
+<td><strong>价格敏感度</strong></td>
+<td>高——由必要性驱动。寻找促销和特价。</td>
+<td>高非常——由新的Temu/Shein刺激。参考价格比当地零售低40-70%。</td>
+<td>永久性重新校准</td>
+</tr>
+<tr>
+<td><strong>品牌忠诚度</strong></td>
+<td>侵蚀——降级到更便宜的替代品。</td>
+<td>可选消费品崩溃。在所有收入群体中价格忠诚度超过品牌。</td>
+<td>结构性转变，而非周期性</td>
+</tr>
+<tr>
+<td><strong>电力/停电</strong></td>
+<td>6级持续。200+天。业务中断。没有安全时段。</td>
+<td>有效解决。2025年Q1短暂回归6级。现在稳定。</td>
+<td>解决但习惯永久</td>
+</tr>
+<tr>
+<td><strong>网购频率</strong></td>
+<td>每月42%</td>
+<td>每月78%</td>
+<td>近乎普遍采用</td>
+</tr>
+<tr>
+<td><strong>移动商务份额</strong></td>
+<td>~60%</td>
+<td>85%</td>
+<td>主导渠道</td>
+</tr>
+<tr>
+<td><strong>BNPL 账户持有</strong></td>
+<td>45%</td>
+<td>57%</td>
+<td>增长但利用不足（6%使用）</td>
+</tr>
+<tr>
+<td><strong>必需品成本负担</strong></td>
+<td>支出约55%</td>
+<td>支出约65-70%（电+85%，水+68%）</td>
+<td>挤压可选消费空间</td>
+</tr>
+<tr>
+<td><strong>可选消费削减</strong></td>
+<td>42%已削减</td>
+<td>51%已削减——仍然偏高</td>
+<td>新的底线，而非暂时下降</td>
+</tr>
+<tr>
+<td><strong>储蓄vs消费</strong></td>
+<td>储蓄——储蓄能力下降48%</td>
+<td>缓慢复苏——但低于2021年水平</td>
+<td>学会的行为，而非忘记</td>
+</tr>
+<tr>
+<td><strong>应急储蓄建设</strong></td>
+<td>21%在建设</td>
+<td>27%在建设</td>
+<td>新的财务谨慎规范</td>
+</tr>
+<tr>
+<td><strong>订阅取消</strong></td>
+<td>28%已取消</td>
+<td>34%已取消</td>
+<td>加速</td>
+</tr>
+<tr>
+<td><strong>赌博支出</strong></td>
+<td>R120亿（2021）</td>
+<td>R490亿（2025）</td>
+<td>4年内4倍——结构性流失</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><strong>1. 永久性价格重新校准：</strong>Shein/Temu重置了内部价格定义。消费者现在希望消费消费支付比当地零售提供低40-70%的价格。这是没有商量余地的。</p>
+<p><strong>2. 创伤后节俭：</strong>即使宏观条件改善，三年的经济危机也造成了持久的优先行为。支出复苏比收入复苏慢得多。</p>
+<p><strong>3. 数字优先决策：</strong>71% 的购买从移动端开始。 27% 在购买前明确比较跨平台价格。实体店现在是一个履行中心，而不是一个发现渠道。</p>
+<p><strong>4. 收入分化：</strong>高收入（R4万+/月）消费者正在复苏并再次消费，受降息、兰特走强和两罐资金推动。 低收入消费者仍然受到失业和储蓄侵蚀的严重制约。</p>
+<p><strong>5. 机构信任赤字：</strong>任何意外的负面信号都会造成不成比例的信心崩溃。</p>
+<div class="insight warn" style="background: var(--light-yellow); border-color: var(--gold); margin-top: 24px;">
+<div class="insight-label" style="color: var(--gold);">关键洞察：CCI与零售销售相关性</div>
+<p style="color: var(--ink2);">CCI低于<strong>-15</strong>每个季度，零售贸易销售均同比萎缩。2023年Q1-Q2的-23/-25读数与连续5个月零售下降同时发生。2025年第一季度跌至-20立即抑制了可自由支配采购——“购买耐用品时间”分项指数遭遇打击 <strong>-28</strong>。 这个CCI数据直接从宏观层面解释了ValueCo的表现模式。</p>
+</div>
+ CCI 条形图 
+<div class="cci-chart-wrap">
+<div class="cci-chart-title">FNB/BER 消费者信心指数 — 历史读数（2024–2026）</div>
+<div class="cci-bar-chart">
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-15</div>
+<div class="cci-bar negative" style="height: 54%;"></div>
+<div class="cci-bar-label">Q1 2024</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-12</div>
+<div class="cci-bar negative" style="height: 44%;"></div>
+<div class="cci-bar-label">Q2 2024</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-5</div>
+<div class="cci-bar negative" style="height: 18%;"></div>
+<div class="cci-bar-label">Q3 2024</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-6</div>
+<div class="cci-bar negative" style="height: 22%;"></div>
+<div class="cci-bar-label">Q4 2024</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value" style="color:#ff8a7a;">-20</div>
+<div class="cci-bar negative" style="height: 72%;"></div>
+<div class="cci-bar-label">Q1 2025</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-10</div>
+<div class="cci-bar negative" style="height: 36%;"></div>
+<div class="cci-bar-label">Q2 2025</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-13</div>
+<div class="cci-bar negative" style="height: 47%;"></div>
+<div class="cci-bar-label">Q3 2025</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-9</div>
+<div class="cci-bar negative" style="height: 33%;"></div>
+<div class="cci-bar-label">Q4 2025</div>
+</div>
+<div class="cci-bar-wrap">
+<div class="cci-bar-value">-7</div>
+<div class="cci-bar negative" style="height: 26%;"></div>
+<div class="cci-bar-label">Q1 2026</div>
+</div>
+</div>
+<div class="cci-legend">
+<span class="neg-leg">负数 = 悲观</span>
+<span class="pos-leg">正数 = 乐观</span>
+<span style="margin-left: auto; opacity: 0.6;">* 零线 = 长期南非平均（自1994年以来）</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 比较 
+<section class="section" id="comparison">
+<div class="section-header">
+<div class="section-eyebrow">深度对比</div>
+<h2 class="section-title">南非消费者：2023 vs 2026</h2>
+</div>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>维度</th>
+<th style="background:#8b2c0e; color: white;">2023 — 危机消费者</th>
+<th style="background:#1a4a6a; color: white;">2026年Q1 — 谨慎乐观者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>心理状态</strong></td>
+<td>生存模式。悲观情绪接近历史最高纪录。 CCI -25。</td>
+<td>脆弱的乐观情绪。仍然是负面的。 CCI -7。高收入正在恢复，低收入则没有。</td>
+</tr>
+<tr>
+<td><strong>通货膨胀经验</strong></td>
+<td>平均 6.1%。食品/能源引发恐慌性支出。实际工资下降。</td>
+<td>3.0%。 2004 年以来的最低水平。但 3 年累计价格水平永久上涨约 20%。</td>
+</tr>
+<tr>
+<td><strong>偿债成本</strong></td>
+<td>回购利率8.25%。优惠 11.75%。最大债务负担。与 2021 年相比，每月额外增加 R2,400+。</td>
+<td>回购利率 6.75%。优惠 10.25%。缓解 150 个基点。每月 150 万兰特债券可节省 900 兰特。</td>
+</tr>
+<tr>
+<td><strong>电力/动力</strong></td>
+<td>第六阶段持续。业务中断。消费者客流量锐减。没有安全时间。</td>
+<td>得到有效解决。 2025 年第一季度的简短回归第六阶段造成了心理挫折。现在稳定了。</td>
+</tr>
+<tr>
+<td><strong>购物频道</strong></td>
+<td>主要是实体的（早期采用在线方式）。移动设备正在增长，但尚未占据主导地位。</td>
+<td>移动优先（71%）。比较购物默认。 Takealot、亚马逊、Temu、Shein 都在竞争。</td>
+</tr>
+<tr>
+<td><strong>价格敏感度</strong></td>
+<td>高——由必要性驱动。寻求促销和特价。</td>
+<td>非常高——由新的锚定驱动。 Temu/Shein 已永久重置参考价格。</td>
+</tr>
+<tr>
+<td><strong>品牌忠诚度</strong></td>
+<td>侵蚀——消费者转向更便宜的替代品。</td>
+<td>很大程度上崩溃了自由裁量权。在所有收入群体中，价格忠诚度主导着品牌忠诚度。</td>
+</tr>
+</tbody>
+</table>
+</section>
+ 战略 
+<section class="section" id="strategy">
+<div class="section-header">
+<div class="section-eyebrow">战略应对</div>
+<h2 class="section-title">数据驱动的战略建议</h2>
+<div class="section-lead">以下建议基于内部Q1数据发现：同店收入崩溃-51%、Westpack供应商基础近乎完全损失，以及从信任品牌大规模零售到进口依赖的结构性转变。每项建议都直接解决了五个为什么分析中确定的至少一个根本原因。</div>
+</div>
+<div class="insight warn" style="margin-bottom: 28px; background: var(--light-red); border-color: var(--red);">
+<div class="insight-label" style="color: var(--red);">核心问题：供应商基础崩溃</div>
+<p>数据讲述了一个明确的故事——<strong>2023年Q1 Westpack供应商收入基础（R1.163亿）的81%已被放弃，又恢复</strong>只有 Nova Papers（-8%）保持稳定。 其他所有主要 Westpack 供应商——Formosa Plastics、Funki Lines、Yung Shen、Freedom Stationery、Columbus Cleaning、Usabco——都已经损失或削减了 90% 以上。新的供应商基础（中国商城贸易商、VC Lifestyle 直接进口）没有 2023 年第一季度的可比历史记录以及不同的价格点、利润概况和消费者信任水平。 第一个战略问题不是“我们如何增长”——而是<strong>“哪些 Westpack 供应商关系可以恢复，哪些新的工作正在进行？”</strong></p>
+</div>
+<div class="strat-grid">
+<div class="strat-card red">
+<div class="strat-num red">立即</div>
+<div class="strat-title">坚守——保卫剩余基础</div>
+<div class="strat-body">
+<ul>
+<li><strong>Nova 论文 (R7.6M)：</strong> 最稳定的供应商关系。 保护它——确保库存可用、准时交付和有利的条款。它是剩余部分的锚。</li>
+<li><strong>嗡嗡声交易（R5.0M）：</strong> 仍然是 2026 年第一季度最大的活跃供应商。保持量承诺。调查为什么从 R1260 万下降——范围/品类问题还是关系问题？</li>
+<li><strong>KVI 价格领先：</strong> 保持R92.50 KVI促销水平。这是客流锚——不要在公用事业类别向竞争对手让出价格阵地。</li>
+<li><strong>55+ 人口统计：</strong> 唯一一个 2026 年第一季度每位会员支出高于 2023 年第一季度的细分市场 (+107%)。 不要用进一步的系列变化来疏远基于信任、品牌忠诚度的群体。</li>
+<li><strong>高收入复苏：</strong> FNB/BER CCI 显示出 2024 年 Q4 高位的高信心。降息为 R150 万抵押贷款每月节省 R900。用质量、保证和服务瞄准这一点——而不是价格。在信托收入上竞争，而不是折扣。</li>
+</ul>
+</div>
+</div>
+<div class="strat-card gold">
+<div class="strat-num gold">紧急</div>
+<div class="strat-title">恢复——丢失的供应商基础</div>
+<div class="strat-body">
+<ul>
+<li><strong>供应商恢复审核：</strong> 委托对前10名丢失的Westpack供应商进行紧急审查——Formosa、Funki Lines、永盛、Freedom Stationery、Columbus Cleaning、Usabco、Natures Best、Lank Soft、Evernu、Shield Chemicals。他们还在交易吗？会回来吗？什么破坏了关系？</li>
+<li><strong>Usabco（从 R12.5M 到 R3.7M）：</strong> 亚的斯亚贝巴关系是最有价值的恢复目标。 即使是部分恢复 Usabco/亚的斯亚贝巴系列也能直接解决 Home &amp; Kitchen 崩溃 -69% 的根本原因。</li>
+<li><strong>包装和包装（R0 回收 R16.7M）：</strong> 数据中单一最大的品类空洞。 在当前市场上寻找 multiwrap、Trevor &amp; Warren Packaging、Suprapack 替代品的专门供应商应该是当务之急。</li>
+<li><strong>停止仅进口替代：</strong> 在信任危机期间用匿名中国来源替代品取代值得信赖的南非品牌是灾难性的。 任何新供应商入职必须包括品牌验证和面向消费者的身份。</li>
+</ul>
+</div>
+</div>
+<div class="strat-card blue">
+<div class="strat-num blue">中期</div>
+<div class="strat-title">建设——数字基础设施</div>
+<div class="strat-body">
+<ul>
+<li><strong>数字化存在第一：</strong> 无数字存在=无发现。平均南非购物者在任何行程前访问4+专业人员数字平台。在每个中心5公里范围内的地理最大规模的“我们营业”活动，结合Google商业数据优化，是客流恢复的前提。</li>
+<li><strong>移动目录+库存可见性：</strong> 在线零售约占南非零售总额的10%并持续增长，71%通过移动端。 带有实时库存可见性的移动优化在线目录将在线研究转化为店内行程。</li>
+<li><strong>WhatsApp 商务：</strong> 南非最高的社交渗透率。 WhatsApp 订购和预订了 55+ 人群的数字鸿沟，同时利用现有的实体足迹。</li>
+<li><strong>7 天退货政策 → 14 天：</strong> 行业最低标准是14天。ValueCo的7天政策表示产品不信任——它抑制高价值任选消费转换。立即对齐。</li>
+</ul>
+</div>
+</div>
+<div class="strat-card green">
+<div class="strat-num green">战略</div>
+<div class="strat-title">在信任上竞争——而非价格</div>
+<div class="strat-body">
+<ul>
+<li><strong>信任胜过价格：</strong> Shein和Temu在价格上获胜。 ValueCo无法赢得那场战斗。 在本地零售具有边境电商无法复制的优势上的竞争：即时性、责任感、退货、售后服务。</li>
+<li><strong>当日/次日本地递送：</strong> 对比Shein的2-3周国际死亡时间。将实体足迹定位为物流优势——利用它。点击提货将浏览者转化为购买者。</li>
+<li><strong>忠诚度计划重新启动：</strong> 78% 渗透率，0.06% 赎回——该计划在结构上是隐形的。 将其转化为透明、即时奖励（机制如“消费R500，今天省R25”）。转化22%非会员全价买家。</li>
+<li><strong>BNPL POS：</strong> 86.4% 刷卡销售，67.6% 信贷拒绝率。 客户没有交易就离开。 PayFlex/Float 整合是低垂的效益——估计每月可恢复 R200-500 万销售。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="insight" style="margin-top: 24px; background: var(--light-green); border-left: 4px solid var(--green);">
+<div class="insight-label" style="color: var(--green);">窗口期——2026</div>
+<p>外部宏观数据确认2026年是复苏年——通胀3%，利率放松，2025年零售+3.7%，消费者信心从2024年Q4低点复苏。 高收入家庭已准备好再次消费。 重新获得钱包份额的窗口期是<strong>现在</strong>，宏观顺风正在吹起。 复苏需要在<strong>信任、即时性和服务</strong>上竞争——这是Shein和Temu在结构上无法匹配的三个优势。VCL的结构性转向没有错，它是不完整的。完成它需要将供应商基础视为其资产，并建设将实体存在转化为可轻松竞争优势的数字基础设施。</p>
+</div>
+</section>
+ 报告和来源 
+<section class="section" id="reports-sources">
+<div class="section-header">
+<div class="section-eyebrow">情报与数据</div>
+<h2 class="section-title">报告和源集成</h2>
+<div class="section-lead">本总体战略报告中的情报是通过内部分析和 5 个专门的人工智能代理收集外部数据汇总的。 <strong>请查看以下报告以获取更深入的报道信息。</strong></div>
+</div>
+<table class="cmp-table">
+<thead>
+<tr>
+<th>情报领域</th>
+<th>AI智能体</th>
+<th>主要数据来源</th>
+<th>完整报告</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内部SQL + 战略</td>
+<td>克洛德</td>
+<td>ValueCo KD数据库、Master_Pivot.csv</td>
+<td>
+<a href="OtherAI_Reports/claude_main_report-zh.html" style="color: var(--blue); font-weight: 600;">主要分析</a><br/>
+<a href="OtherAI_Reports/claude_external_data_report-zh.html" style="color: var(--blue); font-weight: 600;">外部审计</a><br/>
+<a href="Membership_Analysis_Report/index-zh.html" style="color: var(--blue); font-weight: 600;">会员仪表板</a>
+</td>
+</tr>
+<tr>
+<td>宏观经济审计</td>
+<td>深度搜索</td>
+<td>Stats SA、SARB公告、Coface、财政</td>
+<td><a href="OtherAI_Reports/deepseek_html_20260421_629134-zh.html" style="color: var(--blue); font-weight: 600;">宏观经济报告</a></td>
+</tr>
+<tr>
+<td>竞争格局</td>
+<td>GPT</td>
+<td>FNB/BER、GoogleTrend、TradeTracker</td>
+<td><a href="OtherAI_Reports/GPT_External Economic and E-Commerce Factors (SA, 2023 vs 2026).docx" style="color: var(--blue); font-weight: 600;">电子商务因素（文档）</a></td>
+</tr>
+<tr>
+<td>消费者心理学</td>
+<td>极小极大</td>
+<td>NielsenIQ、TransUnion、World Wide Worx</td>
+<td><a href="OtherAI_Reports/Minimax_report/Minimax2.7_Report-zh.html" style="color: var(--blue); font-weight: 600;">行为分析</a></td>
+</tr>
+<tr>
+<td>外部市场及宏观经济分析</td>
+<td>双子座</td>
+<td>SA、SARB、FNB/BER、OECD、贸易经济统计</td>
+<td><a href="External_Market_Analysis_2026-zh.html" style="color: var(--blue); font-weight: 600;">2026年外部市场分析</a></td>
+</tr>
+</tbody>
+</table>
+<h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin: 32px 0 16px; color: var(--ink);">报告方法论</h3>
+<p style="font-size: 14px; color: var(--ink2); line-height: 1.8; margin-bottom: 20px;">本报告使用四阶段分析管道构建：内部定量诊断、多智能体外部情报收集、因果关系综合和战略输出梳理。每个阶段都是迭代的——后期阶段的发现促使对早期数据的重新检查。</p>
+<div class="method-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 20px;">
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M7 16V12M12 16V8M17 16v-4"></path></svg></div>
+<div class="method-name">内部定量分析</div>
+<div class="method-desc">从ValueCo KD SQL数据库提取约100万条交易行。使用Pandas进行清洗、标准化和跨数据集对账。核心挑战是Westpack POS数据中<strong>计量单位（UoM）混合</strong>——月度列包含单位数量，而非兰特值。 使用<strong>平均售价方法</strong>解决：总期销售 ÷ 2022–2024年售出单位总数，应用于2023年Q1单位量。 这个修正后的2023年Q1总计R1.72亿占R1.87亿现金总额的约92%。 这一层出现了两个结构性发现：<strong>"两种门店类型的故事"</strong>——收购的VCL百货商店（41.7%实用组合，+4.3%增长）vs原有VC百货商店（72.5%生活方式组合，-16.8%崩溃）——以及<strong>R5000万预装包空缺</strong>：完全不在ValueCo系列中的传统Westpack B2B“预装包商品”餐饮客户。</div>
+</div>
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+<div class="method-name">多智能体外部研究</div>
+<div class="method-desc">同时部署了五个独立AI智能体，每个都得到明确的研究授权，并与权威来源（Stats SA、SARB、FNB/BER、NielsenIQ、TransUnion、World Wide Worx）进行三角验证。 <strong>克洛德</strong>专注于内部战略和信任指标——识别损坏的忠诚度计划（0.06%兑换）和无品牌进口的品牌信任真空。 <strong>深度搜索</strong>进行了宏观经济审计——发现R490亿在线赌博资金流失和收入分化。 <strong>GPT</strong>当地有了竞争格局——Checkers Sixty60的“便利垄断”和来自Shein/Temu的永久价格规定。 <strong>极小极大</strong>应用了消费者心理学——"创伤后节俭"和200多天停电永久性地将消费者转向更小、移动优先的购买。 <strong>双子座</strong>根据OECD和贸易经济学交叉验证了外部市场数据。所有发现在纳入前都经过交叉验证。</div>
+</div>
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></div>
+<div class="method-name">五个为什么根因分析</div>
+<div class="method-desc">反复应用以将内部数据（“发生了什么”——销售崩溃）与外部市场力量（“为什么发生”——宏观经济压力和竞争动态）相连接。在链条推进之前，每一个连续的“为什么”都经过至少一个外部人工智能智能体研究的验证。该技术防止叙事猜测：每一个因果主张都必须锚定在观察到的数据或三角化的外部情报中。 这就产生了<strong>15项分类战略发现</strong>——按严重性分级的交叉验证发现（严重威胁、结构性转变、永久重置）——以及<strong>编年完美风暴</strong>叙述，展示2023年8.25%回购利率、6级停电和7.8%通胀的组合如何永久性地改变了消费者心理。</div>
+</div>
+<div class="method-card">
+<div class="method-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+<div class="method-name">数据三角验证与标准化</div>
+<div class="method-desc">应用了三个标准化层来调和跨数据集不匹配的分类法： （1）<strong>计量单位修改</strong>——通过平均价格方法将单位数量列转换为兰特值； （2）<strong>供应商名称标准化</strong>——去除标签点和空格，实现Westpack和VCL供应商记录之间的跨数据集名称匹配；（3）<strong>部门分类法映射</strong>——使用供应商分组连接键将Westpack的类别层次结构转换为VCL类别名称。</div>
+</div>
+</div>
+<h4 style="font-family: 'Playfair Display', serif; font-size: 14px; margin: 28px 0 12px; color: var(--ink);">应用的数据科学方法</h4>
+<table class="cmp-table" style="font-size: 13px;">
+<thead>
+<tr style="background: var(--ink);">
+<th style="color: white;">方法</th>
+<th style="color: white;">描述</th>
+<th style="color: white;">使用数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平均价格法</strong></td>
+<td>平均单位价格 = 总期销售额 ÷ 2022–2024年单位总数。评估2023年Q1单位量修改以Westpack POS数据中的混合UoM。实现现金覆盖率92%（R1.72亿中R1.87亿）。这是实现有效的2023年Q1与2026年Q1比较的修改基础。</td>
+<td>Master_Pivot.csv</td>
+</tr>
+<tr>
+<td><strong>存储速度分段</strong></td>
+<td>按码头收购来源分层销售——比较收购的VCL码头与原有VC码头。发现收购的VCL码头（41.7%实用组合）在结构上有张力（+4.3%），而原有VC码头（72.5%生活方式/任选消费组合）是一个自由落体（-16.8%）。“两种码头类型的故事”将达拉斯战略重新定位为实用拓展，取消文艺复苏。</td>
+<td>Master_Pivot.csv + 商店级 POS</td>
+</tr>
+<tr>
+<td><strong>预包装间隙检测</strong></td>
+<td>带有“预装包商品”标签的历史Westpack数据贡献了R4940高利润B2B收入——当地餐饮商和小企业。这个品类完全不在ValueCo系列中，形成了R5000的结构性支柱空洞，在当前数据集中没有可见的恢复路径。</td>
+<td>Master_Pivot.csv（类别标签）</td>
+</tr>
+<tr>
+<td><strong>五个为什么根本原因分析</strong></td>
+<td>每个主要发现应用迭代为什么链。每个原因在推进之前至少有一个外部人工智能智能体验证。产生按严重程度分级的“15 个分类战略发现”，以及按时间顺序排列的完美风暴时间表（2022-2026），显示 2023 年宏观冲击如何永久改变消费者心理。</td>
+<td>内部SQL + 5个AI代理报告</td>
+</tr>
+<tr>
+<td><strong>供应商风险评分</strong></td>
+<td>风险评分 = Q1 2026 收入 ÷ Q1 2023 收入。分类为稳定（&gt;80%）、严重（40–80%）、严重（10–40%）或损失（&lt;10%）。每个跟踪 Westpack 供应商的收入和占总支出。生成一个复合风险矩阵，直接告知供应商恢复优先顺序。</td>
+<td>Master_Pivot.csv + VCL_Full_Item_Comparison.csv</td>
+</tr>
+<tr>
+<td><strong>关联规则挖掘（共现）</strong></td>
+<td>当部门在 VCL 数据集中共享相同的供应商时，它们共同出现。 共享供应商数量是跨类别购买可能性的代理 - 服务于多个部门的供应商表明从一个类别购买的客户在结构上可能从另一类别购买。 选择共享供应商频率排名（最低阈值：50个共享供应商）。识别自然捆和跨销机会。</td>
+<td>VCL_Full_Item_Comparison.csv（253个多部门供应商）</td>
+</tr>
+<tr>
+<td><strong>顶级供应商差距分析</strong></td>
+<td>按2023年Q1收入排名的前20强Westpack供应商通过标准化名称匹配追踪到2026年Q1。每个供应商计算收入分别恢复（2026 ÷ 2023）。用于协调结构性供应商崩溃的总计缺口R1.163亿→R2160万（81%损失）——与收入恢复不同但相关。</td>
+<td>VCL_Full_Item_Comparison.csv+supplier_comparison.js</td>
+</tr>
+</tbody>
+</table>
+<h4 style="font-family: 'Playfair Display', serif; font-size: 14px; margin: 24px 0 10px; color: var(--ink);">关键数据约束</h4>
+<ul style="font-size: 13px; color: var(--ink2); padding-left: 20px; line-height: 1.9;">
+<li><strong>无2023年会员数据：</strong>忠诚度/会员标识符仅存在于ValueCo的2026年计划启动之后。纵向会员分析（RFM、队列分析）对2023年Q1不可行——只有单期快照（2026年Q1）可用。</li>
+<li><strong>单品等级POS：</strong>现金限制购买和未捕获商品（约占总数8%）在单品级Master_Pivot数据中恢复。2023年Q1数字代表R1.87亿元现金的约92%。差距不是数据错误——而是单品级POS提取的结构性。</li>
+<li><strong>部门分类法映射：</strong>Westpack 的类别层次结构使用供应商包作为连接键映射到 VCL 部门名称。在一些程度上在转换中丢失，某些 Westpack 部门没有直接的 VCL 等价物。</li>
+<li><strong>门店基础变化：</strong>Westpack 2023年Q1覆​​盖原有的22个门店位置。VCL Q1 2026数据按VCL门店格式导入。同店级直接比较使用可识别的相同22家门店——但“两种门店类型的故事”发现（收购的VCL门店vs原有VC门店）本身就证明，门店级重组为解决整体导入与细分之间明显矛盾是必要的。</li>
+</ul>
+<h4 style="font-family: 'Playfair Display', serif; font-size: 14px; margin: 24px 0 10px; color: var(--ink);">工具集与技术</h4>
+<ul style="font-size: 13px; color: var(--ink2); padding-left: 20px; line-height: 1.9;">
+<li><strong>SQL（KD数据库）：</strong>Q1 2023和Q1 2026单品级数据的原始POS提取——约100万条交易行跨22家门店。</li>
+<li><strong>熊猫/Python：</strong>数据清洗、列标准化、供应商和部门映射、缺口分析脚本。</li>
+<li><strong>Node.js脚本：</strong>独立分析工具（compare_suppliers.js、compare_suppliers_v2.js、supplier_comparison.js）用于供应商组聚合和跨数据集对账。</li>
+<li><strong>Claude Code + 4个额外的AI智能体：</strong>五个ARMAI智能体（Claude、DeepSeek、GPT、Minimax、Gemini）均获得独立的研究授权。Claude Code编排管道；Gemini执行了最初的繁重工作和核心综合。</li>
+<li><strong>Robbie Mai（人工指导与质量验证）：</strong>发起并督导所有AI智能体的深度研究；通读每一份报告，核查各数据指标之间是否存在差异，验证正确指标并纠正不一致之处。</li>
+<li><strong>HTML/CSS/JS：</strong>交互式仪表板和本综合战略报告，采用纯JS和CSS自定义属性构建以保证可移植性。</li>
+</ul>
+</section>
+</div>
+<footer>
+<p>© 2026 ValueCo 南非 · 综合战略情报报告 · 督导：Robbie Mai · 管道：Gemini → Claude Code · 5个AI智能体集成</p>
+</footer>
+</body>
+</html>

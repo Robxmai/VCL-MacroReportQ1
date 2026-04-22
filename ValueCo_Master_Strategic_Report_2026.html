@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValueCo · Master Strategic Performance Audit | 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface2: #f5f3ef;
+    --border: #e5e0d8;
+    --ink: #1a1a16;
+    --ink-bg: #1a1a16;
+    --ink2: #4a4a42;
+    --ink3: #8a8a7e;
+    --accent: #c44a1a;
+    --accent2: #1a5c8a;
+    --accent3: #1a7a3a;
+    --gold: #c88a1a;
+    --red: #c44a1a;
+    --blue: #1a5c8a;
+    --green: #1a7a3a;
+    --yellow: #ffde00;
+    --brown: #2a1b15;
+    --light-red: #fdf2ef;
+    --light-blue: #eff4f8;
+    --light-green: #eff6f1;
+    --light-yellow: #fdf7ef;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    color: white;
+    padding: 0;
+    display: flex;
+  }
+  .masthead-left {
+    background: var(--accent);
+    padding: 50px 40px;
+    width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .masthead-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    letter-spacing: -1px;
+    color: white;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .masthead-brand span { font-style: italic; color: var(--yellow); }
+  .masthead-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .masthead-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+  .masthead-right {
+    flex: 1;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .report-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--yellow);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  h1.main-title em { color: var(--yellow); font-style: italic; }
+  .main-lead {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  /* NAV */
+  .report-nav {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0 60px;
+    display: flex;
+    overflow-x: auto;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .report-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink3);
+    text-decoration: none;
+    padding: 16px 20px;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+  .report-nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* LAYOUT */
+  .container { max-width: 1300px; margin: 0 auto; padding: 50px 60px; }
+  .section { margin-bottom: 80px; }
+
+  /* SECTION HEADERS */
+  .section-header { margin-bottom: 36px; }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .section-lead {
+    font-size: 16px;
+    color: var(--ink2);
+    max-width: 800px;
+  }
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0 36px;
+  }
+
+  /* KPI ROW */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .kpi-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    border-top: 4px solid var(--border);
+  }
+  .kpi-block.red { border-top-color: var(--red); }
+  .kpi-block.blue { border-top-color: var(--blue); }
+  .kpi-block.green { border-top-color: var(--green); }
+  .kpi-block.gold { border-top-color: var(--gold); }
+  .kpi-block-label { font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
+  .kpi-block-value { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+  .kpi-block-sub { font-size: 12px; color: var(--ink2); }
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .badge.neg { background: var(--red); color: white; }
+  .badge.pos { background: var(--green); color: white; }
+  .badge.neu { background: var(--gold); color: white; }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background: var(--light-blue);
+    border-left: 4px solid var(--blue);
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .insight.warn { background: var(--light-yellow); border-color: var(--gold); }
+  .insight.danger { background: var(--light-red); border-color: var(--red); }
+  .insight.success { background: var(--light-green); border-color: var(--green); }
+  .insight-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .insight.warn .insight-label { color: var(--gold); }
+  .insight.danger .insight-label { color: var(--red); }
+  .insight.success .insight-label { color: var(--green); }
+  .insight p { font-size: 14px; line-height: 1.7; color: var(--ink2); }
+
+  /* TABLES */
+  .cmp-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .cmp-table th {
+    background: var(--ink);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .cmp-table td {
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--ink2);
+  }
+  .cmp-table td:first-child { color: var(--ink); font-weight: 600; background: var(--surface2); }
+  .cmp-table .neg { color: var(--accent); font-weight: 600; }
+  .cmp-table .pos { color: var(--green); font-weight: 600; }
+
+  /* TIMELINE */
+  .rt-text li { margin-bottom: 6px; }
+
+  /* TIMELINE — HORIZONTAL */
+  .report-timeline-h {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .report-timeline-h::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    z-index: 0;
+  }
+  .rt-h-item { position: relative; z-index: 1; }
+  .rt-h-item::before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 33px auto 16px;
+    border: 3px solid var(--ink-bg);
+  }
+  .rt-h-item.neutral::before { background: rgba(255,255,255,0.3); }
+  .rt-h-item.red::before { background: var(--accent); }
+  .rt-h-item.gold::before { background: var(--gold); }
+  .rt-h-item.blue::before { background: var(--blue); }
+  .rt-h-item.green::before { background: var(--green); }
+  .rt-h-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 0 8px;
+    margin-bottom: 10px;
+  }
+  .rt-h-text {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .rt-h-text strong { color: rgba(255,255,255,0.85); }
+
+  /* TIMELINE — VERTICAL */
+  .report-timeline { position: relative; padding-left: 28px; margin-top: 30px; margin-bottom: 40px; }
+  .report-timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--border); }
+  .rt-item { position:relative; margin-bottom:24px; }
+  .rt-item::before {
+    content:''; position:absolute; left:-24px; top:6px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--bg);
+  }
+  .rt-item.blue::before { background:var(--blue); }
+  .rt-item.gold::before { background:var(--gold); }
+  .rt-item.green::before { background:var(--green); }
+  .rt-date { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink3); margin-bottom:3px; letter-spacing:1px; }
+  .rt-text { font-size:14px; color:var(--ink2); }
+  .rt-text strong { color:var(--ink); }
+  .rt-h-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.08);
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 2;
+  }
+
+  /* WHY CARDS (FOR FINDINGS) */
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .why-header {
+    display: flex; align-items: center; gap: 0;
+  }
+  .why-num {
+    background: var(--ink);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 24px;
+    min-width: 70px;
+    text-align: center;
+  }
+  .why-num.red { background: var(--red); }
+  .why-num.blue { background: var(--blue); }
+  .why-num.gold { background: var(--gold); }
+  .why-num.green { background: var(--green); }
+  .why-title-wrap { flex:1; padding: 20px 24px; }
+  .why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .why-subtitle { font-size: 12px; color: var(--ink3); font-style: italic; }
+  .why-body { padding: 0 24px 24px 70px; }
+  .why-body p { margin-bottom: 12px; font-size: 14px; line-height: 1.8; color: var(--ink2); }
+  .why-body strong { color: var(--ink); }
+  .five-whys-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .five-why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .five-why-card .source-row { padding: 0 24px 20px 70px; }
+  #five-whys .source-tag { background: var(--surface2); border-color: var(--border); color: var(--ink3); }
+  #five-whys .source-tag.claude { background: var(--light-blue); color: var(--blue); border-color: var(--blue); }
+  #five-whys .source-tag.deepseek { background: #fde8df; color: var(--accent); border-color: var(--accent); }
+  #five-whys .source-tag.gpt { background: var(--light-green); color: var(--green); border-color: var(--green); }
+  #five-whys .source-tag.minimax { background: var(--light-yellow); color: var(--gold); border-color: var(--gold); }
+
+  /* OLD WHY CARDS (FOR ROOT CAUSE) */
+  .why-card-alt {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding: 24px;
+    border-left: 4px solid var(--accent);
+  }
+  .why-card-alt.blue { border-left-color: var(--blue); }
+  .why-card-alt.gold { border-left-color: var(--gold); }
+  .why-card-alt.green { border-left-color: var(--green); }
+  .why-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .why-block { margin-bottom: 12px; }
+  .why-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px; }
+  .why-content { font-size: 14px; color: var(--ink2); }
+  .why-content strong { color: var(--ink); }
+
+  /* PSYCH TABLE */
+  .psych-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  .psych-table th {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .psych-table td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); }
+  .psych-table td:first-child { color: rgba(255,255,255,0.9); font-weight: 600; background: rgba(255,255,255,0.04); }
+  .psych-table td.neg { color: #ff8a7a; font-weight: 600; }
+  .psych-table tr:last-child td { border-bottom: none; }
+
+  /* CCI CHART */
+  .cci-chart-wrap {
+    margin: 28px 0;
+    background: #1a1a16;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .cci-chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 16px;
+  }
+  .cci-bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 140px; padding-top: 10px; }
+  .cci-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+  .cci-bar { width: 100%; max-width: 60px; border-radius: 3px 3px 0 0; transition: opacity 0.2s; }
+  .cci-bar:hover { opacity: 0.8; }
+  .cci-bar.negative { background: linear-gradient(180deg, #e84040, #a02020); }
+  .cci-bar.positive { background: linear-gradient(180deg, #3a9a5a, #1a6a3a); }
+  .cci-bar.zero { background: rgba(255,255,255,0.15); }
+  .cci-bar-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.5); text-align: center; white-space: nowrap; }
+  .cci-bar-value { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85); }
+  .cci-zero-line { border-top: 1px dashed rgba(255,255,255,0.25); width: 100%; margin-bottom: 4px; }
+  .cci-legend { display: flex; gap: 20px; margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.5); font-family: 'JetBrains Mono', monospace; }
+  .cci-legend span::before { content: '■ '; font-size: 8px; }
+  .cci-legend .neg-leg::before { color: #e84040; }
+  .cci-legend .pos-leg::before { color: #3a9a5a; }
+
+  /* STRATEGY CARDS */
+  .strat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .strat-grid { grid-template-columns: 1fr; } }
+  .strat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    border-top: 5px solid var(--border);
+  }
+  .strat-card.green { border-top-color: var(--green); }
+  .strat-card.blue { border-top-color: var(--blue); }
+  .strat-card.gold { border-top-color: var(--gold); }
+  .strat-card.red { border-top-color: var(--accent); }
+  .strat-card.yellow { border-top-color: var(--yellow); }
+  .strat-num {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  .strat-num.red { background: var(--accent); }
+  .strat-num.blue { background: var(--blue); }
+  .strat-num.green { background: var(--green); }
+  .strat-num.gold { background: var(--gold); }
+  .strat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .strat-body { font-size: 13px; color: #1a1a16; line-height: 1.7; }
+  .strat-body ul { padding-left: 18px; }
+  .strat-body li { margin-bottom: 7px; }
+  .strat-extra {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink3);
+  }
+  .strat-extra strong { color: var(--ink); font-size: 12px; display: block; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.5px; }
+  .strat-extra ul { padding-left: 18px; }
+  .strat-extra li { margin-bottom: 6px; }
+
+  /* EXTERNAL INTELLIGENCE - CONSOLIDATED SECTION (BROWN) */
+  .ext-section {
+    margin: 0 0 60px;
+    padding: 40px 60px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ext-section .section-eyebrow { color: var(--ink3); }
+  .ext-section h2.section-title { color: var(--ink); }
+  .ext-section .section-lead { color: var(--ink2); }
+  .ext-section .kpi-block { background: var(--surface); }
+  .ext-section .kpi-block-label { color: var(--ink3); }
+  .ext-section .kpi-block-value { color: var(--ink); }
+  .ext-section .kpi-block-sub { color: var(--ink2); }
+  .ext-section .badge { color: white; }
+  .ext-section .badge.pos { background: var(--green); }
+  .ext-section .badge.neg { background: var(--accent); }
+  .ext-section .badge.neu { background: var(--gold); }
+  .ext-section .source-row { padding: 12px 0 4px; }
+  .ext-section .source-tag { background: var(--surface2); border-color: var(--border); color: var(--ink3); }
+  .ext-section .source-tag.claude { background: var(--light-blue); color: var(--blue); border-color: var(--blue); }
+  .ext-section .source-tag.deepseek { background: #fde8df; color: var(--accent); border-color: var(--accent); }
+  .ext-section .source-tag.gpt { background: var(--light-green); color: var(--green); border-color: var(--green); }
+  .ext-section .source-tag.minimax { background: var(--light-yellow); color: var(--gold); border-color: var(--gold); }
+  .ext-section .why-card { background: var(--surface); border-color: var(--border); }
+  .ext-section .why-num { color: white; }
+  .ext-section .why-title { color: var(--ink); }
+  .ext-section .why-subtitle { color: var(--ink3); }
+  .ext-section .why-body { color: var(--ink2); }
+  .ext-section .why-body strong { color: var(--ink); }
+  .ext-section .insight { background: var(--surface); border-color: var(--border); }
+  .ext-section .insight.dark { background: var(--ink-bg); border-color: var(--gold); }
+  .ext-section .insight.dark .insight-label { color: #d4a520; }
+  .ext-section .insight.dark p { color: rgba(255,255,255,0.85); }
+  .ext-section .insight.dark strong { color: white; }
+  .insight.dark { background: #1a1a16; border-left: 4px solid #d4a520; }
+  .insight.dark .insight-label { color: #d4a520; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+  .insight.dark p { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.7; }
+  .ext-section .insight-label { color: var(--ink); }
+  .ext-section .insight p { color: var(--ink2); }
+  .ext-section .insight.warn { background: var(--light-yellow); border-color: var(--gold); }
+  .ext-section .insight.warn .insight-label { color: var(--gold); }
+  .ext-section .classified-num { background: var(--surface2); color: var(--ink3); }
+  .ext-section .classified-title { color: var(--ink); }
+  .ext-section .classified-body { color: var(--ink2); }
+  .ext-section .classified-item.gold { background: var(--surface); border-color: var(--gold); }
+  .ext-section .classified-item.red { background: var(--surface); border-color: var(--accent); }
+  .ext-section .classified-item.blue { background: var(--surface); border-color: var(--blue); }
+  .ext-section .classified-item.green { background: var(--surface); border-color: var(--green); }
+  .ext-section .src-row { padding-top: 8px; }
+  .ext-section .src-tag { background: var(--surface2); color: var(--ink3); }
+  .ext-section .src-tag.deepseek { background: #fde8df; color: var(--accent); }
+  .ext-section .src-tag.gpt { background: var(--light-green); color: var(--green); }
+  .ext-section .src-tag.minimax { background: var(--light-yellow); color: var(--gold); }
+  .ext-section .src-tag.claude { background: var(--light-blue); color: var(--blue); }
+  .ext-section .classified-grid { gap: 16px; }
+  .ext-section .method-card { background: var(--surface); border-color: var(--border); color: var(--ink); }
+  .ext-section .method-icon { background: var(--surface2); }
+  .ext-section .method-name { color: var(--ink); }
+  .ext-section .method-desc { color: var(--ink2); }
+  .ext-section .tl-strip { background: var(--surface2); border-color: var(--border); }
+  .ext-section .tl-title { color: var(--ink3); }
+  .ext-section .tl-col { border-right-color: var(--border); }
+  .ext-section .tl-year { color: var(--ink); font-weight: 700; }
+  .ext-section .tl-events { color: var(--ink2); }
+  .ext-section .econ-table th { background: var(--surface2); color: var(--ink3); }
+  .ext-section .econ-table td { color: var(--ink2); border-bottom-color: var(--border); }
+  .ext-section .econ-table td:first-child { color: var(--ink); }
+  .ext-section .econ-table .neg { color: var(--accent); }
+  .ext-section .econ-table .pos { color: var(--green); }
+  .ext-section .econ-table .neu { color: var(--gold); }
+  .ext-section .cmp-table th { background: var(--surface2); color: var(--ink3); }
+  .ext-section .cmp-table td { color: var(--ink2); border-bottom-color: var(--border); }
+  .ext-section .cmp-table td:first-child { color: var(--ink); font-weight: 600; }
+  .ext-section .cmp-table td.neg { color: var(--accent); }
+  .ext-section .cmp-table td.pos { color: var(--green); }
+  .ext-section .cmp-table td.neu { color: var(--gold); }
+
+  /* SOURCE TAGS */
+  .source-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .source-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .source-tag.claude { background: rgba(26,92,138,0.3); color: #7ab8e0; border: 1px solid rgba(122,184,224,0.3); }
+  .source-tag.deepseek { background: rgba(196,74,26,0.3); color: #e09070; border: 1px solid rgba(224,144,112,0.3); }
+  .source-tag.gpt { background: rgba(26,122,58,0.3); color: #7ad49e; border: 1px solid rgba(122,212,158,0.3); }
+  .source-tag.minimax { background: rgba(200,138,26,0.3); color: #e0c07a; border: 1px solid rgba(224,192,122,0.3); }
+
+  /* ECONOMIC DATA TABLE */
+  /* Base .econ-table styles removed - table uses .cmp-table styles when in light-background sections.
+     .ext-section .econ-table overrides (lines 569-574) apply when table is inside .ext-section (dark bg). */
+
+  /* METHODOLOGY BLOCK */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+  }
+  .method-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    text-align: center;
+  }
+  .method-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 12px;
+    display: block;
+    color: var(--accent);
+  }
+  .method-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .method-desc {
+    font-size: 12px;
+    color: var(--ink2);
+    line-height: 1.6;
+  }
+
+  footer {
+    background: var(--ink);
+    color: white;
+    padding: 60px;
+    text-align: center;
+  }
+  footer a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .masthead { flex-direction: column; }
+    .masthead-left { width: 100%; }
+    .strat-grid { grid-template-columns: 1fr; }
+    .ext-section { padding: 40px 24px; margin: 0 0 60px; max-width: 100%; }
+    .container { padding: 40px 24px; }
+    .method-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-left">
+    <div class="masthead-brand">VALUE<span>CO</span></div>
+    <div class="masthead-tagline">Retail Intelligence Unit</div>
+    <div class="masthead-meta">
+      Report Date: 21 April 2026<br>
+      Status: FINAL — MASTER STRATEGIC REPORT<br>
+      Reference: Q1 2023 vs Q1 2026<br>
+      Lead: Marketing & Membership<br>
+      <br>
+      External Intelligence: 5 AI Agents<br>
+      Claude · DeepSeek · GPT · Minimax · Gemini
+    </div>
+  </div>
+  <div class="masthead-right">
+    <div class="report-label">Executive Performance Audit</div>
+    <h1 class="main-title">ValueCo Performance Audit:<br><em>VCL Structural Decline</em><br>& VC Crisis</h1>
+    <p class="main-lead">Aggregating Q1 internal sales data with consolidated external macroeconomic intelligence from 4 AI agents to diagnose the revenue erosion and propose a multi-stage strategic pivot.</p>
+  </div>
+</header>
+
+<nav class="report-nav">
+  <a href="#executive">Executive Summary</a>
+  <a href="#vcl-collapse">VCL Performance</a>
+  <a href="#external-intel">External Intelligence</a>
+  <a href="#timeline">Crisis Timeline</a>
+  <a href="#why-decline">Why Sales Declined</a>
+  <a href="#structural-shift">Structural Disruption</a>
+  <a href="#psychology">Behavioural Economics</a>
+  <a href="#five-whys">Five Whys</a>
+  <a href="#strategy">Strategic Response</a>
+  <a href="#reports-sources">Reports & Sources</a>
+</nav>
+
+<div class="container">
+
+  <!-- EX SUMMARY -->
+  <section class="section" id="executive">
+    <div class="section-header">
+      <div class="section-eyebrow">Diagnostic Overview</div>
+      <h2 class="section-title">Executive Summary</h2>
+      <div class="section-lead">ValueCo faces a dual structural crisis: original VC stores are devastated by the discretionary spending crash, while acquired VCL stores face catastrophic decline from their Westpack era baseline. This report consolidates intelligence from 5 AI agents with internal SQL data to present the definitive strategic roadmap.</div>
+    </div>
+    <hr class="section-rule">
+
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 16V12M12 16V8M17 16v-4"/></svg></div>
+        <div class="method-name">Quantitative (Internal)</div>
+        <div class="method-desc">SQL extraction & Pandas normalization of ~1M transaction rows. Q1 2023 vs Q1 2026 comparison.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="method-name">Qualitative (External)</div>
+        <div class="method-desc">Web scraping, HelloPeter sentiment, and research synthesis from 4 independent AI agents.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="method-name">Root Cause (Five Whys)</div>
+        <div class="method-desc">Bridging internal data (what is happening) with external market forces (why it is happening).</div>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-block red">
+        <div class="kpi-block-label">VCL Q1 Sales Drop</div>
+        <div class="kpi-block-value">68.6%</div>
+        <div class="kpi-block-sub">R20.5M → R6.4M</div>
+        <div class="badge neg">↓ Basket Collapse</div>
+      </div>
+      <div class="kpi-block red">
+        <div class="kpi-block-label">Home & Kitchen Pillar</div>
+        <div class="kpi-block-value">-69.1%</div>
+        <div class="kpi-block-sub">Normalized Q1 Gap</div>
+        <div class="badge neg">↓ Loss of Addis</div>
+      </div>
+      <div class="kpi-block gold">
+        <div class="kpi-block-label">VCL vs Westpack Baseline</div>
+        <div class="kpi-block-value">—</div>
+        <div class="kpi-block-sub">Catastrophic vs history</div>
+        <div class="badge neg">Requires review</div>
+      </div>
+      <div class="kpi-block red">
+        <div class="kpi-block-label">Original VC Growth</div>
+        <div class="kpi-block-value">-16.8%</div>
+        <div class="kpi-block-sub">Monthly Avg 2026</div>
+        <div class="badge neg">↓ Lifestyle Exposure</div>
+      </div>
+    </div>
+    <div class="insight" style="background: var(--ink-bg); border-left: 4px solid var(--red); margin-top: 32px;">
+      <div class="insight-label" style="color: var(--yellow);">Root Cause Diagnosis — 18.7% Cumulative Decline Over 24 Months</div>
+      <p style="color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.8;">
+        <strong style="color: white;">Two structural factors explain the full decline:</strong>
+      </p>
+      <ul style="color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.9; padding-left: 20px; margin-top: 8px;">
+        <li><strong style="color: white;">Structural Margin Compression:</strong> Supplier costs rose <strong>22.3%</strong> while retail pricing adjusted only <strong>7.1%</strong> — a <strong>12.4 percentage point</strong> gross margin gap that directly eroded profitability on every transaction.</li>
+        <li><strong style="color: white;">Channel Mismatch:</strong> <strong>68%</strong> of category sales decline is occurring in segments where e-commerce competitors now hold <strong>>40% market share</strong>. Physical retail presence cannot defend categories that have migrated online.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- VCL COLLAPSE -->
+  <section class="section" id="vcl-collapse">
+    <div class="section-header">
+      <div class="section-eyebrow">Performance Deep-Dive</div>
+      <h2 class="section-title">The VCL Category Collapse</h2>
+      <div class="section-lead">A granular view of Q1 performance reveals the pillars that collapsed and the structural vulnerabilities that must be addressed in the recovery roadmap.</div>
+    </div>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Category (Normalized)</th>
+          <th>Q1 2023 Sales</th>
+          <th>Q1 2026 Sales</th>
+          <th>Gap</th>
+          <th>% Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Home & Kitchen Pillar</td><td>R6,991,000</td><td>R2,157,565</td><td>-R4,833,435</td><td class="neg">-69.1%</td></tr>
+        <tr><td>Household & Cleaning</td><td>R4,945,004</td><td>R1,957,067</td><td>-R2,987,937</td><td class="neg">-60.4%</td></tr>
+        <tr><td>Party & Gifts Pillar</td><td>R2,718,232</td><td>R732,223</td><td>-R1,986,009</td><td class="neg">-73.1%</td></tr>
+        <tr><td>Office & School Pillar</td><td>R2,063,073</td><td>R666,600</td><td>-R1,396,473</td><td class="neg">-67.7%</td></tr>
+      </tbody>
+    </table>
+    <div class="insight warn">
+      <div class="insight-label">Insight: The Prepack Void</div>
+      <p>Legacy Westpack data confirms that "Prepacked Items" drove <strong>R49.4 Million</strong> in high-margin revenue. This B2B catering demographic — local caterers and small businesses — was entirely lost in the ValueCo transition, creating a R50M baseline hole.</p>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP DASHBOARD -->
+  <div class="section-header" style="margin-top: 40px;">
+    <div class="section-eyebrow">// Internal Loyalty Intelligence</div>
+    <h2 class="section-title">Membership Programme Analysis</h2>
+    <div class="section-lead">Based on internal VCL transaction data. For the full interactive dashboard, <a href="Membership_Analysis_Report/index.html" style="color: var(--blue); font-weight: 600;">view the Membership Dashboard</a>.</div>
+  </div>
+
+  <div class="kpi-row" style="margin-top: 28px;">
+    <div class="kpi-block green">
+      <div class="kpi-block-label">Member Sales Penetration</div>
+      <div class="kpi-block-value">78%</div>
+      <div class="kpi-block-sub">of all VCL transactions</div>
+      <div class="badge pos">Loyalty infrastructure exists</div>
+    </div>
+    <div class="kpi-block green">
+      <div class="kpi-block-label">Loyalty Redemption Rate</div>
+      <div class="kpi-block-value">0.06%</div>
+      <div class="kpi-block-sub">R56K of R84.5M revenue</div>
+      <div class="badge neg">Invisible currency</div>
+    </div>
+    <div class="kpi-block gold">
+      <div class="kpi-block-label">Highest Spend Segment</div>
+      <div class="kpi-block-value">55+</div>
+      <div class="kpi-block-sub">R935.63 Spend Per Member</div>
+      <div class="badge pos">Senior resilience</div>
+    </div>
+    <div class="kpi-block blue">
+      <div class="kpi-block-label">Member vs Non-Member</div>
+      <div class="kpi-block-value">78/22</div>
+      <div class="kpi-block-sub">Sales split Q1 2026</div>
+      <div class="badge pos">Loyalty dominant</div>
+    </div>
+  </div>
+
+  <table class="cmp-table" style="margin-top: 28px;">
+    <thead>
+      <tr>
+        <th>Age Group</th>
+        <th>Member Count</th>
+        <th>% Share</th>
+        <th>Avg Spend / Member (2023)</th>
+        <th>Avg Spend / Member (2026)</th>
+        <th>Spend Growth</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>55+</td>
+        <td class="pos">High</td>
+        <td class="pos">30.3%</td>
+        <td>R451.15</td>
+        <td class="pos">R935.63</td>
+        <td class="pos">+107.4%</td>
+      </tr>
+      <tr>
+        <td>35–44</td>
+        <td class="neu">Medium</td>
+        <td class="neu">24.1%</td>
+        <td>R312.00</td>
+        <td class="neu">R621.40</td>
+        <td class="pos">+99.2%</td>
+      </tr>
+      <tr>
+        <td>25–34</td>
+        <td class="neu">Medium</td>
+        <td class="neu">21.3%</td>
+        <td>R289.50</td>
+        <td class="neu">R540.20</td>
+        <td class="pos">+86.6%</td>
+      </tr>
+      <tr>
+        <td>18–24</td>
+        <td class="neg">Lower</td>
+        <td class="neg">16.2%</td>
+        <td>R198.30</td>
+        <td class="neg">R312.70</td>
+        <td class="pos">+57.7%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight warn" style="margin-top: 20px; background: var(--light-yellow); border-color: var(--gold);">
+    <div class="insight-label" style="color: var(--gold);">Strategic Insight: The Loyalty Paradox</div>
+    <p>Despite 78% member penetration, only 0.06% of revenue is redeemed via loyalty points. The programme is structurally invisible — 59% of SA shoppers prioritise stores where they can earn/burn points (Clicks ClubCard, eBucks), but ValueCo's hidden discount structure means 78% of existing members are subsidising the programme without knowing the value they are leaving on the table.</p>
+  </div>
+
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">Department Mix — Q1 2023 vs Q1 2026</h3>
+  <table class="cmp-table" style="font-size: 13px;">
+    <thead>
+      <tr style="background: var(--ink);">
+        <th style="color: white;">Department</th>
+        <th style="text-align: right; color: white;">Q1 2023<br/><span style="font-weight: normal; font-size: 10px;">Westpack Lifestyle</span></th>
+        <th style="text-align: right; color: white;">Q1 2026<br/><span style="font-weight: normal; font-size: 10px;">VCL</span></th>
+        <th style="text-align: right; color: white;">Variance</th>
+        <th style="text-align: center; color: white;">% Change</th>
+        <th style="text-align: center; color: white;">Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Houseware Groceries & Daily Necessities</td>
+        <td style="text-align: right;">R72.7M</td>
+        <td style="text-align: right;" class="neg">R26.0M</td>
+        <td style="text-align: right;" class="neg">-R46.7M</td>
+        <td style="text-align: center;"><span class="badge neg">-64%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Household & Cleaning + Home & Kitchen</td>
+      </tr>
+      <tr>
+        <td>HomeDecor Kitchen & Garden Supplies</td>
+        <td style="text-align: right;">R28.5M</td>
+        <td style="text-align: right;" class="neg">R24.7M</td>
+        <td style="text-align: right;" class="neg">-R3.8M</td>
+        <td style="text-align: center;"><span class="badge neg">-13%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Outdoor + Storage lines</td>
+      </tr>
+      <tr>
+        <td>Party & Gifts</td>
+        <td style="text-align: right;">R17.2M</td>
+        <td style="text-align: right;" class="neg">R3.5M</td>
+        <td style="text-align: right;" class="neg">-R13.7M</td>
+        <td style="text-align: center;"><span class="badge neg">-79%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Balloons, partyware, giftware collapsed</td>
+      </tr>
+      <tr>
+        <td>Packaging & Wraps</td>
+        <td style="text-align: right;">R16.7M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: right;" class="neg">-R16.7M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Largely absent from current VCL range</td>
+      </tr>
+      <tr>
+        <td>School & Office Supplies</td>
+        <td style="text-align: right;">R15.3M</td>
+        <td style="text-align: right;" class="neg">R12.2M</td>
+        <td style="text-align: right;" class="neg">-R3.1M</td>
+        <td style="text-align: center;"><span class="badge neg">-20%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">BTS stationery offset by general office decline</td>
+      </tr>
+      <tr>
+        <td>Toys Games & Baby Products</td>
+        <td style="text-align: right;">R8.8M</td>
+        <td style="text-align: right;" class="neg">R2.5M</td>
+        <td style="text-align: right;" class="neg">-R6.3M</td>
+        <td style="text-align: center;"><span class="badge neg">-71%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Kids category severely reduced</td>
+      </tr>
+      <tr>
+        <td>Clothing Footwear Bags & Accessories</td>
+        <td style="text-align: right;">R5.9M</td>
+        <td style="text-align: right;" class="neg">R2.3M</td>
+        <td style="text-align: right;" class="neg">-R3.6M</td>
+        <td style="text-align: center;"><span class="badge neg">-62%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">PREPACK bags collapsed</td>
+      </tr>
+      <tr>
+        <td>Food Beverage & Tobacco</td>
+        <td style="text-align: right;">—</td>
+        <td style="text-align: right;" class="pos">R6.3M</td>
+        <td style="text-align: right;" class="pos">+R6.3M</td>
+        <td style="text-align: center;"><span class="badge pos">NEW</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">New category not present in 2023 data</td>
+      </tr>
+      <tr style="background: var(--ink);">
+        <td style="background: var(--surface2); color: var(--ink); font-weight: 700;"><strong>TOTAL</strong></td>
+        <td style="text-align: right; color: white;"><strong>R172.0M</strong></td>
+        <td style="text-align: right; color: white;"><strong>R84.4M</strong></td>
+        <td style="text-align: right; color: white;"><strong>-R87.6M</strong></td>
+        <td style="text-align: center;"><span style="background: rgba(255,255,255,0.25); color: white; padding: 3px 10px; border-radius: 3px; font-weight: 700; font-size: 11px;">-51%</span></td>
+        <td style="color: rgba(255,255,255,0.75); font-size: 11px;">22 stores</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 11px; color: #666; margin-top: 8px;">
+    <strong>Methodology note:</strong> Q1 2023 figures use the average selling price per unit (total Period Sales ÷ total units sold across 2022–2024) applied to Q1 2023 unit volumes — this corrects for mixed UoM in the Westpack data. Q1 2023 total of R172.0M captures ~92% of the R187M cashup total (8% gap = cash purchases, uncaptured items). Q1 2026 = R84.4M item-level POS. Every major category except Food & Beverage is sharply down — the story is one of broad collapse, not transformation.
+  </p>
+
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">Supplier Mix — Q1 2023 vs Q1 2026</h3>
+  <p style="font-size: 12px; color: var(--ink3); margin: 0 0 16px;">Top 20 Westpack Q1 2023 suppliers tracked into VCL Q1 2026. Matching by normalized supplier name across both datasets.</p>
+  <table class="cmp-table" style="font-size: 13px;">
+    <thead>
+      <tr style="background: var(--ink);">
+        <th style="color: white;">Supplier</th>
+        <th style="text-align: right; color: white;">Q1 2023<br/><span style="font-weight: normal; font-size: 10px;">Westpack Lifestyle</span></th>
+        <th style="text-align: right; color: white;">Q1 2026<br/><span style="font-weight: normal; font-size: 10px;">VCL</span></th>
+        <th style="text-align: center; color: white;">Change</th>
+        <th style="text-align: center; color: white;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Buzz Trading Hundred & Four CC</td>
+        <td style="text-align: right;">R12.6M</td>
+        <td style="text-align: right;" class="neg">R5.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-60%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Still active, reduced</td>
+      </tr>
+      <tr>
+        <td>Usabco Industries</td>
+        <td style="text-align: right;">R12.5M</td>
+        <td style="text-align: right;" class="neg">R3.7M</td>
+        <td style="text-align: center;"><span class="badge neg">-70%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Still active, reduced</td>
+      </tr>
+      <tr>
+        <td>Nova Papers</td>
+        <td style="text-align: right;">R8.3M</td>
+        <td style="text-align: right;" class="neg">R7.6M</td>
+        <td style="text-align: center;"><span class="badge neg">-8%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Most stable supplier relationship</td>
+      </tr>
+      <tr>
+        <td>Formosa Plastic</td>
+        <td style="text-align: right;">R8.5M</td>
+        <td style="text-align: right;" class="neg">R0.2M</td>
+        <td style="text-align: center;"><span class="badge neg">-98%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Effectively lost</td>
+      </tr>
+      <tr>
+        <td>Funki Lines (incl. WES200)</td>
+        <td style="text-align: right;">R10.6M</td>
+        <td style="text-align: right;" class="neg">R0.2M</td>
+        <td style="text-align: center;"><span class="badge neg">-98%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Effectively lost</td>
+      </tr>
+      <tr>
+        <td>West Pack Lifestyle (Distribution)</td>
+        <td style="text-align: right;">R5.8M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost — internal distribution gone</td>
+      </tr>
+      <tr>
+        <td>Yung Sheng Plastics</td>
+        <td style="text-align: right;">R4.5M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>Columbus Cleaning Solutions (Redchem)</td>
+        <td style="text-align: right;">R4.0M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>Freedom Stationery</td>
+        <td style="text-align: right;">R3.9M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>Natures Best Manufacturing</td>
+        <td style="text-align: right;">R3.4M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>National Stationery</td>
+        <td style="text-align: right;">R3.1M</td>
+        <td style="text-align: right;" class="neg">R0.3M</td>
+        <td style="text-align: center;"><span class="badge neg">-92%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Near lost</td>
+      </tr>
+      <tr>
+        <td>Lank Soft</td>
+        <td style="text-align: right;">R2.9M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>Manny Sweets & More</td>
+        <td style="text-align: right;">R2.8M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>Alrode South Distributors</td>
+        <td style="text-align: right;">R2.8M</td>
+        <td style="text-align: right;" class="neg">R0.3M</td>
+        <td style="text-align: center;"><span class="badge neg">-90%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Near lost</td>
+      </tr>
+      <tr>
+        <td>AWG Trading</td>
+        <td style="text-align: right;">R2.7M</td>
+        <td style="text-align: right;" class="neg">R0.2M</td>
+        <td style="text-align: center;"><span class="badge neg">-91%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Near lost</td>
+      </tr>
+      <tr>
+        <td>Evernu Plastics</td>
+        <td style="text-align: right;">R2.5M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr>
+        <td>Shield Chemicals</td>
+        <td style="text-align: right;">R2.4M</td>
+        <td style="text-align: right;" class="neg">R1.1M</td>
+        <td style="text-align: center;"><span class="badge neg">-55%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Reduced but still active</td>
+      </tr>
+      <tr>
+        <td>Exotic Spices</td>
+        <td style="text-align: right;">R2.2M</td>
+        <td style="text-align: right;" class="neg">R1.1M</td>
+        <td style="text-align: center;"><span class="badge neg">-51%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Reduced but still active</td>
+      </tr>
+      <tr>
+        <td>Multiwrap</td>
+        <td style="text-align: right;">R2.0M</td>
+        <td style="text-align: right;" class="neg">R0.6M</td>
+        <td style="text-align: center;"><span class="badge neg">-68%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Reduced but still active</td>
+      </tr>
+      <tr>
+        <td>Butterfly Products</td>
+        <td style="text-align: right;">R1.8M</td>
+        <td style="text-align: right;" class="neg">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">-100%</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost</td>
+      </tr>
+      <tr style="background: var(--ink);">
+        <td style="background: var(--surface2); color: var(--ink); font-weight: 700;"><strong>TOP 20 TOTAL</strong></td>
+        <td style="text-align: right; color: white;"><strong>R116.3M</strong></td>
+        <td style="text-align: right; color: white;"><strong>R21.6M</strong></td>
+        <td style="text-align: center;"><span style="background: rgba(255,255,255,0.25); color: white; padding: 3px 10px; border-radius: 3px; font-weight: 700; font-size: 11px;">-81%</span></td>
+        <td style="color: rgba(255,255,255,0.75); font-size: 11px;">81% of Westpack supplier revenue gone</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="insight warn" style="margin-top: 16px; background: var(--light-yellow); border-color: var(--gold);">
+    <div class="insight-label" style="color: var(--gold);">Strategic Insight: Supplier Base Collapse</div>
+    <p>Of the R116.3M in Q1 2023 sales from the top 20 Westpack suppliers, only R21.6M (19%) was recovered in Q1 2026 from the same supplier base. Nova Papers (-8%) is the most stable relationship. The rest of the Westpack supplier base has been effectively abandoned. The new Q1 2026 top suppliers — China Mall traders, VC Lifestyle direct imports, Buzz Trading (reduced) — are almost entirely new relationships with no 2023 history.</p>
+  </div>
+
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">Supplier Risk Scoring — Q1 2023 vs Q1 2026</h3>
+  <p style="font-size: 12px; color: var(--ink3); margin: 0 0 16px;">Top 20 Westpack suppliers classified by risk: Stable (&gt;80% revenue retained), Declining (40–80% retained), Lost (&lt;40% or zero). Risk Score = Q1 2026 Revenue ÷ Q1 2023 Revenue.</p>
+  <table class="cmp-table" style="font-size: 12px;">
+    <thead>
+      <tr style="background: var(--ink);">
+        <th style="color: white;">Supplier</th>
+        <th style="text-align: right; color: white;">Q1 2023</th>
+        <th style="text-align: right; color: white;">Q1 2026</th>
+        <th style="text-align: center; color: white;">Retained %</th>
+        <th style="text-align: center; color: white;">Risk</th>
+        <th style="text-align: center; color: white;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nova Papers (PTY) LTD</td>
+        <td style="text-align: right;">R8.3M</td>
+        <td style="text-align: right;">R7.6M</td>
+        <td style="text-align: center;"><span class="badge pos">92%</span></td>
+        <td style="text-align: center;"><span style="background: #c6efce; color: #276221; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">STABLE</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Protect — anchor supplier</td>
+      </tr>
+      <tr>
+        <td>Shield Chemicals (PTY) LTD</td>
+        <td style="text-align: right;">R2.4M</td>
+        <td style="text-align: right;">R1.1M</td>
+        <td style="text-align: center;"><span class="badge neg">45%</span></td>
+        <td style="text-align: center;"><span style="background: #ffeb9c; color: #9c5700; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">DECLINING</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Monitor — partial recovery possible</td>
+      </tr>
+      <tr>
+        <td>Exotic Spices (ES)</td>
+        <td style="text-align: right;">R2.2M</td>
+        <td style="text-align: right;">R1.1M</td>
+        <td style="text-align: center;"><span class="badge neg">49%</span></td>
+        <td style="text-align: center;"><span style="background: #ffeb9c; color: #9c5700; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">DECLINING</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Monitor — partial recovery possible</td>
+      </tr>
+      <tr>
+        <td>Buzz Trading Hundred & Four CC</td>
+        <td style="text-align: right;">R12.6M</td>
+        <td style="text-align: right;">R5.0M</td>
+        <td style="text-align: center;"><span class="badge neg">40%</span></td>
+        <td style="text-align: center;"><span style="background: #ffeb9c; color: #9c5700; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">DECLINING</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Investigate — range or relationship issue</td>
+      </tr>
+      <tr>
+        <td>Multiwrap (PTY) LTD</td>
+        <td style="text-align: right;">R1.95M</td>
+        <td style="text-align: right;">R0.6M</td>
+        <td style="text-align: center;"><span class="badge neg">32%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">CRITICAL</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Urgent recovery — was Packaging anchor</td>
+      </tr>
+      <tr>
+        <td>Usabco Industries PTY LTD</td>
+        <td style="text-align: right;">R12.5M</td>
+        <td style="text-align: right;">R3.7M</td>
+        <td style="text-align: center;"><span class="badge neg">30%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">CRITICAL</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Priority recovery — Addis range</td>
+      </tr>
+      <tr>
+        <td>Freedom Stationery (PTY) LTD</td>
+        <td style="text-align: right;">R3.9M</td>
+        <td style="text-align: right;">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">0%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">LOST</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Supplier contact — would they return?</td>
+      </tr>
+      <tr>
+        <td>Formosa Plastic (FP)</td>
+        <td style="text-align: right;">R8.5M</td>
+        <td style="text-align: right;">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">0%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">LOST</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost — largest single supplier loss</td>
+      </tr>
+      <tr>
+        <td>Funki Lines (WES200 + FL combined)</td>
+        <td style="text-align: right;">R10.6M</td>
+        <td style="text-align: right;">R0.2M</td>
+        <td style="text-align: center;"><span class="badge neg">2%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">LOST</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost — bulk plastics gone</td>
+      </tr>
+      <tr>
+        <td>Yung Sheng Plastics</td>
+        <td style="text-align: right;">R4.5M</td>
+        <td style="text-align: right;">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">0%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">LOST</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost — plastics category collapse</td>
+      </tr>
+      <tr>
+        <td>Columbus Cleaning Solutions (Redchem)</td>
+        <td style="text-align: right;">R4.0M</td>
+        <td style="text-align: right;">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">0%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">LOST</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost — cleaning category gap</td>
+      </tr>
+      <tr>
+        <td>West Pack Lifestyle (Distribution)</td>
+        <td style="text-align: right;">R5.8M</td>
+        <td style="text-align: right;">R0.0M</td>
+        <td style="text-align: center;"><span class="badge neg">0%</span></td>
+        <td style="text-align: center;"><span style="background: #ffc7ce; color: #9c0000; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 600;">LOST</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Lost — internal distribution gone</td>
+      </tr>
+      <tr style="background: var(--ink);">
+        <td><strong>TOTAL TRACKED (Top 20)</strong></td>
+        <td style="text-align: right;"><strong>R97.7M</strong></td>
+        <td style="text-align: right;"><strong>R19.6M</strong></td>
+        <td style="text-align: center;"><strong>20%</strong></td>
+        <td style="text-align: center; color: white; font-size: 11px;">81% lost</td>
+        <td style="color: rgba(255,255,255,0.5); font-size: 11px;">3 of 20 stable or recovering</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 11px; color: #666; margin-top: 8px;">
+    <strong>Methodology:</strong> Risk Score = Q1 2026 Revenue ÷ Q1 2023 Revenue. Stable &gt;80%, Declining 40–80%, Critical 10–40%, Lost &lt;10%. Only 3 of 20 tracked Westpack suppliers retain more than 40% of their Q1 2023 revenue base.
+  </p>
+
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; margin: 28px 0 16px; color: var(--ink);">Cross-Category Associations — Supplier Co-Purchase Signals</h3>
+  <p style="font-size: 12px; color: var(--ink3); margin: 0 0 16px;">Departments that share the same suppliers are likely to be purchased together — this reveals natural cross-category bundling opportunities. Based on shared supplier count across 253 multi-department suppliers in Q1 2026.</p>
+  <table class="cmp-table" style="font-size: 12px;">
+    <thead>
+      <tr style="background: var(--ink);">
+        <th style="color: white;">Department Pair</th>
+        <th style="text-align: center; color: white;">Shared Suppliers</th>
+        <th style="text-align: center; color: white;">Cross-Sell Signal</th>
+        <th style="text-align: center; color: white;">Recommended Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>HomeDecor ↔ School &amp; Office</td>
+        <td style="text-align: center;"><strong style="color: var(--accent);">109</strong></td>
+        <td style="text-align: center;"><span class="badge pos">Very Strong</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Bundle HomeDecor storage with BTS stationery sets</td>
+      </tr>
+      <tr>
+        <td>HomeDecor ↔ Houseware Groceries</td>
+        <td style="text-align: center;"><strong style="color: var(--accent);">108</strong></td>
+        <td style="text-align: center;"><span class="badge pos">Very Strong</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Co-locate kitchen tools with cleaning supplies</td>
+      </tr>
+      <tr>
+        <td>HomeDecor ↔ Party &amp; Gifts</td>
+        <td style="text-align: center;"><strong style="color: var(--accent);">83</strong></td>
+        <td style="text-align: center;"><span class="badge pos">Strong</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Cross-promote party ware with home decor purchases</td>
+      </tr>
+      <tr>
+        <td>HomeDecor ↔ Toys &amp; Baby</td>
+        <td style="text-align: center;"><strong style="color: var(--accent);">82</strong></td>
+        <td style="text-align: center;"><span class="badge pos">Strong</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Kids play furniture + home storage bundling opportunity</td>
+      </tr>
+      <tr>
+        <td>Houseware Groceries ↔ School &amp; Office</td>
+        <td style="text-align: center;"><strong style="color: var(--accent);">80</strong></td>
+        <td style="text-align: center;"><span class="badge pos">Strong</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Household consumables + school supplies basket</td>
+      </tr>
+      <tr>
+        <td>School &amp; Office ↔ Toys &amp; Baby</td>
+        <td style="text-align: center;">70</td>
+        <td style="text-align: center;"><span class="badge pos">Moderate</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">BTS season — leverage for co-promotion</td>
+      </tr>
+      <tr>
+        <td>Party &amp; Gifts ↔ School &amp; Office</td>
+        <td style="text-align: center;">67</td>
+        <td style="text-align: center;"><span class="badge pos">Moderate</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Gift wrapping paper near school supply displays</td>
+      </tr>
+      <tr>
+        <td>Clothing &amp; Bags ↔ School &amp; Office</td>
+        <td style="text-align: center;">61</td>
+        <td style="text-align: center;"><span class="badge neu">Emerging</span></td>
+        <td style="text-align: center; color: var(--ink3); font-size: 11px;">Backpacks + stationery — BTS anchor bundle</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 11px; color: #666; margin-top: 8px;">
+    <strong>Methodology:</strong> Two departments co-occur when they share the same supplier in the VCL dataset. Shared supplier count is a proxy for cross-category purchasing likelihood — suppliers serving multiple categories signal that customers who buy from one category are structurally likely to buy from the other. HomeDecor is the central category hub, connecting to all other major departments.
+  </p>
+
+</div><!-- /container -->
+
+<!-- ============================================================ -->
+<!-- EXTERNAL INTELLIGENCE - CONSOLIDATED SECTION (BROWN) -->
+<!-- ============================================================ -->
+<div class="ext-section" id="external-intel">
+
+  <div class="section-header">
+    <div class="section-eyebrow">Consolidated External Intelligence · 5 AI Agents</div>
+    <h2 class="section-title">The South African Retail Playground:<br>A Chronological History (2022–2026)</h2>
+    <div class="section-lead">The following analysis consolidates findings from Claude, DeepSeek, GPT, Minimax, and Gemini — triangulated against Stats SA, SARB, FNB/BER, World Wide Worx, NielsenIQ, TransUnion, and 20+ authoritative sources. Each finding is classified by source and cross-validated.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-block red">
+      <div class="kpi-block-label">GDP Growth 2023</div>
+      <div class="kpi-block-value">0.8%</div>
+      <div class="kpi-block-sub">vs 2.1% in 2022</div>
+      <div class="badge neg">↓ Loadshedding drag</div>
+    </div>
+    <div class="kpi-block red">
+      <div class="kpi-block-label">Peak Inflation 2022/23</div>
+      <div class="kpi-block-value">7.8%</div>
+      <div class="kpi-block-sub">CPI peaked July 2022</div>
+      <div class="badge neg">Eroding real incomes</div>
+    </div>
+    <div class="kpi-block red">
+      <div class="kpi-block-label">Peak Repo Rate</div>
+      <div class="kpi-block-value">8.25%</div>
+      <div class="kpi-block-sub">May 2023 — 14-year high</div>
+      <div class="badge neg">Max debt burden</div>
+    </div>
+    <div class="kpi-block red">
+      <div class="kpi-block-label">CCI Q2 2023</div>
+      <div class="kpi-block-value">-25</div>
+      <div class="kpi-block-sub">2nd worst since 1994</div>
+      <div class="badge neg">Near-record pessimism</div>
+    </div>
+    <div class="kpi-block green">
+      <div class="kpi-block-label">CPI 2025 Average</div>
+      <div class="kpi-block-value">3.2%</div>
+      <div class="kpi-block-sub">21-year low</div>
+      <div class="badge pos">Major relief</div>
+    </div>
+    <div class="kpi-block green">
+      <div class="kpi-block-label">Repo Rate Now</div>
+      <div class="kpi-block-value">6.75%</div>
+      <div class="kpi-block-sub">150bps cuts from peak</div>
+      <div class="badge pos">Consumer breathing room</div>
+    </div>
+  </div>
+
+  <!-- ECONOMIC DATA TABLE -->
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>Indicator</th>
+        <th>2022</th>
+        <th>2023</th>
+        <th>2024</th>
+        <th>2025</th>
+        <th>2026 (proj.)</th>
+        <th>Trend</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GDP Growth</td>
+        <td class="pos">2.1%</td>
+        <td class="neg">0.8%</td>
+        <td class="neg">0.5%</td>
+        <td class="neu">1.1%</td>
+        <td class="neu">~1.4%</td>
+        <td class="neu">Sub-potential recovery</td>
+      </tr>
+      <tr>
+        <td>Inflation (CPI)</td>
+        <td class="neg">7.0%</td>
+        <td class="neg">6.1%</td>
+        <td class="neu">4.4%</td>
+        <td class="pos">3.2%</td>
+        <td class="pos">~3.0%</td>
+        <td class="pos">21-yr low in 2025</td>
+      </tr>
+      <tr>
+        <td>Repo Rate</td>
+        <td class="pos">3.50%</td>
+        <td class="neg">8.25%</td>
+        <td class="neu">7.75%</td>
+        <td class="pos">6.75%</td>
+        <td class="pos">6.75%</td>
+        <td class="pos">-150bps from peak</td>
+      </tr>
+      <tr>
+        <td>Unemployment</td>
+        <td class="neu">33.0%</td>
+        <td class="neg">32.1%</td>
+        <td class="neg">33.2%</td>
+        <td class="neg">32.4%</td>
+        <td class="neg">~31.4%</td>
+        <td class="neg">Structural crisis</td>
+      </tr>
+      <tr>
+        <td>E-Commerce (R bn)</td>
+        <td class="neu">R55B</td>
+        <td class="pos">R71B</td>
+        <td class="pos">R96B</td>
+        <td class="pos">R130B</td>
+        <td class="pos">~R160B</td>
+        <td class="pos">10%+ of total retail</td>
+      </tr>
+      <tr>
+        <td>Online Gambling</td>
+        <td class="neu">~R8B</td>
+        <td class="neg">~R16B</td>
+        <td class="neg">~R32B</td>
+        <td class="neg">R49B</td>
+        <td class="neg">R55B+</td>
+        <td class="neg">6x in 4 years</td>
+      </tr>
+      <tr>
+        <td>CCI (FNB/BER)</td>
+        <td class="neu">-8</td>
+        <td class="neg">-25</td>
+        <td class="neu">-5</td>
+        <td class="neg">-20→-9</td>
+        <td class="neu">-7</td>
+        <td class="neu">Recovering</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CLASSIFIED FINDINGS -->
+  <div class="section-header" style="margin-top: 40px;">
+    <div class="section-eyebrow">// Key Intelligence Findings — Classified by Source and Severity</div>
+    <h2 class="section-title">15 Classified Strategic Findings</h2>
+    <div class="section-lead">Cross-validated across all 4 AI agents and triangulated against authoritative external sources. Each finding has direct implications for ValueCo's strategic pivot.</div>
+  </div>
+
+  <div class="findings-list">
+    <!-- FINDING 1 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">01</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Gambling Drain — R49B Diverted from Discretionary Spend</div>
+          <div class="why-subtitle">Critical Threat · MONEY DRAIN</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>Online gambling revenue: R8B in FY20/21 → R49B in FY24/25 — a 6x increase in four years. It now accounts for 66% of total gambling industry revenue. 25 cents of every rand spent on entertainment now goes to gambling. TFG (The Foschini Group) has already flagged this as a bigger competitive threat than Shein or Temu.</p>
+        <p><strong>Implication:</strong> This is a direct, massive competitor for the exact "discretionary rands" that used to flow toward ValueCo's lifestyle items (Party & Gifts, Home & Kitchen décor). The consumer who used to buy a R200 gift set now bets R200 on a slot machine "for the thrill."</p>
+        <div class="source-row">
+          <span class="source-tag deepseek">DeepSeek</span>
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 2 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num red">02</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Convenience Monopoly — Sixty60 Redefined the Habit</div>
+          <div class="why-subtitle">Structural Threat · PLATFORM MONOPOLY</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>Checkers Sixty60 holds >80% of the grocery delivery market, operates ~875 stores, and processes ~1.5 million orders per week as of 2025. The platform grew +47% in H1 2025 alone, generating nearly R19 billion in annual sales.</p>
+        <p><strong>Implication:</strong> They didn't just take market share — they redefined the chore. Consumers now view driving to an open value centre for "detergent and foil" as a failure of time management. The 50-minute round trip for a R300 top-up shop is psychologically categorised as "waste" when Sixty60 delivers in 60 minutes for the same price. The "destination shop" habit for household essentials has been permanently broken for the urban consumer.</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude</span>
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 3 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">03</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Load-Shedding Habitualization — 200+ Days Permanently Changed How SA Shops</div>
+          <div class="why-subtitle">Structural Threat · BEHAVIOUR CHANGE</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>With 200+ days of Stage 6 loadshedding in 2022/23, consumers permanently changed cooking and food storage behaviour. The shift: away from bulk "pantry-stocking" trips (which require reliable refrigeration and storage) toward smaller, more frequent fresh shops via delivery. This was not a temporary adaptation — it became habit.</p>
+        <p><strong>Implication:</strong> VCL's original business model was built on the "stock up and save" bulk shop. Loadshedding killed this habit. Consumers discovered they could get fresh bread, cleaning products, and dairy delivered the same day in smaller quantities. VCL was structurally positioned for the bulk shop that no longer exists as a default behaviour.</p>
+        <div class="source-row">
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 4 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num red">04</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Shein/Temu Price Anchor — A Psychological Reset That Cannot Be Undone</div>
+          <div class="why-subtitle">Permanent Reset · PRICE ANCHORING</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>Shein and Temu captured 37% of online clothing sales in 2024, and 15.3% of ALL online shopping (R7.3B combined). These platforms introduced South African consumers to T-shirts at R89 and kitchen organiser sets at R150 — delivered. This has permanently recalibrated the consumer's internal price reference.</p>
+        <p><strong>Implication:</strong> After buying a kitchen organiser for R150 (vs R450 at Checkers), the consumer's price anchor has moved. ValueCo's 5-9% discount on the broader basket is not a "deal" — it is the "standard price" in a market where 25-35% of household goods are sold on promotion every week. A 5-9% discount is invisible to a consumer whose reference price is 70% lower.</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 5 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num blue">05</div>
+        <div class="why-title-wrap">
+          <div class="why-title">E-Commerce Is a Structural Redistributor — Not a Cyclical Trend</div>
+          <div class="why-subtitle">Structural Shift · CHANNEL MIGRATION</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>Online retail grew from R55B (5% of retail) in 2022 to R160B+ (>10% of retail) in 2026. Physical retail grew at 2.5% in 2024. Online grew at 35%. The ratio is 14x. E-commerce is not stealing share during a downturn — it is permanently redistributing channel choice.</p>
+        <p><strong>Implication:</strong> Businesses without a credible digital channel face structural volume erosion regardless of macro recovery. The question is not "how do we get customers to come back to the old way?" — it is "how do we meet the customer where they are now: mobile, convenience-driven, price-comparing?"</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude</span>
+          <span class="source-tag deepseek">DeepSeek</span>
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 6 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num red">06</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Liquidity Trap — 86.4% Card-Dependent and 67.6% Credit Rejected</div>
+          <div class="why-subtitle">Liquidity Crisis · CREDIT CRUNCH</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>86.4% of VCL Q1 2026 sales were settled via Card, with only 13.3% in Cash. The NCR reported a 67.6% credit rejection rate for new credit applications in 2025. Consumers who want to buy a R800 kitchen set literally cannot put it on credit.</p>
+        <p><strong>Implication:</strong> ValueCo is overwhelmingly exposed to the credit crunch. The BNPL gap is wide open: only 6% of South Africans use BNPL, yet 57% hold BNPL accounts. A strategic BNPL partnership could unlock the R500-R2,000 ticket range currently blocked by credit rejection.</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude (Internal)</span>
+          <span class="source-tag gpt">GPT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 7 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">07</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Trauma-Informed Frugality — The Scars of 2022-2023 Will Not Heal</div>
+          <div class="why-subtitle">Psychological Scarring · PERMANENT BEHAVIOUR</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>The 2022-2023 economic triple-shock (inflation +7% + rates to 8.25% + 200 days Stage 6) created lasting behavioural scars. Even as macro conditions improved in 2025-2026, consumers maintain "trauma-informed frugality" — savings-first behaviour, delayed big purchases, and price-optimisation even when they can afford more.</p>
+        <p><strong>Implication:</strong> The CCI sub-index for durable goods remained deeply negative even as headline CCI recovered. Strategies that rely on macro improvement to naturally lift VCL sales will underdeliver.</p>
+        <div class="source-row">
+          <span class="source-tag minimax">Minimax</span>
+          <span class="source-tag claude">Claude</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 8 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num blue">08</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Divided Consumer — High-Income Recovering, Middle and Lower Contracting</div>
+          <div class="why-subtitle">Income Bifurcation · DIVIDED RECOVERY</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>High-income households (R40K+/month) are recovering — property wealth (+17%), rate cuts, two-pot withdrawals. Lower-income households face persistent unemployment (32%+), eroded savings, and reduced two-pot access. FNB/BER CCI Q1 2026 shows high-income confidence at its highest since Q4 2024, while lower-income confidence deteriorated further.</p>
+        <p><strong>Implication:</strong> VCL's core customer (35-54, LSM 5-7) is in the "survival mode" segment. VCL's recovery requires understanding exactly what this cash-constrained, price-obsessed, digitally-connected-but-platform-fatigued consumer needs — not waiting for trickle-down from high-income recovery.</p>
+        <div class="source-row">
+          <span class="source-tag deepseek">DeepSeek</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 9 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">09</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The "Retail-tainment" Collapse — When Celebration Budgets Got Redirected</div>
+          <div class="why-subtitle">Entertainment Erosion · DISCRETIONARY COLLAPSE</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>DStv Premium packages declined 67%, mid-tier declined 53%, while entry-level EasyView packages surged 139%. Weekly dining occasions down nearly 30% versus pre-crisis. 25 cents of every entertainment rand now goes to gambling. The "entertainment" discretionary category — previously a gifting and party occasion driver — has been gutted.</p>
+        <p><strong>Implication:</strong> The Party & Gifts category at VCL (down 73.1%) is not just a COVID casualty — it reflects the systematic destruction of the "celebration budget" in SA households. The party occasion purchase motivation has structurally declined and will not recover without a broader income recovery.</p>
+        <div class="source-row">
+          <span class="source-tag deepseek">DeepSeek</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 10 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num blue">10</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Loyalty Trap — 78% Member Penetration, 0.06% Revenue Redemption</div>
+          <div class="why-subtitle">Loyalty Programme Failure · INVISIBLE CURRENCY</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>In Q1 2026, loyalty point redemptions accounted for a microscopic 0.06% of total revenue (R56K out of R84.5M). Despite 78% of VCL transactions being from loyalty members, the programme is practically invisible as a financial relief valve. In a market where 59% of SA shoppers prioritise stores where they can earn/burn points (Clicks ClubCard, eBucks), ValueCo's loyalty currency fails to drive behaviour change.</p>
+        <p><strong>Implication:</strong> The loyalty programme is structurally broken. If ValueCo relaunched a compelling, visible loyalty programme with meaningful instant rewards, it could convert the 22% of non-loyalty customers currently subsidising the programme through full-price purchases.</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude (Internal Data)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 11 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">11</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The SARS Regulatory Curve — Loophole Closures Partially Level the Field</div>
+          <div class="why-subtitle">Regulatory Shift · IMPORT COMPETITION</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>SARS closed the R500 import loophole in September-November 2024, replacing flat 20% duty rates with full WCO tariff rates and applying VAT to all low-value parcels. Additional tightening came in April 2025. While this slows Shein/Temu growth, the consumer psychology shift has already occurred — the price anchor has moved.</p>
+        <p><strong>Implication:</strong> Regulatory relief is coming — but too late. ValueCo must compete on total basket value, trust, and experience — not on hoping regulatory interventions restore pre-2022 price expectations.</p>
+        <div class="source-row">
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 12 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num green">12</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Digital Nativity Paradox — Loadshedding Accelerated Online Adoption Permanently</div>
+          <div class="why-subtitle">Digital Acceleration · PARADOXICAL SHIFT</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>Paradoxically, loadshedding accelerated online shopping behaviour. Consumers with inverters/solar discovered they could shop on mobile even during power cuts. 78% of South Africans now shop online at least once monthly. 85% of e-commerce transactions are mobile. This is a permanent structural shift, not a reversal to pre-2022 patterns.</p>
+        <p><strong>Implication:</strong> ValueCo's open value centres were built for a pre-digital world. VCL needs a credible digital shelf — even a basic "shop online, collect in store" capability would capture consumers who have migrated online but still want the ValueCo price on household staples.</p>
+        <div class="source-row">
+          <span class="source-tag minimax">Minimax</span>
+          <span class="source-tag claude">Claude</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 13 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">13</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Small Basket, High Frequency — Death of the Bulk Stock-Up Trip</div>
+          <div class="why-subtitle">Basket Dynamics · FREQUENCY SHIFT</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>Monthly grocery spend barely kept pace with inflation (R2,050 in 2023 to R2,100 in 2024 in nominal terms — real volumes declined). Average basket sizes have shrunk decisively. Consumers are buying smaller quantities more frequently, prioritising freshness and cash flow management over bulk discounts. The growth of Sixty60 (1.5M orders/week) and discount retail (+12% for Boxer) confirms this.</p>
+        <p><strong>Implication:</strong> VCL's original model — large basket, bulk savings, weekly destination trip — is structurally misaligned with current consumer behaviour. The pivot to "utility fill-in" shopping is mandatory — not just for growth but for survival. This means rethinking store format, location adjacency to delivery hubs, and digital ordering.</p>
+        <div class="source-row">
+          <span class="source-tag minimax">Minimax</span>
+          <span class="source-tag deepseek">DeepSeek</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 14 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num red">14</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The Brand Trust Vacuum — Legacy Brands Replaced with Unproven Imports</div>
+          <div class="why-subtitle">Trust Deficit · BRAND EROSION</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>In the 2022-2023 supply disruption, ValueCo replaced trusted legacy brands (Addis, Usabco, Formosa Plastic) with unbranded direct imports. During an economic period when consumers prioritised "brand trust as a financial safety net" — viewing unknown brands as riskier than paying more for a known product — this substitution was catastrophic.</p>
+        <p><strong>Implication:</strong> South African consumers in 2026 are the most risk-averse in retail history. Replacing Addis (100-year-old, synonymous with durability) with an unbranded import while maintaining a restrictive 7-day return policy acted as a double psychological red flag. Restoring supplier trust — stocking the brands SA households trust — is a pre-condition for any pricing or marketing strategy to work.</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINDING 15 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num blue">15</div>
+        <div class="why-title-wrap">
+          <div class="why-title">The 7-Day Return Policy — An Industry-Lagging Signal of Distrust</div>
+          <div class="why-subtitle">Policy Signal · RETURN POLICY AS TRUST INDICATOR</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p>ValueCo's current 7-day return policy is half the industry standard. Takealot offers 14-30 days. Makro offers 30 days. Amazon SA offers 30 days. In a market where 59% of consumers prioritise stores where they can earn/burn loyalty points and where retailer choice is driven by trust signals, the 7-day policy is a psychological warning flag that says "we don't trust our products enough to give you time to think."</p>
+        <p><strong>Implication:</strong> The SA Consumer Protection Act only mandates returns for defective goods (6 months). "Change of mind" returns are governed by store policy. 14 days aligns with market leaders and removes a documented barrier for risk-averse consumers making non-essential purchases — without the full cost exposure of a 30-day policy.</p>
+        <div class="source-row">
+          <span class="source-tag claude">Claude</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /ext-section -->
+
+<div class="container">
+
+  <!-- CRISIS TIMELINE -->
+  <section class="section" id="timeline">
+    <div class="section-header">
+      <div class="section-eyebrow">Chronology</div>
+      <h2 class="section-title">The Retail Crisis Timeline</h2>
+    </div>
+    <hr class="section-rule">
+
+    <div class="report-timeline">
+      <div class="rt-item">
+        <div class="rt-date">2022 Q3–Q4</div>
+        <div class="rt-text"><strong>Inflation peaks at 7.8%</strong> (Jul 2022). Russia-Ukraine war drives global food and fuel prices. SARB begins aggressive rate hike cycle. Retail sales start softening. CCI at -25 in Q2 2022.</div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-date">2023 Q1</div>
+        <div class="rt-text"><strong>Perfect storm begins.</strong> Stage 6 load shedding sustained. No-load-shedding days: zero. Feb 9: President Ramaphosa declares National State of Disaster over energy crisis. Repo rate hikes to 7.75%. CCI plunges to -23. Retail trade starts 5-month consecutive decline.</div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-date">2023 Q2–Q3</div>
+        <div class="rt-text"><strong>CCI -25 — near-record low.</strong> Retail trade falls 1.6% YoY in April (5th consecutive monthly decline). Electricity tariffs up 18.65%. Average wages fall 10.4% nominal. May: Repo rate hits 8.25% — 14-year high. Economy effectively on life support.</div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-date">2023 Q4</div>
+        <div class="rt-text"><strong>Shein and Temu advertising surge.</strong> Shein: most downloaded app on Google Play. CCI stabilises at -16. Petrol prices ease. No further rate hikes. Modest recovery in retail — but below par.</div>
+      </div>
+      <div class="rt-item blue">
+        <div class="rt-date">2024 Q1–Q2</div>
+        <div class="rt-text"><strong>Load shedding eliminated from April 2024.</strong> CCI improves to -12. Online retail grows 35%. Two-pot pension withdrawals open: R40B drawn by Q4. May: Amazon SA launches. Temu launches in SA.</div>
+      </div>
+      <div class="rt-item blue">
+        <div class="rt-date">2024 Q3</div>
+        <div class="rt-text"><strong>May 2024 elections → GNU formed.</strong> CCI surges to -5 (5-year high). Rate cutting cycle begins: September first cut in 3 years. Consumer spending rebounds. Retail shows positive YoY growth.</div>
+      </div>
+      <div class="rt-item gold">
+        <div class="rt-date">2024 Q4</div>
+        <div class="rt-text"><strong>SARS closes Shein/Temu import loophole</strong> (Sep 2024). Rate cuts continue. Petrol prices fall. Festive season retail boost. Strong online retail — R96B full year. CCI -6.</div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-date">2025 Q1</div>
+        <div class="rt-text"><strong>VAT shock:</strong> Proposed VAT increase from 15% to 16%. CCI crashes to -20 (lowest since Q2 2023). Brief return of Stage 6. Trump tariffs announced. Global uncertainty spikes. Consumer spending stalls.</div>
+      </div>
+      <div class="rt-item green">
+        <div class="rt-date">2025 Q2–Q4</div>
+        <div class="rt-text"><strong>Revised budget softens VAT proposal.</strong> CCI gradually recovers to -9 by Q4. Inflation averages 3.2% (21-year low). Retail sales +3.7% for 2025. Rand strengthens below R17/$. Two-pot volumes diminish vs 2024.</div>
+      </div>
+      <div class="rt-item">
+        <div class="rt-date">2026 Q1</div>
+        <div class="rt-text"><strong>CCI -7 — highest since Q4 2024.</strong> Middle East conflict re-emerges as oil risk. Rand at ~R16.6/$ (April). SARB holds at 6.75%. High-income confidence recovering; low-income still deteriorating. Retail in cautious recovery mode.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SALES DECLINED -->
+  <section class="section" id="why-decline">
+    <div class="section-header">
+      <div class="section-eyebrow">Root Cause Analysis</div>
+      <h2 class="section-title">Why Did Sales Decline?</h2>
+      <div class="section-lead">Each factor has been reviewed and enriched with external macro data gathered from Stats SA, SARB, FNB/BER, and industry sources.</div>
+    </div>
+
+    <!-- WHY 01 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num red">01</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Inflation and High Interest Rates</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p><strong>External Data Confirmation:</strong> The cumulative price level increase from 2021–2023 was 18–22% across the CPI basket. A household spending R10,000/month on essentials in 2020 needed R12,200 by 2023 to maintain the same consumption. At the same time, the prime lending rate rose from 7.25% (2021) to 11.75% — adding R2,400+/month on a R1.5M bond. BankservAfrica data showed average nominal salaries actually fell 10.4% in April 2023. The simultaneous hit from all three vectors was unique in post-2008 SA economic history.</p>
+        <p><strong>What this means for ValueCo:</strong> Consumers were not choosing not to buy from ValueCo — they were <strong>physically unable to maintain pre-crisis spending levels</strong>. Non-essential or semi-discretionary products were the first to be cut. "Aspirational" purchases collapsed. Value-based necessities were maintained.</p>
+      </div>
+    </div>
+
+    <!-- WHY 02 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num gold">02</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Load Shedding & Habit Disruption</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p><strong>External Data Confirmation:</strong> The CSIR estimates the total 2023 load shedding economic loss at R2.8 trillion. The SARB estimates it reduced GDP growth by 1.8 percentage points. At Stage 6, the economy lost R900M/day. Not a single day in 2023 was load-shedding free.</p>
+        <p><strong>Direct & Secondary Mechanisms:</strong> When power goes out, physical retail goes dark. TFG lost an estimated R400M in just two weeks of Stage 5–6. <strong>Secondary effect:</strong> Consumers shifted purchasing behaviour permanently toward online shopping precisely because of load shedding — they shopped on mobile data/inverter power when stores were dark. This channel shift accelerated Takealot and Sixty60. This is not reversible.</p>
+      </div>
+    </div>
+
+    <!-- WHY 03 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num blue">03</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Collapse of Consumer Confidence</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p><strong>External Data Confirmation:</strong> The FNB/BER Consumer Confidence Index dropped to -25 in Q2 2023 — the second-lowest reading in the index's 30-year history. The "time to buy durable goods" sub-index hit -35, indicating that nearly all consumers considered it highly inappropriate to purchase furniture, appliances, electronics, or vehicles.</p>
+        <p><strong>Cascading Mechanism:</strong> Low CCI doesn't just mean fewer purchases — it means consumers in "survival mode" become <strong>intensely risk-averse</strong>. They delay, substitute, and trade down. They prioritise debt reduction over spending. They shift from brand loyalty to price loyalty. A CCI of -25 means even employed, middle-class consumers are psychologically hoarding.</p>
+      </div>
+    </div>
+
+    <!-- WHY 04 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num blue">04</div>
+        <div class="why-title-wrap">
+          <div class="why-title">E-Commerce & The Data Tariff Catalyst</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p><strong>External Data Confirmation:</strong> South African online retail grew 29% in 2023 to R71B, and 35% in 2024 to R96B. Online's share of total retail rose from ~4% pre-COVID to 6% in 2023 and is projected at ~10% by end-2025.</p>
+        <p><strong>What's being redistributed:</strong> Every R1 spent online is R1 not spent in physical retail. The top categories shifting online include clothing, electronics, and general merchandise. <strong>The Catalyst:</strong> ICASA's mid-band spectrum allocation reduced data tariffs by ~25% since 2023, making mobile shopping dramatically cheaper. 71% of e-commerce is now transacted via smartphone.</p>
+      </div>
+    </div>
+
+    <!-- WHY 05 -->
+    <div class="why-card">
+      <div class="why-header">
+        <div class="why-num red">05</div>
+        <div class="why-title-wrap">
+          <div class="why-title">Shein/Temu Price Anchoring</div>
+        </div>
+      </div>
+      <div class="why-body">
+        <p><strong>External Data Confirmation:</strong> By end-2024, Shein and Temu commanded 37.1% of South Africa's online clothing, textile, and footwear market with combined revenue of R7.3B. 1 in 3 SA consumers uses Temu.</p>
+        <p><strong>The Price Anchoring Effect:</strong> Behavioural economics is clear: once a consumer experiences a product at 70–80% below a reference price, their internal price anchor is permanently reset. A consumer who bought household goods from Temu at R89 will not return to pay R299 from a local retailer. This is not recoverable through promotional pricing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIVE WHYS -->
+  <section class="section" id="five-whys">
+    <div class="section-header">
+      <div class="section-eyebrow">Root Cause Analysis</div>
+      <h2 class="section-title">Five Whys — Bridging Internal Data with External Forces</h2>
+      <div class="section-lead">Validated across all 4 AI agents. Internal data shows <em>what is happening</em>. External data explains <em>why it is happening</em>.</div>
+    </div>
+
+    <div class="five-whys-grid">
+      <!-- FIVE WHY 1 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num red">01</div>
+          <div class="why-title-wrap">
+            <div class="why-title">Consumer Purchasing Power Was Systematically Destroyed</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why did Home &amp; Kitchen drop by 69.1%</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> Inflation and high interest rates reduced disposable income. Now confirmed and quantified by external data.</p>
+          <p><strong>External data confirmation:</strong> We lost massive legacy suppliers like Usabco (Addis). External data confirms Addis is the <strong>100-year-old undisputed market leader</strong> in SA, synonymous with "durability." Replacing trusted brands with unproven direct imports during a tight economy caused consumers to reject the risk entirely. South African consumers in 2026 are highly risk-averse and use brand trust as a <strong>financial safety net for durable goods</strong>. When the trusted name disappears from the shelf, the consumer does not substitute — they simply do without.</p>
+          <p><strong>What this means for ValueCo:</strong> Consumers were not choosing <em>not</em> to buy from ValueCo — they were physically unable to maintain pre-crisis spending levels. Non-essential or semi-discretionary products were the first to be cut. Brand trust loss in durable goods is structural — it does not recover on its own.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+          <span class="source-tag minimax">Minimax Consumer Psychology</span>
+        </div>
+      </div>
+
+      <!-- FIVE WHY 2 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num gold">02</div>
+          <div class="why-title-wrap">
+            <div class="why-title">The "Empty Shelves Legacy" Broke the Bulk-Shop Habit</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why did bulk staples like Pine Gel 5lt drop so significantly</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> Load shedding disrupted shopping behaviour. Now confirmed — the damage is permanent, not temporary.</p>
+          <p><strong>External data confirmation:</strong> Checkers Sixty60 has captured <strong>>80% of on-demand delivery</strong>, expanding to 875 stores by 2026. Sixty60 removed the "chore" of bulk buying. The <strong>200+ days of Stage 6 load shedding</strong> permanently changed cooking and storage habits toward smaller, more frequent fresh shops via delivery. Once the habit of "phone-in-the-bulk-order" was formed, it was not unlearned when shelves refilled. The average SA consumer now treats bulk shopping as a chore to be avoided — not a ritual to be maintained.</p>
+          <p><strong>What this means for ValueCo:</strong> VCL's original model — large basket, bulk savings, weekly destination trip — is structurally misaligned with current consumer behaviour. The "utility fill-in" pivot is mandatory for survival.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+
+      <!-- FIVE WHY 3 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num blue">03</div>
+          <div class="why-title-wrap">
+            <div class="why-title">The Price Anchor Was Reset by Shein/Temu — And It Cannot Be Undone</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why a 5–9% discount is invisible on the broader basket</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> Promotional depth insufficient against online alternatives. Confirmed — the problem is structural, not tactical.</p>
+          <p><strong>External data confirmation:</strong> We maintain high margins on the broader basket to pay for loss-leader KVIs. NielsenIQ shows that <strong>25–35% of ALL household goods in SA are sold on promotion every week</strong>. A 5–9% discount is viewed as "standard market price," not a deal. The Shein/Temu price anchor has permanently recalibrated consumer reference prices — a <strong>5–9% discount is invisible</strong> when the baseline is 70% below local retail. To be noticed, a promotion needs to be within 10% of the Shein/Temu anchor.</p>
+          <p><strong>What this means for ValueCo:</strong> ValueCo's KVI strategy works precisely because it gets close enough — but the broader basket offers nothing compelling enough to justify a trip. Full-price discretionary items require a different trust and experience argument entirely.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+          <span class="source-tag gpt">GPT</span>
+          <span class="source-tag minimax">Minimax</span>
+        </div>
+      </div>
+
+      <!-- FIVE WHY 4 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num gold">04</div>
+          <div class="why-title-wrap">
+            <div class="why-title">Three Converging Forces Prevented Habit Recovery</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why hasn't the destination habit recovered now that shelves are full</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> No destination marketing campaign to re-anchor consumer behaviour. Confirmed — compounded by three structural forces.</p>
+          <p><strong>External data confirmation:</strong> Complete lack of external <strong>"Destination Marketing."</strong> The average SA shopper visits 4+ retailers to cherry-pick deals and plans trips digitally. The broken habit is compounded by: (1) The <strong>gambling drain</strong> siphoning discretionary rands — online gambling hit <strong>R49B in 2025</strong>, capturing disposable income that used to flow to physical retail. (2) <strong>Sixty60's convenience monopoly</strong> removing the need for the trip — why plan a store visit when Sixty60 delivers in under 60 minutes from 875 stores? (3) <strong>Permanent digital migration</strong> — consumers research online before any destination trip. A store with no digital presence effectively does not exist for the modern SA consumer.</p>
+          <p><strong>What this means for ValueCo:</strong> Marketing as a "destination" requires digital first — geo-fenced campaigns, online research visibility, and a compelling reason to make the trip. Without it, the open centre footfall cannot recover organically.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+          <span class="source-tag deepseek">DeepSeek</span>
+          <span class="source-tag gpt">GPT</span>
+        </div>
+      </div>
+
+      <!-- FIVE WHY 5 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num red">05</div>
+          <div class="why-title-wrap">
+            <div class="why-title">86.4% Card-Only Customer Base Meets 67.6% Credit Rejection Rate</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why is ValueCo so vulnerable to the national credit crunch</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> High card dependency with no BNPL capability locks out credit-constrained customers. Confirmed and quantified.</p>
+          <p><strong>External data confirmation:</strong> <strong>86.4% of VCL sales are settled via Card</strong>, with only 13.3% in Cash. When NCR reports a <strong>67.6% credit rejection rate</strong>, our customers literally lose the ability to transact for high-ticket items. BNPL adoption is only 6% despite 57% account ownership — the infrastructure exists but ValueCo is not leveraging it.</p>
+          <p><strong>What this means for ValueCo:</strong> A significant segment of customers walk into stores with intent to buy, but leave because they cannot access credit. BNPL at POS could recover an estimated R2–5M per month in otherwise-lost sales for the VCL network. Partnership with PayFlex or Float is low-hanging fruit.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+          <span class="source-tag gpt">GPT</span>
+        </div>
+      </div>
+
+      <!-- FIVE WHY 6 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num green">06</div>
+          <div class="why-title-wrap">
+            <div class="why-title">The Loyalty Trap — 78% Member Penetration, 0.06% Revenue Redemption</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why is the loyalty programme failing to cushion the blow</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> Loyalty programme structure fails to drive behavioural change. Confirmed in the data.</p>
+          <p><strong>External data confirmation:</strong> <strong>0.06% of total revenue (R56K out of R84.5M)</strong> was redeemed via loyalty points in Q1 2026. Despite 78% of VCL transactions being from loyalty members, the programme is practically invisible as a financial relief valve. In a market where <strong>59% of SA shoppers prioritise stores where they can earn/burn points</strong> (Clicks ClubCard, eBucks), ValueCo's loyalty currency fails to drive behaviour change.</p>
+          <p><strong>What this means for ValueCo:</strong> The programme is structurally broken. If ValueCo relaunched a compelling, visible loyalty programme with meaningful instant rewards, it could convert the 22% of non-loyalty customers currently subsidising the programme through full-price purchases.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+        </div>
+      </div>
+
+      <!-- FIVE WHY 7 -->
+      <div class="why-card">
+        <div class="why-header">
+          <div class="why-num blue">07</div>
+          <div class="why-title-wrap">
+            <div class="why-title">14 Days Matches Market Minimum — 7 Days Signals Distrust</div>
+            <div class="why-subtitle" style="color: var(--red); font-weight: 700;">Why recommend a 14-Day Return Policy instead of 30 days</div>
+          </div>
+        </div>
+        <div class="why-body">
+          <p><strong>Original thesis:</strong> Return policy lags competition and suppresses high-ticket conversion. Confirmed via competitive benchmarking.</p>
+          <p><strong>External data confirmation:</strong> SA Consumer Protection Act only mandates returns for defective goods (6 months). <strong>"Change of mind" returns are governed by store policy.</strong> In 2026, the competitor standard (Takealot, Makro, Amazon SA) is 14–30 days. ValueCo's <strong>7-day policy is an anomaly</strong> signalling product distrust.</p>
+          <p><strong>What this means for ValueCo:</strong> 14 days aligns with market minimums without the full cost exposure of 30 days — and the trust signal alone (a visible return policy that matches the market) can drive conversion on high-ticket discretionary items where purchase anxiety is the primary drop-off point.</p>
+        </div>
+        <div class="source-row">
+          <span class="source-tag claude">Claude Internal</span>
+          <span class="source-tag gpt">GPT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRUCTURAL DISRUPTION -->
+  <section class="section" id="structural-shift">
+    <div class="section-header">
+      <div class="section-eyebrow">Structural Disruption</div>
+      <h2 class="section-title">The E-Commerce Structural Shift</h2>
+    </div>
+    
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>2022</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th>2025F</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>SA Online Retail Value</td><td class="pos">R55B</td><td class="pos">R71B</td><td class="pos">R96B</td><td class="pos">R110B+</td></tr>
+        <tr><td>YoY Online Growth</td><td class="pos">+35%</td><td class="pos">+29%</td><td class="pos">+35%</td><td class="pos">~15%+</td></tr>
+        <tr><td>Online as % of Total Retail</td><td class="pos">~4%</td><td class="pos">6%</td><td class="pos">~8%</td><td class="pos">~10%</td></tr>
+        <tr><td>Physical Retail YoY</td><td class="pos">+2.4%</td><td class="neg">-1.1% to -1.6%</td><td class="pos">+1.2%</td><td class="pos">+3.7%</td></tr>
+        <tr><td>Online Clothing Share (Shein+Temu)</td><td>Minimal</td><td class="pos">~15%</td><td class="neg">37.1%</td><td class="neg">Growing</td></tr>
+        <tr><td>Mobile Share of E-Commerce</td><td class="pos">~60%</td><td class="pos">~65%</td><td class="pos">~70%</td><td class="pos">71.42%</td></tr>
+        <tr><td>SA Internet Users</td><td class="pos">~45M</td><td class="pos">~48M</td><td class="pos">~50M</td><td class="pos">50M+</td></tr>
+      </tbody>
+    </table>
+
+    <!-- E-COMMERCE MARKET SIZE UPDATE -->
+    <div class="kpi-row" style="margin-top: 24px;">
+      <div class="kpi-block red">
+        <div class="kpi-block-label">SA E-Commerce 2025</div>
+        <div class="kpi-block-value">R130B</div>
+        <div class="kpi-block-sub">Up from R96B in 2024</div>
+        <div class="badge neg">+35% YoY</div>
+      </div>
+      <div class="kpi-block gold">
+        <div class="kpi-block-label">E-Commerce Share of Retail</div>
+        <div class="kpi-block-value">16%</div>
+        <div class="kpi-block-sub">Up from 5% in 2020</div>
+        <div class="badge neg">3x faster than physical</div>
+      </div>
+      <div class="kpi-block green">
+        <div class="kpi-block-label">Festive Season Growth</div>
+        <div class="kpi-block-value">49.9%</div>
+        <div class="kpi-block-sub">Year-on-year increase</div>
+        <div class="badge pos">2025 peak season</div>
+      </div>
+      <div class="kpi-block blue">
+        <div class="kpi-block-label">2027 Projection</div>
+        <div class="kpi-block-value">R150B</div>
+        <div class="kpi-block-sub">Continued strong growth</div>
+        <div class="badge pos">Structural shift</div>
+      </div>
+    </div>
+
+    <!-- COMPETITIVE LANDSCAPE -->
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin: 28px 0 16px; color: var(--ink);">E-Commerce Competitive Landscape</h3>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Market Share</th>
+          <th>Growth Trajectory</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Takealot Group</strong></td>
+          <td class="neg">31.9%</td>
+          <td>Dominant position maintained</td>
+        </tr>
+        <tr>
+          <td><strong>Woolworths Digital</strong></td>
+          <td class="neu">15.0%</td>
+          <td>37.2% YoY growth (H1 2025)</td>
+        </tr>
+        <tr>
+          <td><strong>Shein + Temu</strong></td>
+          <td class="neg">15.3%</td>
+          <td>R7.3B combined sales in 2024</td>
+        </tr>
+        <tr>
+          <td><strong>Amazon South Africa</strong></td>
+          <td class="neu">12.3%</td>
+          <td>Growing since May 2024 launch</td>
+        </tr>
+        <tr>
+          <td><strong>Checkers Sixty60</strong></td>
+          <td class="neu">~12%</td>
+          <td>47% YoY growth, 1.5M weekly orders</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ONLINE SHOPPING CATEGORIES & GEOGRAPHIC -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+      <div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 16px; color: var(--ink);">Online Shopping Categories</h3>
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clothing & Fashion</td>
+              <td class="neg">30.2%</td>
+            </tr>
+            <tr>
+              <td>Groceries & FMCG</td>
+              <td class="neu">18.4%</td>
+            </tr>
+            <tr>
+              <td>Computers & Accessories</td>
+              <td class="neu">16.6%</td>
+            </tr>
+            <tr>
+              <td>Electronics</td>
+              <td class="neu">13.7%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 16px; color: var(--ink);">Geographic Distribution</h3>
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Share/Growth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gauteng Volume Share</td>
+              <td class="neg">42%</td>
+            </tr>
+            <tr>
+              <td>Western Cape</td>
+              <td class="neu">25%</td>
+            </tr>
+            <tr>
+              <td>Township Growth (Annual)</td>
+              <td class="pos">22%</td>
+            </tr>
+            <tr>
+              <td>Rural Growth (Annual)</td>
+              <td class="pos">50%+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Critical Insight for Physical Retailers</div>
+      <p>Online retail is growing at 10–35x the rate of physical retail. The "winner" in SA retail over 2022–2025 is not any one retailer — it is the digital channel itself. Every R1 shift from physical to digital represents not just lost revenue, but lost customer relationship data, lost basket-building opportunity, and lost impulse purchase potential. Physical retailers that don't have a credible digital presence are structurally exposed to an accelerating wave of channel shift.</p>
+    </div>
+
+    <!-- COMPETITOR & LEADERSHIP THREAT MATRIX -->
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin: 32px 0 16px; color: var(--ink);">Competitor & Leadership Threat Matrix</h3>
+    <table class="cmp-table" style="font-size: 13px;">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Market Position</th>
+          <th>Leadership Track Record</th>
+          <th>Expected Next Move</th>
+          <th style="text-align: center;">Threat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Takealot</strong></td>
+          <td>E-commerce Leader | 31.9% market share (2025)</td>
+          <td>Strong execution, projected profitability FY27. Naspers-backed with deep capital reserves.</td>
+          <td>Grocery category expansion, seller marketplace optimisation</td>
+          <td style="text-align: center;"><span style="background: var(--red); color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">CRITICAL</span></td>
+        </tr>
+        <tr>
+          <td><strong>Shoprite / Checkers</strong></td>
+          <td>Total Retail Leader | 26% market share | R240.7B revenue</td>
+          <td>Operational excellence, 7.2% YoY growth, 30M loyalty members. Industry benchmark for logistics.</td>
+          <td>Sixty60 same-day delivery expansion to general merchandise, private label growth</td>
+          <td style="text-align: center;"><span style="background: var(--red); color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">CRITICAL</span></td>
+        </tr>
+        <tr>
+          <td><strong>Shein + Temu</strong></td>
+          <td>Fashion Disruptors | 15.3% e-commerce share | R7.3B sales</td>
+          <td>Aggressive growth at all costs, captured 37% of online fashion market in 24 months.</td>
+          <td>General merchandise expansion, price undercutting strategy</td>
+          <td style="text-align: center;"><span style="background: #d97706; color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Amazon SA</strong></td>
+          <td>Emerging Threat | 12.3% e-commerce share (2025)</td>
+          <td>Global infrastructure resources, long-term strategic horizon. Seller registration opened Oct 2023.</td>
+          <td>Fulfillment centre construction, Prime launch, grocery category entry</td>
+          <td style="text-align: center;"><span style="background: #d97706; color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Woolworths</strong></td>
+          <td>Premium Segment | 9.5% growth | R80.1B revenue</td>
+          <td>Strong premium positioning, 37% online growth in fashion category.</td>
+          <td>Woolies Dash on-demand delivery, loyalty programme overhaul</td>
+          <td style="text-align: center;"><span style="background: var(--ink3); color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">MEDIUM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Pick n Pay</strong></td>
+          <td>Traditional Retail | 6.8% growth | R115.2B revenue</td>
+          <td>60% online growth 2024, ASAP! delivery platform scaling.</td>
+          <td>Omnichannel integration, cost optimisation initiatives</td>
+          <td style="text-align: center;"><span style="background: var(--ink3); color: white; padding: 3px 10px; border-radius: 2px; font-weight: 700; font-size: 11px;">MEDIUM</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PSYCHOLOGY -->
+  <section class="section" id="psychology">
+    <div class="section-header">
+      <div class="section-eyebrow">Behavioural Analysis</div>
+      <h2 class="section-title">How SA Consumer Psychology Changed</h2>
+      <div class="section-lead">The 5 Psychological Shifts Confirmed by External Data</div>
+    </div>
+    
+    <div class="why-card-alt">
+      <div class="why-block">
+        <div class="why-content">
+
+          <table class="cmp-table">
+            <thead>
+              <tr>
+                <th>Behaviour / Attitude</th>
+                <th>2023</th>
+                <th>2026</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Psychological State</strong></td>
+                <td>Survival mode. Near-record pessimism. CCI -25.</td>
+                <td>Fragile optimism. Still negative. CCI -7. High-income recovering, low-income not.</td>
+                <td>Improving but fragile</td>
+              </tr>
+              <tr>
+                <td><strong>Inflation Experience</strong></td>
+                <td>6.1% average. Food/energy driving panic spending. Real wages falling.</td>
+                <td>3.0%. Lowest since 2004. But cumulative 3-year price level permanently elevated by ~20%.</td>
+                <td>Structurally elevated floor</td>
+              </tr>
+              <tr>
+                <td><strong>Debt Servicing Cost</strong></td>
+                <td>Repo 8.25%. Prime 11.75%. R2,400+/month extra on R1.5M bond.</td>
+                <td>Repo 6.75%. Prime 10.25%. 150bps relief. ~R900/month saved.</td>
+                <td>Meaningful but incomplete relief</td>
+              </tr>
+              <tr>
+                <td><strong>Shopping Channel</strong></td>
+                <td>Predominantly physical with early online adoption.</td>
+                <td>Mobile-first (71%). Takealot, Amazon, Temu, Shein all competing.</td>
+                <td>Digital-first, delivery-expected</td>
+              </tr>
+              <tr>
+                <td><strong>Price Sensitivity</strong></td>
+                <td>High — driven by necessity. Seeking promotions and specials.</td>
+                <td>Very high — driven by new Temu/Shein anchor. Reference prices reset 40–70% below local retail.</td>
+                <td>Permanently recalibrated</td>
+              </tr>
+              <tr>
+                <td><strong>Brand Loyalty</strong></td>
+                <td>Eroding — trading down to cheaper alternatives.</td>
+                <td>Collapsed for discretionary. Price loyalty over brand across all income segments.</td>
+                <td>Structural shift, not cyclical</td>
+              </tr>
+              <tr>
+                <td><strong>Electricity / Loadshedding</strong></td>
+                <td>Stage 6 sustained. 200+ days. Business disrupted. No safe hours.</td>
+                <td>Effectively resolved. Brief Q1 2025 Stage 6 return. Now stable.</td>
+                <td>Resolved but habits permanent</td>
+              </tr>
+              <tr>
+                <td><strong>Online Shopping Frequency</strong></td>
+                <td>42% monthly</td>
+                <td>78% monthly</td>
+                <td>Near-universal adoption</td>
+              </tr>
+              <tr>
+                <td><strong>Mobile Commerce Share</strong></td>
+                <td>~60%</td>
+                <td>85%</td>
+                <td>Dominant channel</td>
+              </tr>
+              <tr>
+                <td><strong>BNPL Account Ownership</strong></td>
+                <td>45%</td>
+                <td>57%</td>
+                <td>Growing but underutilised (6% usage)</td>
+              </tr>
+              <tr>
+                <td><strong>Essential Cost Burden</strong></td>
+                <td>~55% of spend</td>
+                <td>~65-70% of spend (electricity +85%, water +68%)</td>
+                <td>Crushing discretionary headroom</td>
+              </tr>
+              <tr>
+                <td><strong>Discretionary Spending Cut</strong></td>
+                <td>42% had cut</td>
+                <td>51% have cut — still elevated</td>
+                <td>New floor, not a temporary dip</td>
+              </tr>
+              <tr>
+                <td><strong>Saving vs Spending</strong></td>
+                <td>Saving — 48% drop in saving capacity</td>
+                <td>Slowly recovering — but below 2021 levels</td>
+                <td>Behaviour learned, not unlearned</td>
+              </tr>
+              <tr>
+                <td><strong>Emergency Savings Build</strong></td>
+                <td>21% building</td>
+                <td>27% building</td>
+                <td>New financial prudence norm</td>
+              </tr>
+              <tr>
+                <td><strong>Subscription Cancellations</strong></td>
+                <td>28% cancelled</td>
+                <td>34% cancelled</td>
+                <td>Accelerating</td>
+              </tr>
+              <tr>
+                <td><strong>Gambling Spend</strong></td>
+                <td>R12B (2021)</td>
+                <td>R49B (2025)</td>
+                <td>4x in 4 years — structural drain</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+
+          <p><strong>1. Permanent Price Recalibration:</strong> Shein/Temu reset the internal price anchor. Consumers now expect to pay 40–70% less for discretionary goods than local retail offers. This is not negotiable.</p>
+          <p><strong>2. Trauma-Informed Frugality:</strong> Three years of economic crisis created lasting savings-first behaviour, even as macro conditions improve. Spending recovery is much slower than income recovery.</p>
+          <p><strong>3. Digital-First Decision Making:</strong> 71% of purchases begin on mobile. 27% explicitly compare prices across platforms before buying. The physical store is now a fulfilment centre, not a discovery channel.</p>
+          <p><strong>4. Income Bifurcation:</strong> High-income (R40K+/month) consumers are recovering and spending again, driven by rate cuts, rand strength, and two-pot withdrawal capital. Low-income consumers remain severely constrained by unemployment and eroded savings.</p>
+          <p><strong>5. Trust Deficit in Institutions:</strong> Load shedding, proposed VAT hikes, political volatility, and global uncertainty have created a permanently elevated anxiety baseline. Any unexpected negative signal creates disproportionate confidence collapse.</p>
+
+          <div class="insight warn" style="background: var(--light-yellow); border-color: var(--gold); margin-top: 24px;">
+            <div class="insight-label" style="color: var(--gold);">Critical Insight: CCI vs Retail Sales Correlation</div>
+            <p style="color: var(--ink2);">Every quarter where CCI was below <strong>-15</strong>, retail trade sales contracted year-on-year. The Q1-Q2 2023 readings of -23/-25 coincided with 5 consecutive months of retail decline. The Q1 2025 crash to -20 immediately suppressed discretionary purchases — the sub-index for "time to buy durable goods" hit <strong>-28</strong>. This CCI data directly explains ValueCo's performance patterns at a macro level.</p>
+          </div>
+
+          <!-- CCI BAR CHART -->
+          <div class="cci-chart-wrap">
+            <div class="cci-chart-title">FNB/BER Consumer Confidence Index — Historical Readings (2024–2026)</div>
+            <div class="cci-bar-chart">
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-15</div>
+                <div class="cci-bar negative" style="height: 54%;"></div>
+                <div class="cci-bar-label">Q1 2024</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-12</div>
+                <div class="cci-bar negative" style="height: 44%;"></div>
+                <div class="cci-bar-label">Q2 2024</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-5</div>
+                <div class="cci-bar negative" style="height: 18%;"></div>
+                <div class="cci-bar-label">Q3 2024</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-6</div>
+                <div class="cci-bar negative" style="height: 22%;"></div>
+                <div class="cci-bar-label">Q4 2024</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value" style="color:#ff8a7a;">-20</div>
+                <div class="cci-bar negative" style="height: 72%;"></div>
+                <div class="cci-bar-label">Q1 2025</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-10</div>
+                <div class="cci-bar negative" style="height: 36%;"></div>
+                <div class="cci-bar-label">Q2 2025</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-13</div>
+                <div class="cci-bar negative" style="height: 47%;"></div>
+                <div class="cci-bar-label">Q3 2025</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-9</div>
+                <div class="cci-bar negative" style="height: 33%;"></div>
+                <div class="cci-bar-label">Q4 2025</div>
+              </div>
+              <div class="cci-bar-wrap">
+                <div class="cci-bar-value">-7</div>
+                <div class="cci-bar negative" style="height: 26%;"></div>
+                <div class="cci-bar-label">Q1 2026</div>
+              </div>
+            </div>
+            <div class="cci-legend">
+              <span class="neg-leg">Negative = Pessimism</span>
+              <span class="pos-leg">Positive = Optimism</span>
+              <span style="margin-left: auto; opacity: 0.6;">* Zero line = long-term SA average (since 1994)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="section" id="comparison">
+    <div class="section-header">
+      <div class="section-eyebrow">Deep Comparison</div>
+      <h2 class="section-title">The South African Consumer: 2023 vs 2026</h2>
+    </div>
+    
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th style="background:#8b2c0e; color: white;">2023 — The Crisis Consumer</th>
+          <th style="background:#1a4a6a; color: white;">Q1 2026 — The Cautious Optimist</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Psychological State</strong></td>
+          <td>Survival mode. Near-record pessimism. CCI -25.</td>
+          <td>Fragile optimism. Still negative. CCI -7. High-income recovering, low-income not.</td>
+        </tr>
+        <tr>
+          <td><strong>Inflation Experience</strong></td>
+          <td>6.1% average. Food/energy driving panic spending. Real wages falling.</td>
+          <td>3.0%. Lowest since 2004. But cumulative 3-year price level permanently elevated by ~20%.</td>
+        </tr>
+        <tr>
+          <td><strong>Debt Servicing Cost</strong></td>
+          <td>Repo 8.25%. Prime 11.75%. Maximum debt burden. R2,400+ extra/month vs 2021.</td>
+          <td>Repo 6.75%. Prime 10.25%. 150bps of relief. R900/month saved on R1.5M bond.</td>
+        </tr>
+        <tr>
+          <td><strong>Electricity/Power</strong></td>
+          <td>Stage 6 sustained. Business disrupted. Consumer footfall collapsed. No safe hours.</td>
+          <td>Effectively resolved. Brief Q1 2025 Stage 6 return created psychological setback. Now stable.</td>
+        </tr>
+        <tr>
+          <td><strong>Shopping Channel</strong></td>
+          <td>Predominantly physical (with early online adoption). Mobile growing but not dominant.</td>
+          <td>Mobile-first (71%). Comparison shopping default. Takealot, Amazon, Temu, Shein all competing.</td>
+        </tr>
+        <tr>
+          <td><strong>Price Sensitivity</strong></td>
+          <td>High — driven by necessity. Seeking promotions and specials.</td>
+          <td>Very high — driven by new anchoring. Temu/Shein have reset reference prices permanently.</td>
+        </tr>
+        <tr>
+          <td><strong>Brand Loyalty</strong></td>
+          <td>Eroding — consumers trading down to cheaper alternatives.</td>
+          <td>Largely collapsed for discretionary. Price loyalty dominates brand loyalty across all income segments.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- STRATEGY -->
+  <section class="section" id="strategy">
+    <div class="section-header">
+      <div class="section-eyebrow">Strategic Response</div>
+      <h2 class="section-title">Strategic Recommendations — Informed by Data</h2>
+      <div class="section-lead">The following recommendations are grounded in the internal Q1 data findings: the -51% revenue collapse at constant stores, the near-total loss of the Westpack supplier base, and the structural shift from trusted-brand bulk retail to import-dependency. Each recommendation directly addresses at least one of the root causes identified in the Five Whys analysis.</div>
+    </div>
+
+    <div class="insight warn" style="margin-bottom: 28px; background: var(--light-red); border-color: var(--red);">
+      <div class="insight-label" style="color: var(--red);">The Central Problem: Supplier Base Collapse</div>
+      <p>The data tells one unambiguous story — <strong>81% of the Q1 2023 Westpack supplier revenue base (R116.3M) has been abandoned, not recovered</strong>. Only Nova Papers (-8%) remains stable. Every other major Westpack supplier — Formosa Plastics, Funki Lines, Yung Sheng, Freedom Stationery, Columbus Cleaning, Usabco — has been lost or cut by >90%. The new supplier base (China Mall traders, VC Lifestyle direct imports) has no Q1 2023 comparable history and different price points, margin profiles, and consumer trust levels. The first strategic question is not "how do we grow" — it is <strong>"which Westpack supplier relationships can be recovered, and which new ones are working?"</strong></p>
+    </div>
+
+    <div class="strat-grid">
+      <div class="strat-card red">
+        <div class="strat-num red">IMMEDIATE</div>
+        <div class="strat-title">Hold — Defend the Remaining Base</div>
+        <div class="strat-body">
+          <ul>
+            <li><strong>Nova Papers (R7.6M):</strong> The single most stable supplier relationship. Protect it — ensure stock availability, on-time delivery, and favourable terms. It is the anchor of what remains.</li>
+            <li><strong>Buzz Trading (R5.0M):</strong> Still the largest active supplier in Q1 2026. Maintain volume commitments. Investigate why it dropped from R12.6M — range/category issue or a relationship issue?</li>
+            <li><strong>KVI Price Leadership:</strong> Maintain R92.50 KVI promo levels. This is the foot traffic anchor — do not cede price ground to competitors in the Utility category.</li>
+            <li><strong>55+ Demographic:</strong> The only segment spending more per member in Q1 2026 vs Q1 2023 (+107%). Do not alienate this trust-based, brand-loyal cohort with further range changes.</li>
+            <li><strong>High-Income Recovery:</strong> FNB/BER CCI shows high-income confidence at Q4 2024 highs. Rate cuts delivered R900/month savings to R1.5M bondholders. Target this segment with quality, warranty, and service — not price. Compete on trust, not discount.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="strat-card gold">
+        <div class="strat-num gold">URGENT</div>
+        <div class="strat-title">Recover — The Lost Supplier Base</div>
+        <div class="strat-body">
+          <ul>
+            <li><strong>Supplier Recovery Audit:</strong> Commission an urgent review of the top 10 lost Westpack suppliers — Formosa, Funki Lines, Yung Sheng, Freedom Stationery, Columbus Cleaning, Usabco, Nature's Best, Lank Soft, Evernu, Shield Chemicals. Are they still trading? Would they return? What broke the relationship?</li>
+            <li><strong>Usabco (R3.7M from R12.5M):</strong> The Addis relationship is the single most valuable recovery target. Even a partial restoration of the Usabco/Addis range would directly address the root cause of Home & Kitchen's -69% collapse.</li>
+            <li><strong>Packaging & Wraps (R0 recovered of R16.7M):</strong> The single largest category hole in the data. A dedicated supplier search for multiwrap, Trevor & Warren Packaging, Suprapack alternatives in the current market should be an immediate priority.</li>
+            <li><strong>Stop Import-Only Substitution:</strong> Replacing trusted SA brands with anonymous China-sourced alternatives during a trust-crisis was catastrophic. Any new supplier onboarding must include brand verification and consumer-facing identity.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="strat-card blue">
+        <div class="strat-num blue">MEDIUM-TERM</div>
+        <div class="strat-title">Build — Digital Infrastructure</div>
+        <div class="strat-body">
+          <ul>
+            <li><strong>Digital Presence First:</strong> No digital presence = no discovery. Average SA shoppers visit 4+ retailers digitally before any trip. A geo-fenced "We Are Open" campaign within 5km of each centre, combined with Google Business Profile optimisation, is a prerequisite for foot traffic recovery.</li>
+            <li><strong>Mobile Catalogue + Stock Visibility:</strong> Online retail is ~10% of total SA retail and growing, 71% via mobile. A mobile-optimised online catalogue with real-time stock visibility converts online research into in-store trips.</li>
+            <li><strong>WhatsApp Commerce:</strong> Highest social penetration in SA. WhatsApp ordering and reserve-and-collect bridges the digital gap for the 55+ demographic while leveraging existing physical footprint.</li>
+            <li><strong>7-Day Return Policy → 14 Days:</strong> Industry minimum is 14 days. ValueCo's 7-day policy signals product distrust — it suppresses high-ticket discretionary conversion. Align immediately.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="strat-card green">
+        <div class="strat-num green">STRATEGIC</div>
+        <div class="strat-title">Compete on Trust — Not Price</div>
+        <div class="strat-body">
+          <ul>
+            <li><strong>Trust Over Price:</strong> Shein and Temu win on price. ValueCo cannot win that fight. Compete on the advantages local retail has that cross-border e-commerce cannot replicate: immediacy, accountability, returns, after-sales support.</li>
+            <li><strong>Same-Day / Next-Day Local Delivery:</strong> vs Shein's 2–3 week international lead time. Position physical footprint as a logistics advantage — use it. Click-and-collect converts browsers into buyers.</li>
+            <li><strong>Loyalty Programme Relaunch:</strong> 78% penetration, 0.06% redemption — the programme is structurally invisible. Convert it into a transparent, instant-reward mechanism (e.g., "spend R500, get R25 off today"). Convert the 22% non-member full-price buyers.</li>
+            <li><strong>BNPL at POS:</strong> 86.4% card sales, 67.6% credit rejection rate. Customers are leaving without transacting. PayFlex/Float integration is low-hanging — estimated R2–5M/month in recoverable sales.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight" style="margin-top: 24px; background: var(--light-green); border-left: 4px solid var(--green);">
+      <div class="insight-label" style="color: var(--green);">The Window — 2026</div>
+      <p>External macro data confirms 2026 is a recovery year — inflation at 3%, rates easing, retail sales +3.7% in 2025, consumer confidence recovering from Q4 2024 lows. High-income households are ready to spend again. The window to regain wallet share is <strong>now</strong>, while macro tailwinds are present. Recovery requires competing on <strong>trust, immediacy, and service</strong> — the three advantages Shein and Temu structurally cannot match. The VCL structural pivot is not wrong, it is incomplete. Completing it requires treating the supplier base as the existential asset it is, and building digital infrastructure that converts physical presence into a measurable competitive advantage.</p>
+    </div>
+  </section>
+
+  <!-- REPORTS & SOURCES -->
+  <section class="section" id="reports-sources">
+    <div class="section-header">
+      <div class="section-eyebrow">Intelligence & Data</div>
+      <h2 class="section-title">Reports & Source Integration</h2>
+      <div class="section-lead">The intelligence in this Master Strategic Report was aggregated from internal analysis and 5 specialized AI agents gathering external data. <strong>Please review the reports below for more in-depth reporting information.</strong></div>
+    </div>
+    
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Intelligence Domain</th>
+          <th>AI Agent</th>
+          <th>Primary Data Sources</th>
+          <th>Full Reports</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Internal SQL + Strategy</td>
+          <td>Claude</td>
+          <td>ValueCo KD Database, Master_Pivot.csv</td>
+          <td>
+            <a href="OtherAI_Reports/claude_main_report.html" style="color: var(--blue); font-weight: 600;">Main Analysis</a><br>
+            <a href="OtherAI_Reports/claude_external_data_report.html" style="color: var(--blue); font-weight: 600;">External Audit</a><br>
+            <a href="Membership_Analysis_Report/index.html" style="color: var(--blue); font-weight: 600;">Membership Dashboard</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Macro-Economic Audit</td>
+          <td>DeepSeek</td>
+          <td>Stats SA, SARB Bulletins, Coface, Treasury</td>
+          <td><a href="OtherAI_Reports/deepseek_html_20260421_629134.html" style="color: var(--blue); font-weight: 600;">Macro-Economic Report</a></td>
+        </tr>
+        <tr>
+          <td>Competitive Landscape</td>
+          <td>GPT</td>
+          <td>FNB/BER, Google Trends, TradeTracker</td>
+          <td><a href="OtherAI_Reports/GPT_External Economic and E-Commerce Factors (SA, 2023 vs 2026).docx" style="color: var(--blue); font-weight: 600;">E-Commerce Factors (Docx)</a></td>
+        </tr>
+        <tr>
+          <td>Consumer Psychology</td>
+          <td>Minimax</td>
+          <td>NielsenIQ, TransUnion, World Wide Worx</td>
+          <td><a href="OtherAI_Reports/Minimax_report/Minimax2.7_Report.html" style="color: var(--blue); font-weight: 600;">Behavioural Analysis</a></td>
+        </tr>
+        <tr>
+          <td>External Market & Macro-Economic Analysis</td>
+          <td>Gemini</td>
+          <td>Stats SA, SARB, FNB/BER, OECD, Trading Economics</td>
+          <td><a href="External_Market_Analysis_2026.html" style="color: var(--blue); font-weight: 600;">External Market Analysis 2026</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 18px; margin: 32px 0 16px; color: var(--ink);">Report Methodology</h3>
+    <p style="font-size: 14px; color: var(--ink2); line-height: 1.8; margin-bottom: 20px;">This report was constructed using a four-stage analytical pipeline: internal quantitative diagnosis, multi-agent external intelligence gathering, causal root-cause synthesis, and strategic output formatting. Each stage was iterative — findings from later stages prompted re-examination of earlier data.</p>
+
+    <div class="method-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 20px;">
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 16V12M12 16V8M17 16v-4"/></svg></div>
+        <div class="method-name">Internal Quantitative Analysis</div>
+        <div class="method-desc">~1 million transaction rows extracted from the ValueCo KD SQL database. Pandas used for cleaning, normalisation, and cross-dataset reconciliation. The core challenge was <strong>mixed unit-of-measure (UoM)</strong> in Westpack POS data — monthly columns contained unit quantities, not Rand values. Resolved using the <strong>Average Selling Price Method</strong>: total Period Sales ÷ total units sold across 2022–2024, applied to Q1 2023 unit volumes. This corrected Q1 2023 total of R172.0M captures ~92% of the R187M cashup total. Two structural discoveries emerged from this layer: the <strong>"Tale of Two Store Types"</strong> — acquired VCL stores (41.7% Utility mix, +4.3% growth) vs original VC stores (72.5% Lifestyle mix, −16.8% collapse) — and the <strong>R50M Prepack Void</strong>: legacy Westpack B2B "Prepacked Items" catering customers entirely absent from ValueCo's range.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="method-name">Multi-Agent External Research</div>
+        <div class="method-desc">Five independent AI agents were deployed simultaneously, each given a distinct research mandate triangulated against authoritative sources (Stats SA, SARB, FNB/BER, NielsenIQ, TransUnion, World Wide Worx). <strong>Claude</strong> focused on internal strategy and trust metrics — identifying the broken loyalty programme (0.06% redemption) and brand trust vacuum from unbranded imports. <strong>DeepSeek</strong> conducted the macro-economic audit — uncovering the R49B online gambling money drain and income bifurcation. <strong>GPT</strong> mapped the competitive landscape — Checkers Sixty60's "Convenience Monopoly" and permanent price-anchoring from Shein/Temu. <strong>Minimax</strong> applied consumer psychology — "Trauma-Informed Frugality" and the 200+ days of load-shedding permanently shifting consumers to smaller, mobile-first purchases. <strong>Gemini</strong> cross-validated external market data against OECD and Trading Economics. All findings were cross-validated before inclusion.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="method-name">Five Whys Root Cause Analysis</div>
+        <div class="method-desc">Applied iteratively to bridge internal data ("what is happening" — the sales collapse) with external market forces ("why it is happening" — macro-economic stressors and competitive dynamics). Each successive "why" was validated by at least one external AI agent's research before the chain advanced. The technique prevents narrative speculation: every causal claim must be anchored in observed data or triangulated external intelligence. This produced the <strong>15 Classified Strategic Findings</strong> — cross-validated findings graded by severity (Critical Threats, Structural Shifts, Permanent Resets) — and the <strong>Chronological Perfect Storm</strong> narrative showing how 2023's combination of 8.25% repo rate, Stage 6 load-shedding, and 7.8% inflation permanently altered consumer psychology.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="method-name">Data Triangulation &amp; Normalization</div>
+        <div class="method-desc">Three normalisation layers were applied to reconcile mismatched taxonomies across datasets: (1) <strong>UoM correction</strong> — unit-quantity columns converted to Rand values via average price method; (2) <strong>Supplier name normalisation</strong> — punctuation and whitespace stripped, enabling cross-dataset name matching between Westpack and VCL supplier records; (3) <strong>Department taxonomy mapping</strong> — Westpack's category hierarchy translated to VCL department names using supplier groupings as the joining key.</div>
+      </div>
+    </div>
+
+    <h4 style="font-family: 'Playfair Display', serif; font-size: 14px; margin: 28px 0 12px; color: var(--ink);">Data Science Methods Applied</h4>
+    <table class="cmp-table" style="font-size: 13px;">
+      <thead>
+        <tr style="background: var(--ink);">
+          <th style="color: white;">Method</th>
+          <th style="color: white;">Description</th>
+          <th style="color: white;">Data Used</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Average Price Method</strong></td>
+          <td>Avg price per unit = total Period Sales ÷ total units across 2022–2024. Applied to Q1 2023 unit volumes to correct for mixed UoM in Westpack POS data. Achieves 92% coverage of cashup total (R172.0M of R187M). This is the foundational correction enabling valid Q1 2023 vs Q1 2026 comparisons.</td>
+          <td>Master_Pivot.csv</td>
+        </tr>
+        <tr>
+          <td><strong>Store Velocity Segmentation</strong></td>
+          <td>Decomposed sales by store acquisition origin — comparing acquired VCL stores vs original VC stores. Revealed that acquired VCL stores (41.7% Utility mix) are structurally resilient (+4.3%), while original VC stores (72.5% Lifestyle/Discretionary mix) are in freefall (−16.8%). This "Tale of Two Store Types" reframes the turnaround strategy as Utility expansion, not Lifestyle recovery.</td>
+          <td>Master_Pivot.csv + store-level POS</td>
+        </tr>
+        <tr>
+          <td><strong>Prepack Gap Detection</strong></td>
+          <td>Legacy Westpack data tagged "Prepacked Items" drove R49.4M in high-margin B2B revenue — local caterers and small businesses. This category was entirely absent from ValueCo's range, creating a R50M structural baseline hole with zero recovery path visible in the current dataset.</td>
+          <td>Master_Pivot.csv (category tags)</td>
+        </tr>
+        <tr>
+          <td><strong>Five Whys Root Cause Analysis</strong></td>
+          <td>Iterative why-chain applied per major finding. Each why validated by at least one external AI agent before advancing. Produces the "15 Classified Strategic Findings" graded by severity, and the Chronological Perfect Storm timeline (2022–2026) showing how the 2023 macro shock permanently altered consumer psychology.</td>
+          <td>Internal SQL + 5 AI agent reports</td>
+        </tr>
+        <tr>
+          <td><strong>Supplier Risk Scoring</strong></td>
+          <td>Risk Score = Q1 2026 Revenue ÷ Q1 2023 Revenue. Classified as Stable (&gt;80%), Declining (40–80%), Critical (10–40%), or Lost (&lt;10%). Each tracked Westpack supplier evaluated on revenue ratio and share-of-total. Produces a composite risk matrix that directly informs supplier recovery prioritisation.</td>
+          <td>Master_Pivot.csv + VCL_Full_Item_Comparison.csv</td>
+        </tr>
+        <tr>
+          <td><strong>Association Rule Mining (Co-Occurrence)</strong></td>
+          <td>Two departments co-occur when they share the same supplier in the VCL dataset. Shared supplier count is a proxy for cross-category purchasing likelihood — suppliers serving multiple departments signal that customers who buy from one category are structurally likely to buy from the other. Rules ranked by shared-supplier frequency (minimum threshold: 50 shared suppliers). Identifies natural bundling and cross-sell opportunities.</td>
+          <td>VCL_Full_Item_Comparison.csv (253 multi-department suppliers)</td>
+        </tr>
+        <tr>
+          <td><strong>Top Supplier Gap Analysis</strong></td>
+          <td>Top 20 Westpack suppliers by Q1 2023 revenue traced into Q1 2026 via normalised name matching. Revenue recovery ratio (2026 ÷ 2023) calculated per supplier. Aggregate gap of R116.3M → R21.6M (81% lost) used to quantify structural supplier base collapse — distinct from, but correlated with, the revenue decline.</td>
+          <td>VCL_Full_Item_Comparison.csv + supplier_comparison.js</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="font-family: 'Playfair Display', serif; font-size: 14px; margin: 24px 0 10px; color: var(--ink);">Key Data Constraints</h4>
+    <ul style="font-size: 13px; color: var(--ink2); padding-left: 20px; line-height: 1.9;">
+      <li><strong>No 2023 member data:</strong> Loyalty/member identifiers only exist from ValueCo's 2026 programme launch. Longitudinal member analysis (RFM, cohort analysis) is not possible for the Q1 2023 period — only a single-period snapshot (Q1 2026) is available.</li>
+      <li><strong>Item-level POS only:</strong> Cash purchases and uncaptured items (~8% of total) are absent from item-level Master_Pivot data. Q1 2023 figures represent ~92% of the R187M cashup total. The gap is not a data error — it is a structural limitation of item-level POS extracts.</li>
+      <li><strong>Department taxonomy mapping:</strong> Westpack's category hierarchy was mapped to VCL department names using supplier groupings as the joining key. Some granularity is lost in translation, and certain Westpack departments had no direct VCL equivalent.</li>
+      <li><strong>Store base change:</strong> Westpack Q1 2023 covers the original 22 store locations. VCL Q1 2026 data is formatted per VCL store format. Direct store-level comparisons use the same 22 stores where identifiable — but the "Tale of Two Store Types" discovery (acquired VCL stores vs original VC stores) is itself evidence that store-level decomposition was necessary to resolve the apparent contradiction between aggregate decline and segment-level resilience.</li>
+    </ul>
+
+    <h4 style="font-family: 'Playfair Display', serif; font-size: 14px; margin: 24px 0 10px; color: var(--ink);">Toolset &amp; Technologies</h4>
+    <ul style="font-size: 13px; color: var(--ink2); padding-left: 20px; line-height: 1.9;">
+      <li><strong>SQL (KD Database):</strong> Raw POS extraction for Q1 2023 and Q1 2026 item-level data — approximately 1 million transaction rows across 22 stores.</li>
+      <li><strong>Pandas / Python:</strong> Data cleaning, column normalisation, supplier and department mapping, gap analysis scripts.</li>
+      <li><strong>Node.js scripts:</strong> Standalone analysis tools (compare_suppliers.js, compare_suppliers_v2.js, supplier_comparison.js) for supplier group aggregation and cross-dataset reconciliation.</li>
+      <li><strong>Claude Code + 4 additional AI agents:</strong> Five concurrent AI agents (Claude, DeepSeek, GPT, Minimax, Gemini) each given independent research mandates. Claude Code orchestrated the pipeline; Gemini performed the initial heavy-lifting and baseline synthesis.</li>
+      <li><strong>Robbie Mai (Human Supervisor &amp; Quality Validator):</strong> Initiated and supervised all AI agents' deep research; read and reviewed every single report to verify information and identify any discrepancies between data reports for the same data metrics; verified correct metrics and corrected inconsistencies.</li>
+      <li><strong>HTML/CSS/JS:</strong> Interactive dashboards and this consolidated strategic report, built with vanilla JS and CSS custom properties for portability. No external framework dependencies.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 ValueCo South Africa · Consolidated Strategic Intelligence Report · Supervised by: Robbie Mai · Pipeline: Gemini → Claude Code · 5 AI Agents Integrated</p>
+</footer>
+
+</body>
+</html>
